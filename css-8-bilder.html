@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+	<meta charset="utf-8" />
+	<title>16. Bilder</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	
+	<style>
+		
+		#bildexempel1{
+			width:250px;
+			height:250px;
+			border : solid 1px;
+		}
+		#bildexempel2{
+			width:250px;
+			border : solid 1px;
+		}
+		#bildexempel3{
+			width:100%;
+			border : solid 1px;
+		}
+		#bakgrund1{
+			background-image: url(https://yourbasic.org/algorithms/tree.png);
+		}
+		#bakgrund1 code{
+			background-color: rgba(255,255,255, 0.75);
+		}
+		#bakgrund1 p{
+			background-color: rgba(255,255,255, 0.75);
+		}
+		#bakgrund2{
+			background-image: url(https://yourbasic.org/algorithms/tree.png);
+			background-repeat: repeat-x;
+		}
+		#bakgrund2 code{
+			background-color: rgba(255,255,255, 0.75);
+		}
+		#bakgrund2 p{
+			background-color: rgba(255,255,255, 0.75);
+		}
+		#bakgrund3{
+			background-image: url(https://yourbasic.org/algorithms/tree.png);
+			background-repeat: no-repeat;
+		}
+		#bakgrund4{
+			background-image: linear-gradient(to bottom, gold, silver);
+		}
+		#bakgrund5{
+			background-image: linear-gradient(to bottom right, red, orange, yellow, lightgreen, lightblue, blue, purple);
+		}
+		.small{
+			width: 100px;
+			height: 100px;
+			border: solid 1px;
+		}
+		.medium{
+			width: 250px;
+			height:250px;
+			border: solid 1px;
+		}	
+		.large{
+			width: 500px;
+			height: 500px;
+			border: solid 1px;
+		}
+		.align-left{
+			float: left;
+			margin-right: 5px; /* Tillagt för att ge lite luft. Det ser snyggare ut */
+		}
+		.align-right{
+			float: right;
+			margin-left: 5px; /* Tillagt för att ge lite luft. Det ser snyggare ut */
+		}
+		.align-center1{
+			display: block;
+			margin: 0px auto; /* Tillagt för att ge lite luft. Det ser snyggare ut */
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formulär.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-färger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+		
+			<h2>Sammanfattning</h2>
+			
+			<nav class="content">
+				<a href="#start">Start</a>
+				<a href="#storlek">Storlek</a>
+				<a href="#placering">Placering</a>
+				<a href="#bakgrund">Bakgrundsbild</a>
+				<a href="#övningar">Övningar</a>
+			</nav>
+		
+			<p>Här är några CSS-kommandon som presenteras i det här avsnittet</p>
+		
+			<dl>
+				<dt><code>width</code></dt>
+				<dd>Styr bredden på bilden</dd>
+				<dt><code>height</code></dt>
+				<dd>Styr höjden på bilden</dd>
+				<dt><code>float</code></dt>
+				<dd><code>:left;</code> eller <code>:right;</code>, flyttar bilden till vänster 
+				respektive höger och får texten att gå runtomkring</dd>
+				<dt><code>margin</code></dt>
+				<dd>Marginal mellan objekt</dd>
+				<dt><code>display</code></dt>
+				<dd><code>block;</code> eller <code>inline;</code>, kan få ett objekt att 
+					växla mellan inline- eller block-nivå.
+				<dt><code>text-align</code></dt>
+				<dd><code>left;</code>, <code>right;</code>, <code>center;</code> 
+					eller <code>justify;</code></dd>
+				<dt><code>background-image</code></dt>
+				<dd>Sätter en bakgrundsbild. CSS använder <code>url()</code> istället för 
+					<code>src</code>.</dd>
+				<dt><code>background-repeat</code></dt>
+				<dd><code>repeat;</code>, <code>reapeat-x;</code>, <code>repeat-y</code>
+					eller <code>no-repeat;</code> Styr hur bakgrundsbilden ska upprepas.</dd>
+				<dt><code>background-position</code></dt>
+				<dd><code>left</code>, <code>center</code> eller <code>right</code> och 
+					<code>top</code>, <code>center</code> eller <code>bottom</code>. Styr 
+					bakgrundsbildens position.</dd>
+				<dt><code>background-attachment</code></dt>
+				<dd><code>fixed;</code> eller <code>scroll;</code> styr hur bakgrunden 
+					beter sig.</dd>
+				<dt><code>linear-gradient();</code></dt>
+				<dd>Kan ersätta <code>url();</code> i <code>background-image:</code>. 
+					Först väljer man riktning, sen vilka färger den ska gå mellan.
+				</dd>
+			</dl>
+		
+	</aside>
+	
+	<main>
+	
+		<article id="start">
+		
+			<section>
+		
+				<h2>Bilder och CSS</h2>
+				
+				<p>När vi jobbar med bilder på våra sidor så finns det 
+				ett par saker som kan vara bra att styra upp med CSS-kod.
+				</p>
+				
+				<ol>
+					<li>Storlek</li>
+					<li>Placering</li>
+					<li>Bakgrundsbilder</li>
+				</ol>
+				
+			</section>
+				
+			<section id="storlek">
+				
+				<h3>Storlek</h3>
+				
+				<p>
+					Det är god standard att försöka ha bildernas originalstorlekar 
+					att matcha med storleken man vill använda på sin webbplats. 
+					Detta av två anledningar:
+				</p>
+				
+				<ol>
+					<li>
+						Är bilden större så tar den onödigt mycket plats på 
+						servern och sidan tar längre tid att ladda.
+					</li>
+					<li>
+						Är bilden mindre så blir den suddig på sidan.
+					</li>
+				</ol>
+				
+				<p>
+					Men nu är inte verkligheten så att man alltid har en bild i rätt 
+					storlek. Då har vi än så länge kollat på hur vi ändrar bildstorleken 
+					med HTML, men det är oftast bättre att ändra på storleken med CSS.
+				</p>
+				
+				<pre><code title="CSS-kod som ska ligga i style">img{
+	width: 250px;
+	height: 250px;
+	border: solid 1px;
+}</code></pre>
+				
+				<figure>
+					<img src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+					alt="Lunds logga" id="bildexempel1"/>
+					<figcaption>
+					Lunds logga
+					</figcaption>
+				</figure>
+				
+				<p>
+					Att säga att alla bilder ska ha exakt samma storlek är däremot 
+					lite knasigt. Ofta vill man ha flera olika standard-storlekar. Det 
+					löser man smidigast genom att skapa en klass för varje bildstorlek:
+				</p>
+				
+				<pre><code title="CSS-kod som ska ligga i style">.small{
+	width: 100px;
+	height: 100px;
+	border: solid 1px;
+}
+.medium{
+	width: 250px;
+	height:250px;
+	border: solid 1px;
+}	
+.large{
+	width: 500px;
+	height: 500px;
+	border: solid 1px;
+}</code></pre>
+				
+				<pre><code title="HTML-kod som ska ligga under body">&lt;img class="large" src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" alt="Lunds logga stor"&gt;
+&lt;img class="medium" src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" alt="Lunds logga mellan"&gt;
+&lt;img class="small" src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" alt="Lunds logga liten"&gt;	</code></pre>
+				
+				<figure>
+					<img class="large" 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+					alt="Lunds logga stor">
+
+					<img class="medium" 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+					alt="Lunds logga mellan">
+
+					<img class="small" 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+					alt="Lunds logga liten">	
+
+					<figcaption>
+					Exempel med klasserna large, medium och small.
+					</figcaption>
+				</figure>
+				
+				<p>
+					Som vi kan se i exemplena med Lunds kommuns logga så ser den konstig 
+					ut eftersom vi inte har bibehålligt proporionerna i bilden. Om man 
+					vill att bilden ska behålla sina proprtioner så anger man antingen 
+					ett värde till <code>width</code> eller ett värde till <code>height</code>.
+				</p>
+				
+				<figure>
+					<img id="bildexempel2" 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+					alt="Lunds logga med rätt proportioner">
+
+					<figcaption>
+						Lunds logga med rätt proportioner.
+					</figcaption>
+				</figure>
+				
+				<p>
+
+				</p>
+				
+				<pre><code title="CSS-kod som ska ligga i style">img{
+	width: 100%;
+}</code></pre>
+				
+				<figure>
+					<img id="bildexempel3" 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+					alt="Lunds logga &mdash; sträckt över hela skärmen">
+
+					<figcaption>
+						Lunds logga
+					</figcaption>
+				</figure>
+				
+				
+			</section>
+			
+			<section id="placering">
+				
+				<h3>Placering</h3>
+				
+				<p>
+				Om man vill justera sin bild och låta text flöda runt den kan 
+				det vara en idé att floata den. Och om man har en sida med mycket 
+				text där bilder ska förhöja upplevelsen kan det vara en god idé 
+				att skapa en CSS-klass för att aligna den:
+				</p>
+				
+				<pre><code title="CSS-kod som ska ligga i style">.align-left{
+	float: left;
+	margin-right: 5px; /* Tillagt för att ge lite luft. Det ser snyggare ut */
+}
+.align-right{
+	float: right;
+	margin-left: 5px; /* Tillagt för att ge lite luft. Det ser snyggare ut */
+}</code></pre>
+				
+				<pre><code title="HTML-kod som ska ligga i body">&lt;p&gt;
+	&lt;img class="align-left medium" src="..." alt="Lunds logga &mdash; floatad till vänster" /&gt;
+	Här kommer text...
+&lt;/p&gt;
+
+&lt;p&gt;
+	&lt;img class="align-right medium" src="..." alt="Lunds logga &mdash; floatad till höger" /&gt;
+	Här kommer text...
+&lt;/p&gt;</code></pre>
+				
+				<p>
+					Det kan vara värt att notera att jag ger bilderna två klasser och seperarar dem 
+					med ett enkelt mellanslag.
+				</p>
+				
+			</section>
+				
+			<section style="float:left;">
+				
+				<p>
+					<img class="align-left medium" 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+						alt="Lunds logga &mdash; floatad till vänster"/>
+					Nu har vi Lunds logga floatad till vänster här, och här till höger kan vi se 
+					Lunds logga igen. Även den floatad så att texten flödar kring de båda bilderna. 
+					För att exemplet ska bli givande så behöver jag här nu fylla på med mer text 
+					så att vi tydligt kan se vad som händer, även med en stor skärm. För med en liten 
+					skärm så blir det mycket tydligare eftersom det är färre pixlar att röra sig på.
+				</p>
+				
+				<p>
+					<img class="align-right medium" 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+						alt="Lunds logga &mdash; floatad till höger">
+
+					Nu har jag lagt bilderna i var sitt textstycke för att visa på effekten. Som vi 
+					kan se så går det övre stycket ut över kommunloggan (<img 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+					alt="Lunds logga" style="height: 16px"/>)
+					och om jag fortsätter att 
+					skriva på det här stycket så fortsätter det ner under den vänstra loggan. Det 
+					kan hända att du måste minska på skärmstorleken, antingen genom att zooma in på 
+					sidan eller genom att ändra storleken på fönstret för att se hur texten rör sig 
+					runt biderna. Zoomar man för mycket så kan det dock hända att det ser förjdävligt 
+					ut på grund av att orden blir för långa och inte får plats i det utrymme som de
+					har fått. Jag borde kanske tagit någon färdig facktext till det här. För helt 
+					ärligt börjar det bli svårt att fylla ut med fler "betydelsefulla" kommentarer.
+					Jag får väl helt enkelt lita på att det här är lagom med text.
+				</p>
+
+				<p>
+					Det var inte tillräckligt med text. Så här kommer lite mer text som bara ska 
+					fylla ut med mer text när man har zoomat ut till 100%. Men helt ärligt, jag 
+					har inte tid med det här just nu, så nu får det vara. Men jag behöver typ en 
+					eller två rader till för att det ska bli rätt. Så nu får det fanimig räcka.
+					Men tro fan att jag behövde en rad till här, nu börjar lektionen om typ fem 
+					minuter. Nu har det blivit bättre. 
+				</p>
+				
+			</section>
+			
+			<section>
+			
+				<h3>Centrera</h3>
+				
+				<p>
+					Det finns två sätt att centrera en bild med CSS. Men det generalla knepet 
+					är att man ändrar på det till ett block-element.
+				</p>
+				
+				<pre><code title="CSS-kod som ska ligga i style">
+.align-center1{
+	display: block;
+	margin: auto;
+}
+.align-center2{
+	display: block;
+	text-align: center;
+}</code></pre>
+				
+				<p>
+					I det övre exemplet så har vi satt marginalerna över och under bilden 
+					till <code>0px</code> och att marginalerna till vänster och till höger om bilden 
+					ska lösas automatiskt. För att det här ska fungera så behöver man också 
+					ange en bredd på bilden, så att det finns en marginal att jobba med.
+				</p>
+				
+				<p>
+					I det nedre exemplet så har vi sagt att den ska justeras mot mitten.
+				</p>
+				
+				<img class="align-center1 medium" 
+					src="https://lund-imagevault.lund.se/publishedmedia/ce8indatpb90hg6hkzkc/Lunds_kommun_logo_vertikal-F-RG.png" 
+					alt="Lunds logga &mdash;centrerad">
+					
+				<p>
+					Visst blev det stylish? Här har jag använt den övre klassen.
+				</p>
+				
+			</section>
+			
+			<section id="bakgrund">
+		
+				<h3>Bakgrundsbild</h3>
+					
+				<div id="bakgrund1">
+					
+					<p>
+						Om man inte vill ha en tråkig enfärgad bakgrund på sin sida så kan 
+						man lägga till en bakgrundsbild. Som standard så upprepar sig bilden 
+						både i x-led och i y led.
+					</p>
+					
+					<pre><code title="CSS-kod som ska ligga i style">body{
+	background-image: url(plats);
+}
+					</code></pre>
+					
+					<p>
+						En skillnad mot hur vi har jobbat med bilder i HTML är att istället 
+						för att skriva <code>src</code> så skriver vi <code>url</code>.
+					</p>
+					
+					<p>
+						Den bakgrundsbild jag använder visar ett binärt sökträd och dess 
+						fraktallikanande egenskaper.
+					</p>
+					
+					<p>
+						Nu kommer lite nonsens text för att visa att den upprepar sig i 
+						y-led också.
+					</p>
+					
+					<p>
+						Ett knep för att få in mer i y-led är att ha många korta stycken.
+					</p>
+
+				</div>
+				
+				<p>
+					Som vi kan se så måste vi inte lägga bakgrundsbilden till hela 
+					dokumentet. Utan genom att använda klasser och id så kan vi få 
+					bilden att bara vara bakom vissa element.
+				</p>
+				
+				<p>
+					När vi väljer en bakgrundsbild behöver vi också tänka på att den 
+					inte ska störa det andra innehållet. Som i det här fallet när det svarta 
+					i bilden gör mörk text svårläst och det vita i bilden gör ljus text 
+					svårläst.
+				</p>
+					
+				<div id="bakgrund2">
+				
+					<h4>Styra upprepningen</h4>
+				
+					<p>
+						Vi kan också få den att bara upprepa sig i x-led:
+					</p>
+					
+					<pre><code title="CSS-kod som ska ligga i style">#bakgrund2{
+	background-image: url(https://yourbasic.org/algorithms/tree.png);
+	background-repeat: repeat-x;
+}</code></pre>
+					
+					<p>
+						Nu kommer lite nonsens text för att visa att den inte upprepar sig i 
+						y-led också.
+					</p>
+					
+					<p>
+						Ett knep för att få in mer i y-led är att ha många korta stycken.
+					</p>
+					
+					<p>
+						Nu kan vi se här mitt knep för att få texten att synas i den 
+						halvkassa bakgrundsbilden. Jag har lagt på en bakgrundsfärg bakom 
+						mina p-element:
+					</p>
+					
+					<pre><code title="CSS-kod som ska ligga i style">#bakgrund2 p{
+	/* Den här koden påverkar alla p element som ligger i blocket med id=bakgrund2 */
+	background-color: rgba(255,255,255, 0.75);
+}</code></pre>
+					
+				</div>
+				
+				<div id="bakgrund3">
+
+					<p>
+						Anger vi värdet no-repeat istället så upprepar sig bilden 
+						inte alls. Utan syns bara en gång. Nu kommer jag nog inte 
+						komma tillräckligt långt ner i y-led för att visa att den inte 
+						upprepas. Men vi kan se att den inte upprepas i x-led i alla 
+						fall.
+					</p>
+									
+				</div>
+				
+				<h4>background-attachment</h4>
+				
+				<p>
+					Det finns också ett CSS-kommando som heter <code>"background-attachment"</code>
+					som styr hur bakgrundsbilden ska bete sig.
+				</p>
+				
+				<pre><code title="CSS-kod som ska ligga i style">body{
+	background-image: url(bilden);
+	background-attachment: fixed;
+}
+body{
+	background-image: url(bilden);
+	background-attachment: scroll;
+}</code></pre>
+				
+				<p>
+					Man kan också styra bakgrundsbildens position med kommandot 
+					<code>background-position</code>.
+				</p>
+				
+				<pre><code title="CSS-kod som ska ligga i style">body{
+	background-image: url(bilden);
+	background-position: left top;
+}</code></pre>
+				
+				<p>
+					Där kan man ange hur den ska ligga i x-led och hur den ska ligga 
+					i y-led. Man kan också ange positionen i px eller %.
+				</p>
+			
+				<div id="bakgrund4">
+				
+					<h4>Gradient</h4>
+					
+					<p>
+						Det är också möjligt att lägga till en gradient. Här i det här 
+						stycket går det från guld till silver. I det här avsnittet så märker 
+						man att boken har några år på nacken. När den skrevs så var gradienter 
+						nytt och standarden var inte helt implementerad i alla webbläsare. Nu 
+						har man enats om en standard vilket gör det lättare att få sin sida att 
+						se likadan ut i alla datorer.
+					</p>
+					
+					<pre><code title="CSS-kod som ska ligga i style">#bakgrund4{
+	background-image: linear-gradient(to bottom, gold, silver);
+}</code></pre>
+					
+					<p>
+						Om man vill ändra riktningen på gradienten kan man välja ett annat 
+						mål än <code>"bottom"</code>.
+					</p>
+					
+					
+					
+				</div>
+				
+				<div id="bakgrund5">
+
+					<p>
+						Vi kan också lägga till fler färger för att ge en regnbågsliknande 
+						effekt.
+					</p>
+					
+					<pre><code title="CSS-kod som ska ligga i style">#bakgrund5{
+	background-image: linear-gradient(to bottom right, red, orange, yellow, lightgreen, lightblue, blue, purple);
+}</code></pre>
+				</div>
+			
+			</section>
+
+		</article>
+
+		<article id="övningar">
+
+			<h2>Övningar</h2>
+
+			<p>
+				Utgå från filen "css-8-övningar.html" som finns på 
+				<a href="https://classroom.google.com/" target="_blank">Classroom</a>	.
+			</p>
+
+			<ol>
+				<li>
+					Texten är för bred. Fixa till det.
+				</li>
+				<li>
+					Lägg till bilder till varje rubrik.
+				</li>
+				<li>
+					Styr upp bildernas storlekar med CSS.
+				</li>
+				<li>
+					I avsnittet om <b>Sysselsättning</b> ska bakgrunden vara gul i mitten och bli röd 
+					mot kanten
+				</li>
+				<li>
+					Ha en bild på Milou bakom avsnittet <b>Bakgrund</b>.
+				</li>
+				<li>
+					Tintin och Hergé är för allas rätt till kärlek, gör så att det första 
+					avsnittet (mellan <b>Tintin</b> och <b>Bakgrund</b>) har regnbågens färger
+				</li>
+				<li>
+					Lägg till kapten Haddock bakom uppgifterna här uppe. Det räcker dock 
+					med en Haddock, han ska inte upprepas.
+				</li>
+			</ol>
+
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+	</script>
+	
+</body>
+
+</html>

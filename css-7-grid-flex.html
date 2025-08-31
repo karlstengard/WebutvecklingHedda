@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+    <head>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>WEB01 - CSS-grid & flex</title>
+
+	    <link rel="stylesheet" type="text/css" href="design.css">
+
+        <link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+        <script src="highlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+        <script src="script/showHideMenu.js"></script>
+
+        <style>
+            .grid-exempel{
+                display: grid;
+                grid-template-columns: 25% 50% 25%;
+                border: solid;
+                border-width: 2px;
+            }
+            #grid-exempel-kolumn-1a{
+                grid-column: 1;
+            }
+            #grid-exempel-kolumn-2a{
+                grid-column: 2/4;
+            }
+            #grid-exempel-kolumn-1b{
+                grid-column: 1/3;
+            }
+            #grid-exempel-kolumn-2b{
+                grid-column: 3;
+            }
+            .exempelbild{
+                width: 100%;
+            }
+            #flexempel1{
+                display: flex;
+                flex-direction: row;
+            }
+            #flexempel2{
+                display: flex;
+                flex-direction: row;
+            }
+            #flexempel3{
+                display: flex;
+                flex-direction: column;
+            }
+            #flexempel4{
+                display: flex;
+                flex-direction: row-reverse;
+            }
+            #flexempel5{
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .flexempel-box{
+                border: 1px solid black;
+                margin: 1px;
+                padding: 10px;
+            }
+            .flexempel-box2{
+                border: 1px solid black;
+                margin: 1px;
+                padding: 10px;
+                flex: 1;
+            }
+            #flerakolumner{
+                grid-column: 2/4;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <div>
+                <!-- This is one part -->
+                <figure>
+                    <img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+                </figure>
+
+                <h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+                
+                <figure class="flex-push">
+                    <img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+                </figure>
+
+            </div>
+            
+            <!-- This is a new part -->
+            <nav>
+                <button id="html-head">HTML</button>
+                <button id="css-head">CSS</button>
+                <button id="js-head">JavaScript</button>
+            </nav>
+
+            <nav id="html-nav">
+                <a href="html-1-first-lesson.html">Kom igång</a>
+                <a href="html-2-internet.html">Inter&shy;net</a>
+                <a href="html-3-text.html">Text</a>
+                <a href="html-4-listor.html">Listor</a>
+                <a href="html-5-lankar.html">Länkar</a>
+                <a href="html-6-bilder.html">Bilder</a>
+                <a href="html-7-tabeller.html">Tabell&shy;er</a>
+                <a href="html-8-formulär.html">Formulär</a>
+                <a href="html-9-ljud-video.html">Ljud och video</a>
+            </nav>
+
+            <nav id="css-nav">
+                <a href="css-1-färger.html">Färger</a>
+                <a href="css-2-text.html">Text</a>
+                <a href="css-3-klasser-id.html">Klasser och ID</a>
+                <a href="css-4-margin-padding-border.html">Marginaler</a>
+                <a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+                <a href="css-6-positionering.html">Position&shy;ering</a>
+                <a href="css-7-grid-flex.html">Grid och flex</a>
+                <a href="css-8-bilder.html">Bilder</a>
+                <a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+            </nav>
+
+            <nav id="js-nav">
+                <a href="js-1-start.html">Start</a>
+                <a href="js-2-if.html">If-satser</a>
+                <a href="js-3-loopar.html">Loopar</a>
+                <a href="js-4-dom.html">DOM</a>
+            </nav>
+
+        </header>
+
+        <aside>
+
+            <h2>Denna sidan</h2>
+
+            <nav>
+                <a href="#grid">Grid</a>
+                <a href="#flex">Flex</a>
+                <a href="#layouten">Layouten</a>
+                <a href="#övningar">Övningar</a>
+            </nav>
+
+            <section>
+
+                <h3>Sammanfattning</h3>
+
+                <p>
+                    På denna sidan går vi igenom kommandona 
+                    <code>grid</code> och <code>flex</code>
+                    som vi kan använda för att styra sidans 
+                    utseende.
+                </p>
+
+            </section>
+
+            <section>
+
+                <h3>Kommandon</h3>
+
+                <h4>Kommandon kopplade till grid</h4>
+
+                <dl>
+                    <dt>
+                        <code>display: grid;</code>
+                    </dt>
+                    <dd>
+                        Detta är en motsvarighet till <code>block</code> eller 
+                        <code>inline</code>, och är ett av kommandona som behövs 
+                        för att göra ett rutnät.
+                    </dd>
+
+                    <dt>
+                        <code>grid-template-rows: aa bb cc ...;</code>
+                    </dt>
+                    <dd>
+                        Det här avgör radernas höjd.
+                    </dd>
+                    <dd>
+                        <code>aa bb cc</code> styr rad 1, 2, 3 o.s.v.
+                    </dd>
+
+                    <dt>
+                        <code>grid-template-columns: aa bb cc ...;</code>
+                    </dt>
+                    <dd>
+                        Det här avgör kolumnernas bredd.
+                    </dd>
+                    <dd>
+                        <code>aa bb cc</code> styr kolumn 1, 2, 3 o.s.v.
+                    </dd>
+
+                    <dt>
+                        <code>grid-row: start/slut+1</code>
+                    </dt>
+                    <dd>
+                        Det här kommandot avgör vilka rader en viss 
+                        rad ska spänna över. Anger man inget är varje 
+                        element en rad.
+                    </dd>
+
+                    <dt>
+                        <code>grid-column: start/slut+1</code>
+                    </dt>
+                    <dd>
+                        Det här kommandot avgör vilka kolumner en viss 
+                        kolumn ska spänna över. Anger man inget är varje 
+                        element en kolumn.
+                    </dd>
+                </dl>
+
+                <h4>Kommandon kopplade till flex</h4>
+
+                <dl>
+                    <dt>
+                        <code>display: flex;</code>
+                    </dt>
+                    <dd>
+                        Detta är en motsvarighet till <code>block</code> eller 
+                        <code>inline</code>.
+                    </dd>
+
+                    <dt>
+                        <code>flex-direction: row;</code>
+                    </dt>
+                    <dd>
+                        Detta lägger elementen horizontellt.
+                    </dd>
+
+                    <dt>
+                        <code>flex-direction: column;</code>
+                    </dt>
+                    <dd>
+                        Detta lägger elementen vertikalt.
+                    </dd>
+
+                </dl>
+
+                <p>
+                    Läs mer <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">här</a>
+                </p>
+
+            </section>
+
+        </aside>
+
+        <main>
+
+            <article id="grid">
+
+                <h2>Grid och flex</h2>
+
+                <section>
+
+                    <h3>Grid</h3>
+
+                    <p>
+                        Om du vill styra layouten på din sida mer med 
+                        passare och linjal och få saker att lägga sig 
+                        i fina boxar så kan du använda dig utav 
+                        CSS-kommandonen: <code>display: grid;</code>
+                        och <code>display: flex;</code>. Jämfört med 
+                        kommandot <code>float</code> så håller sig 
+                        elementet på sin plats och kastas inte runt. 
+                        Elementet stör inte heller andra element 
+                        runtomkring. 
+                    </p>
+
+                    <p>
+                        Texten och bilden här nedanför är uppstyrda med
+                        följande CSS-kod: 
+                    </p>
+
+<pre><code title="CSS-kod">#grid-exempel{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    border: solid;
+    border-width: 2px;
+}
+#exempelbild{
+    width: 100%;
+}</code></pre>
+
+                    <p>
+                    Och följande html-kod:
+                    </p>
+
+<pre><code title="HTML-kod">&lt;div class="grid-exempel"&gt;
+
+    &lt;p&gt;
+        Lorem ipsum...
+    &lt;/p&gt;
+
+    &lt;figure&gt;
+        &lt;img class="exempelbild" 
+            src="https://www.ironmaiden.com/files/2024/07/tallinn-im-55059.jpg"
+            alt="Bruce Dickinson slåss med Eddie."&gt;
+    &lt;/figure&gt;
+
+    &lt;p&gt;
+        Lorem ipsum...
+    &lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+                    <div class="grid-exempel" title="Resultatet av koden ovan.">
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Sed laoreet nisi quis 
+                            nibh pulvinar tempus. Aenean pellentesque 
+                            pellentesque finibus. Praesent a neque 
+                            aliquam, pulvinar tortor sed, ultricies 
+                            felis. Nulla eu laoreet turpis. Aliquam 
+                            porttitor justo at nisl congue elementum. 
+                            Integer ullamcorper, enim quis convallis 
+                            aliquet, felis est fermentum eros, ut 
+                            tristique lectus tortor nec felis. 
+                            Pellentesque consectetur mattis risus ac 
+                            auctor. Cras nec nisi vitae tortor varius 
+                            feugiat eget at nibh. Maecenas non est non 
+                            mi mattis vulputate ut ut dui. Cras quis mi 
+                            congue, consequat augue ut, iaculis ex. 
+                            Phasellus nisi lectus, euismod vel iaculis 
+                            at, scelerisque eu urna.
+                        </p>
+
+                        <figure>
+                            <img class="exempelbild" 
+                                src="https://www.ironmaiden.com/files/2024/07/tallinn-im-55059.jpg"
+                                alt="Bruce Dickinson slåss med Eddie.">
+                        </figure>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Sed laoreet nisi quis 
+                            nibh pulvinar tempus. Aenean pellentesque 
+                            pellentesque finibus. Praesent a neque 
+                            aliquam, pulvinar tortor sed, ultricies 
+                            felis. Nulla eu laoreet turpis. Aliquam 
+                            porttitor justo at nisl congue elementum. 
+                            Integer ullamcorper, enim quis convallis 
+                            aliquet, felis est fermentum eros, ut 
+                            tristique lectus tortor nec felis. 
+                            Pellentesque consectetur mattis risus ac 
+                            auctor. Cras nec nisi vitae tortor varius 
+                            feugiat eget at nibh. Maecenas non est non 
+                            mi mattis vulputate ut ut dui. Cras quis mi 
+                            congue, consequat augue ut, iaculis ex. 
+                            Phasellus nisi lectus, euismod vel iaculis 
+                            at, scelerisque eu urna.
+                        </p>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Sed laoreet nisi quis 
+                            nibh pulvinar tempus. Aenean pellentesque 
+                            pellentesque finibus. Praesent a neque 
+                            aliquam, pulvinar tortor sed, ultricies 
+                            felis. Nulla eu laoreet turpis. Aliquam 
+                            porttitor justo at nisl congue elementum. 
+                            Integer ullamcorper, enim quis convallis 
+                            aliquet, felis est fermentum eros, ut 
+                            tristique lectus tortor nec felis. 
+                            Pellentesque consectetur mattis risus ac 
+                            auctor. Cras nec nisi vitae tortor varius 
+                            feugiat eget at nibh. Maecenas non est non 
+                            mi mattis vulputate ut ut dui. Cras quis mi 
+                            congue, consequat augue ut, iaculis ex. 
+                            Phasellus nisi lectus, euismod vel iaculis 
+                            at, scelerisque eu urna.
+                        </p>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Sed laoreet nisi quis 
+                            nibh pulvinar tempus. Aenean pellentesque 
+                            pellentesque finibus. Praesent a neque 
+                            aliquam, pulvinar tortor sed, ultricies 
+                            felis. Nulla eu laoreet turpis. Aliquam 
+                            porttitor justo at nisl congue elementum. 
+                            Integer ullamcorper, enim quis convallis 
+                            aliquet, felis est fermentum eros, ut 
+                            tristique lectus tortor nec felis. 
+                            Pellentesque consectetur mattis risus ac 
+                            auctor. Cras nec nisi vitae tortor varius 
+                            feugiat eget at nibh. Maecenas non est non 
+                            mi mattis vulputate ut ut dui. Cras quis mi 
+                            congue, consequat augue ut, iaculis ex. 
+                            Phasellus nisi lectus, euismod vel iaculis 
+                            at, scelerisque eu urna.
+                        </p>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Sed laoreet nisi quis 
+                            nibh pulvinar tempus. Aenean pellentesque 
+                            pellentesque finibus. Praesent a neque 
+                            aliquam, pulvinar tortor sed, ultricies 
+                            felis. Nulla eu laoreet turpis. Aliquam 
+                            porttitor justo at nisl congue elementum. 
+                            Integer ullamcorper, enim quis convallis 
+                            aliquet, felis est fermentum eros, ut 
+                            tristique lectus tortor nec felis. 
+                            Pellentesque consectetur mattis risus ac 
+                            auctor. Cras nec nisi vitae tortor varius 
+                            feugiat eget at nibh. Maecenas non est non 
+                            mi mattis vulputate ut ut dui. Cras quis mi 
+                            congue, consequat augue ut, iaculis ex. 
+                            Phasellus nisi lectus, euismod vel iaculis 
+                            at, scelerisque eu urna.
+                        </p>
+
+                    </div>
+
+                    <p>
+                        Två saker som är värdefulla att lägga märke till 
+                        är att <code>border</code> läger sig runt hela 
+                        elementet. Samt att bilden håller koll på sin 
+                        bredd i förhållande till utrymmet som uppstår.
+                    </p>
+
+                    <p>
+                        För att få <code>grid;</code> att fungera 
+                        så är det två kommandon som är viktiga:
+                    </p>
+
+                    <dl>
+                        <dt><code>display: grid;</code></dt>
+                        <dd><code>grid</code> är ett alternativ till <code>inline</code> 
+                            och <code>block</code></dd>
+
+                        <dt><code>grid-template-columns: aa bb cc dd ...;</code></dt>
+                        <dd>Den vänstra biten berättar att vi ska styra nätets kolumner</dd>
+                        <dd>Den högra delen beskriver varje kolumns bredd</dd>
+                    </dl>
+
+
+
+                </section>
+
+                <section>
+
+                    <h3>Slå samman kolumner eller rader</h3>
+
+                    <p>
+                        När du gör ett rutnät kan du styra vad som ska ligga i vilken kolumn med 
+                        kommandot: <code>grid-column: XX</code>, och i vilken rad med kommandot: 
+                        <code>grid-row: XX;</code>. Om du vill att ett element ska sträcka sig 
+                        över flera kolumner skriver du: <code>grid-column: start/slut+1;</code>.
+                    </p>
+
+                    <h4>Exempel</h4>
+
+<pre><code>&lt;div class="grid-exempel"&gt;
+    &lt;p id="grid-exempel-kolumn-1a"&gt;
+        Lorem ipsum...
+    &lt;/p&gt;
+
+    &lt;figure id="grid-exempel-kolumn-2a"&gt;
+        &lt;img class="exempelbild" 
+            src="https://www.ironmaiden.com/files/2024/07/tallinn-im-55059.jpg"
+            alt="Bruce Dickinson slåss med Eddie."&gt;
+    &lt;/figure&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code>.grid-exempel{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    border: solid;
+    border-width: 2px;
+}
+#grid-exempel-kolumn-1a{
+    grid-column: 1;
+}
+#grid-exempel-kolumn-2a{
+    grid-column: 2/4;
+}
+.exempelbild{
+    width: 100%;
+}</code></pre>
+
+                    <div class="grid-exempel" title="Resultatet av koden ovan">
+
+                        <p id="grid-exempel-kolumn-1a">
+                            Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Sed laoreet nisi quis 
+                            nibh pulvinar tempus. Aenean pellentesque 
+                            pellentesque finibus. Praesent a neque 
+                            aliquam, pulvinar tortor sed, ultricies 
+                            felis. Nulla eu laoreet turpis. Aliquam 
+                            porttitor justo at nisl congue elementum. 
+                            Integer ullamcorper, enim quis convallis 
+                            aliquet, felis est fermentum eros, ut 
+                            tristique lectus tortor nec felis. 
+                            Pellentesque consectetur mattis risus ac 
+                            auctor. Cras nec nisi vitae tortor varius 
+                            feugiat eget at nibh. Maecenas non est non 
+                            mi mattis vulputate ut ut dui. Cras quis mi 
+                            congue, consequat augue ut, iaculis ex. 
+                            Phasellus nisi lectus, euismod vel iaculis 
+                            at, scelerisque eu urna.
+                        </p>
+
+                        <figure id="grid-exempel-kolumn-2a">
+                            <img class="exempelbild" 
+                                src="https://www.ironmaiden.com/files/2024/07/tallinn-im-55059.jpg"
+                                alt="Bruce Dickinson slåss med Eddie.">
+                        </figure>
+
+                    </div>
+
+<pre><code>&lt;div class="grid-exempel"&gt;
+    &lt;p id="grid-exempel-kolumn-1b"&gt;
+        Lorem ipsum...
+    &lt;/p&gt;
+
+    &lt;figure id="grid-exempel-kolumn-2b"&gt;
+        &lt;img class="exempelbild" 
+            src="https://www.ironmaiden.com/files/2024/07/tallinn-im-55059.jpg"
+            alt="Bruce Dickinson slåss med Eddie."&gt;
+    &lt;/figure&gt;
+</code></pre>
+
+<pre><code>.grid-exempel{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    border: solid;
+    border-width: 2px;
+}
+#grid-exempel-kolumn-1b{
+    grid-column: 1/3;
+}
+#grid-exempel-kolumn-2b{
+    grid-column: 3;
+}
+.exempelbild{
+    width: 100%;
+}</code></pre>
+
+
+                    <div class="grid-exempel" title="Resultatet av koden ovan">
+
+                        <p id="grid-exempel-kolumn-1b">
+                            Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Sed laoreet nisi quis 
+                            nibh pulvinar tempus. Aenean pellentesque 
+                            pellentesque finibus. Praesent a neque 
+                            aliquam, pulvinar tortor sed, ultricies 
+                            felis. Nulla eu laoreet turpis. Aliquam 
+                            porttitor justo at nisl congue elementum. 
+                            Integer ullamcorper, enim quis convallis 
+                            aliquet, felis est fermentum eros, ut 
+                            tristique lectus tortor nec felis. 
+                            Pellentesque consectetur mattis risus ac 
+                            auctor. Cras nec nisi vitae tortor varius 
+                            feugiat eget at nibh. Maecenas non est non 
+                            mi mattis vulputate ut ut dui. Cras quis mi 
+                            congue, consequat augue ut, iaculis ex. 
+                            Phasellus nisi lectus, euismod vel iaculis 
+                            at, scelerisque eu urna.
+                        </p>
+
+                        <figure id="grid-exempel-kolumn-2b">
+                            <img class="exempelbild" 
+                                src="https://www.ironmaiden.com/files/2024/07/tallinn-im-55059.jpg"
+                                alt="Bruce Dickinson slåss med Eddie.">
+                        </figure>
+
+                    </div>
+
+                </section>
+
+            </article>
+
+            <article id="flex">
+
+                <h3>Flex</h3>
+
+                <section>
+
+                    <h4>Sätta i en rad</h4>
+
+                    <p>
+                        När man vill styra hur elementen i en kolumn (eller rad) 
+                        ska bete sig kan man använda sig utav <code>flex</code>. 
+                        Att styra hur ett element med <code>flex</code> kan vara 
+                        besvärligt, men ger ett väldigt tillfredställande resultat.
+                        Ett exempel på element som är "flexade" på den här sidan är 
+                        navigeringen. Både den i toppen och den på sidan.
+                    </p>
+
+                    <p>
+                        Följande boxar är flexade så att de ska ta lika mycket plats 
+                        på sidan:
+                    </p>
+
+                    <div id="flexempel1">
+                        <div class="flexempel-box">1</div>
+                        <div class="flexempel-box">2</div>
+                        <div class="flexempel-box">3</div>
+                        <div class="flexempel-box">4</div>
+                        <div class="flexempel-box">5</div>
+                    </div>
+
+                    <p>
+                        Kod till exemplet ovan:
+                    </p>
+
+<pre><code title="HTML-kod">&lt;div id="flexempel1">
+    &lt;div class="flexempel-box"&gt;1&lt;/div&gt;
+    &lt;div class="flexempel-box"&gt;2&lt;/div&gt;
+    &lt;div class="flexempel-box"&gt;3&lt;/div&gt;
+    &lt;div class="flexempel-box"&gt;4&lt;/div&gt;
+    &lt;div class="flexempel-box"&gt;5&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<pre><code title="CSS-kod">#flexempel1{
+    display: flex;
+    flex-direction: row;
+}
+.flexempel-box{
+    border: 1px solid black;
+    margin: 1px;
+    padding: 10px;
+}</code></pre>
+
+                    <p>
+                        Vi kan utveckla det här mer till:
+                    </p>
+
+                    <div id="flexempel2">
+                        <div class="flexempel-box2">1</div>
+                        <div class="flexempel-box2">2</div>
+                        <div class="flexempel-box2">3</div>
+                        <div class="flexempel-box2">4</div>
+                        <div class="flexempel-box2">5</div>
+                        <div class="flexempel-box2">6</div>
+                    </div>
+
+                    <p>
+                        Det är typ samma kod men vi har lagt till raden <code>flex: 1;</code> i 
+                        <code>flexempel-box</code>:
+                    </p>
+
+<pre><code title="CSS-kod">.flexempel-box2{
+    border: 1px solid black;
+    margin: 1px;
+    padding: 10px;
+    flex: 1;
+}</code></pre>
+
+                    <p>
+                        En cool sak är att man kan ändra ordningen på lådorna:
+                    </p>
+
+                    <div id="flexempel1">
+                        <div class="flexempel-box">1</div>
+                        <div class="flexempel-box">2</div>
+                        <div class="flexempel-box">3</div>
+                        <div class="flexempel-box">4</div>
+                        <div class="flexempel-box">5</div>
+                    </div>
+
+                    <p>
+                        Med en liten förändring får vi:
+                    </p>
+
+                    <div id="flexempel4">
+                        <div class="flexempel-box">1</div>
+                        <div class="flexempel-box">2</div>
+                        <div class="flexempel-box">3</div>
+                        <div class="flexempel-box">4</div>
+                        <div class="flexempel-box">5</div>
+                    </div>
+
+<pre><code title="CSS-kod">#flexempel4{
+    display: flex;
+    flex-direction: row-reverse;
+}</code></pre> 
+
+                    <p>
+                        Lägg märke till att den blir högerjusterad också.
+                    </p>
+
+
+                </section>
+
+                <section>
+
+                    <h4>Sätta i en kolumn</h4>
+
+                    <p>
+                        Vi kan också flexa våra element i en kolumn &mdash; som i vänsterlisten &mdash; 
+                        genom att ändra på <code>flex-direction: </code> till <code>column;</code>
+                    </p>
+
+                    <div id="flexempel3">
+                        <div class="flexempel-box">1</div>
+                        <div class="flexempel-box">2</div>
+                        <div class="flexempel-box">3</div>
+                        <div class="flexempel-box">4</div>
+                        <div class="flexempel-box">5</div>
+                    </div>
+
+                    <p>
+                        Det är samma HTML-kod som ovan men en liten skillnad i CSS-kod:
+                    </p>
+
+<pre><code title="CSS-kod">#flexempel3{
+    display: flex;
+    flex-direction: column;
+}</code></pre>
+
+                    <p>
+                        Vi kan så klart också vända ordningen på kolumner också:
+                    </p>
+
+                    <div id="flexempel5">
+                        <div class="flexempel-box">1</div>
+                        <div class="flexempel-box">2</div>
+                        <div class="flexempel-box">3</div>
+                        <div class="flexempel-box">4</div>
+                        <div class="flexempel-box">5</div>
+                    </div>
+
+<pre><code title="CSS-kod">#flexempel5{
+    display: flex;
+    flex-direction: column-reverse;
+}</code></pre>
+
+                </section>
+
+            </article>
+
+            <article id="layouten">
+
+                <h2>Den här sidans layout</h2>
+
+                <section>
+
+                    <h3>HTML-koden</h3>
+
+
+                    <pre><code title="HTML-kod">&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+    &lt;head&gt;
+        &lt;!-- Här är all head-kod --&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+        &lt;header&gt;
+
+            &lt;div&gt;
+                &lt;!-- Här ligger loggorna och rubriken --&gt;
+            &lt;/div&gt;
+
+            &lt;nav&gt;
+                &lt;!-- Navigeringen till övriga sidor --&gt;
+            &lt;/nav&gt;
+
+        &lt;/header&gt;
+
+        &lt;aside&gt;
+
+            &lt;nav&gt;
+                &lt;!-- Länkar till ställen på sidan --&gt;
+            &lt;/nav&gt;
+
+            &lt;section&gt;
+                &lt;!-- Sammanfattningen --&gt;
+            &lt;/section&gt;
+
+            &lt;section&gt;
+                &lt;!-- Kommandon --&gt;
+            &lt;/section&gt;
+
+        &lt;/aside&gt;
+
+        &lt;main&gt;
+
+            &lt;article&gt;
+
+                &lt;!-- Delen om grid --&gt;
+
+                &lt;section&gt;
+
+                &lt;/section&gt;
+
+                &lt;section&gt;
+
+                &lt;/section&gt;
+
+            &lt;/article&gt;
+
+            &lt;article&gt;
+
+                &lt;!-- Delen om flex --&gt;
+
+                &lt;section&gt;
+
+                &lt;/section&gt;
+
+            &lt;/article&gt;
+
+            &lt;article&gt;
+
+                &lt;!-- Delen som beskriver den här sidan --&gt;
+
+                &lt;section&gt;
+
+                &lt;/section&gt;
+
+                &lt;section&gt;
+
+                &lt;/section&gt;
+
+            &lt;/article&gt;
+
+            &lt;article&gt;
+
+                &lt;!-- Övningarna --&gt;
+
+            &lt;/article&gt;
+
+        &lt;/main&gt;
+
+        &lt;footer&gt;
+
+        &lt;/footer&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+                    <p>
+                        Som du kan se så är <code>&lt;header&gt;</code>, 
+                        <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>
+                        och <code>&lt;footer&gt;</code> på samma nivå. (Du 
+                        kan också se värdet av att ha en konsekvent indragning 
+                        (<i>indentering</i>)). Något som däremot kan kännas 
+                        jobbigt är mängden av <code>&lt;article&gt;</code>
+                        och <code>&lt;section&gt;</code>. Men det här är en 
+                        ganska så lång sida med mycket innehåll. Man kan 
+                        lite förenklat tänka att varje rubrik ska ha sin 
+                        egen <code>&lt;article&gt;</code> eller 
+                        <code>&lt;section&gt;</code>.
+                    </p>
+
+                </section>
+
+                <section>
+
+                    <h3>CSS-koden</h3>
+
+<pre><code title="CSS-kod">body{
+    display: grid;
+    grid-template-rows: auto auto auto; /* Jag har tre rader på sidan */
+    grid-template-columns: 0.3fr 1fr; /* Jag har två kolumner på sidan */
+
+    row-gap: 5px; /* Ett litet avstånd mellan raderna */
+    column-gap: 5px; /* Ett litet avstånd mellan kolumnerna */
+}
+
+header{
+    grid-column: 1/3; /* Detta gör att headern sträcker sig över två kolumner */
+    grid-row: 1; /* Vilken rad den ska vara på */
+}
+
+header div{
+    display: grid;
+    grid-template-columns: 25% 50% 25%; /* I deadern har jag ett nytt grid 
+    för att placera loggorna och rubriken */
+
+    align-items: center; /* Centrerar elementen i sina kolumner */
+}
+
+header nav{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex; /* Detta gör att jag får dem fina jämnbreda lådorna */  
+}
+
+header nav button{
+    flex-direction: row; /* Detta är standard */
+    flex: 1; /* ??? */  
+}
+
+aside{
+    grid-column: 1; /* Anger vilken kolumn den ska ligga i */
+    grid-row: 2; /* Anger vilken rad den ska ligga i */
+}
+
+aside nav{
+    position: sticky; /* Detta gör att länkarna följer med snyggt */ 
+    top: 10px; /* Avstånd från toppen när länkerna följer med */
+    
+    display: flex; /* Gör lådor */
+    flex-direction: column; /* Gör att länkarna ligger i en kolumn */
+}
+
+main{
+    grid-column: 2; /* Anger vilken kolumn den ska ligga i */
+    grid-row: 2; /* Anger vilken rad den ska ligga i */
+}
+
+footer{
+    grid-row: 3; /* Anger vilken rad den ska ligga i */
+    grid-column: 1/3; /* Gör så att den sträcker sig över båda kolumnerna */
+
+    display: grid; /* Här har jag ett nytt rutnät */
+    grid-template-columns: 25% 50% 25%; /* Lägger innehåller rätt */
+}</code></pre>
+
+                    <p>
+                        När du kollar på den här koden så kan du lägga 
+                        märke till att jag har inga klasser eller id:n. 
+                        Istället styr jag vad som ska hända helt genom 
+                        att hålla noga koll på hur jag använder mina 
+                        standardelement.
+                        (Jag har klasser och id:n inuti koden sen för 
+                        att detaljstyra saker som ligger i själva texten).
+                        För att undvika klasser och id:n har jag skrivit på 
+                        sättet:
+                    </p>
+
+<pre><code>aside nav{
+    position: sticky;
+}
+</code></pre>
+
+                    <p>
+                        Det här gör att webbläsaren förstår att bara 
+                        <code>&lt;nav&gt;</code>-element som ligger i 
+                        <code>&lt;aside&gt;</code>-element ska följa just de 
+                        här reglerna. 
+                    </p>
+
+                </section>
+
+            </article>
+
+            <article id="övningar">
+
+                <section>
+
+                    <h3>Övningar</h3>
+
+                    <p>
+                        Utgå från filen "flex-och-grid.html" på <a href="classroom.google.com/">Classroom</a>.
+                    </p>
+
+                    <ol>
+                        <li>
+                            Länkarna uppe i navigeringen ska styras upp med <code>flex</code>
+                        </li>
+                        <li>
+                            Lägg navigeringen i en kolumn till vänster, och resten av innehållet 
+                            i en kolumn till höger.
+                        </li>
+                        <li>
+                            Den högra kolumnen ska delas upp i två kolumner (så att vi totalt har 
+                            tre kolumner på sidan.)
+                            <ul>
+                                <li>Ändra bredden på alla <code>&lt;p&gt;</code>-element till 100%.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Rubriken, "Advent of Code", och de två styckena endanför ska sträcka 
+                            sig över båda de två kolumnerna.
+                        </li>
+                    </ol>
+
+                </section>
+
+            </article>
+
+        </main>
+
+        <footer>
+
+            <figure>
+                <img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+                    alt="Lunds kommuns logotyp">
+            </figure>
+
+            <address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+                Skapad av <a href="mailto:calle.ketola@lund.se">
+                    Calle Ketola</a><br>
+                Hedda Anderssongymnasiet<br>
+                Svanevägen 17<br>
+                222 29 Lund
+            </address>
+    
+            <p>
+                Senast uppdaterad: 2023&ndash;11&ndash;27
+            </p>
+
+        </footer>
+
+        <script>
+            document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+            document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+            document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+        </script>
+
+    </body>
+
+</html>

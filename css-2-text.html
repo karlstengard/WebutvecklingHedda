@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+	<meta charset="utf-8" />
+	<title>CSS 2 - Text</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap" rel="stylesheet">
+	
+	<style>
+
+	</style>
+
+
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formulär.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+
+		<nav class="content">
+			<a href="#start">Start</a>
+			<a href="#typsnitt">Typsnitt</a>
+			<a href="#choosefont">Ändra typsnitt</a>
+			<a href="#teckenstorlek">Teckenstorlek</a>
+			<a href="#uppgifter">Övningar 1</a>
+			<a href="#dekorering">Textdekorering</a>
+			<a href="#nydekor">Ny dekorering</a>
+			<a href="#avstånd">Avstånd</a>
+			<a href="#uppgifter2">Övningar 2</a>
+		</nav>
+
+		<section id="sammanfattning">
+	
+			<h2>Sammanfattning</h2>
+			
+			<p>
+				Här går vi igenom hur du kan ändra på textens utseende genom 
+				CSS.
+			</p>
+			
+			<h3>Kommandon</h3>
+			
+			<dl>
+				<dt><code>font-family</code></dt>
+				<dd>Det här avgör vilket typsnitt man använder.</dd>
+				<dt><code>font-face</code></dt>
+				<dd>Laddar ett typsnitt</dd>
+				<dt><code>font-size</code></dt>
+				<dd>Storlek på texten. Mäts i px, procent eller em</dd>
+				<dt><code>font-weight</code></dt>
+				<dd>Ändrar hur tjock texten är</dd>
+				<dt><code>font-style</code></dt>
+				<dd>Justerar kursiv</dd>
+				<dt><code>text-decoration</code></dt>
+				<dd>Styr streck runt omkring texten</dd>
+				<dt><code>font-variant</code></dt>
+				<dd>Kontrollerar typsnittet</dd>
+				<dt><code>text-transform</code></dt>
+				<dd>Konverterar texten till stora/små bokstäver</dd>
+			</dl>
+			
+			<h3>Typsnitt</h3>
+			
+			<p>Det finns fem sorters typsnitt i CSS.</p>
+			
+			<dl>
+				<dt>Serif</dt>
+				<dd>Typsnitt med hakar</dd>
+				<dt>Sans-serif</dd>
+				<dd>Typsnitt utan hakar</dd>
+				<dt>Monospace</dt>
+				<dd>Typsnitt där alla tecken är lika breda</dd>
+				<dt>Fantasy</dt>
+				<dd>Typsnitt som kan passa rubriker</dd>
+				<dt>Cursive</dt>
+				<dd>Typsnitt som ska efterlikna handskrift</dd>
+			</dl>
+
+		</section>
+		
+	</aside>
+	
+	<main>
+	
+		<article id="start">
+		
+			<h2>Text</h2>
+			
+			<p>
+				Det är mycket du kan ändra på genom CSS. Till en början kommer du att få veta 
+				hur du byter typsnitt. Men sen kommer du att se hur man kan använda CSS för att 
+				göra texten fetstilt, kursiv och geneomstruken.
+			</p>
+			
+			<section id="typsnitt">
+				
+				<h3>Typsnitt</h3>
+				
+				<p>
+					Det finns tre stora klasser med typsnitt och som man brukar dela upp alla 
+					typsnitt i:
+				</p>
+				
+				<ol>
+					<li>Serif</li>
+					<li>Sans-serif</li>
+					<li>Monospace</li>
+				</ol>
+				
+				<p>
+					Det finns lite olika åsikter om vilken sorts tysnitt som är lättast att 
+					läsa. Serif-typsnitt är populära i tryckt media. Medan sans-serif är 
+					populärt på skärmar. Monospace-typsnitt är populärt i programmeringsmiljöer.
+				</p>
+				
+				<div style="font-family: serif">
+				
+					<h4>Serif</h4>
+					
+					<p>
+						Ett serif-typsnitt har små hakar i ändarna på bokstäver och är det som är 
+						standard i webbläsaren. Times New Roman är ett typiskt typsnitt som anväder 
+						sig utav serifer.
+					</p>
+					
+					<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Serif_and_sans-serif_03.svg" 
+						alt="En bild som highlightar seriferna" 
+						title="Källa https://en.wikipedia.org/wiki/Serif"/>
+					
+				</div>
+				
+				<div style="font-family: sans-serif">
+				
+					<h4>Sans-serif</h4>
+					
+					<p>
+						Ett sans-serif-typsnitt är ett typsnitt utan serifer (sans betyder utan). 
+						Hela det här stycket är skrivet i ett sans-serif-typsnitt. Ett typsikt exempel 
+						är annars Arial eller Comic Sans.
+					</p>
+					
+				</div>
+				
+				<div style="font-family: monospace">
+				
+					<h4>Monospace</h4>
+					
+					<p>
+						I ett monospace-typsnitt tar alla tecken lika breda vilket gör att tecknen 
+						radar upp sig under varandra. Gamla skrivmaskiner använde sig utav monospace
+						för att för att få rätt på när de skulle byta rad och så vidare.
+					</p>
+					
+				</div>
+				
+				<p>
+					I CSS har man utöver de tre stora facken två andra:
+				</p>
+				
+				<ol>
+					<li>Cursive</li>
+					<li>Fantasy</li>
+				</ol>
+				
+				<div style="font-family: cursive">
+					
+					<h4>Cursive</h4>
+					
+					<p>
+						Kursiva typsnitt är designade för att efterlikna handskriven text till viss 
+						mån. Hit räknas bland annat Comic Sans. Comic Sans är (som namnet antyder) 
+						dessutom ett sans-serif-typsnitt.
+					</p>
+					
+				</div>
+				
+				<div style="font-family: fantasy">
+				
+					<h4>Fantasy</h4>
+					
+					<p>
+						Fantasy-typsnitt är inte typ Sagan om ringen-typsnitt (de faller under kursiva) utan 
+						andra sorters dekorativa typsnitt som kan passa till rubriker.
+					</p>
+				
+				</div>
+				
+				<h4>Terminologi</h4>
+				
+				<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Typography_Line_Terms.svg" 
+					alt="Bild som visar namnen på olika delar av tryckt text" 
+					title="Källa https://en.wikipedia.org/wiki/Typeface"/>
+
+				</section>
+			
+			<section id="choosefont">
+			
+				<h3>Specificera typsnitt</h4>
+				
+				<p>
+					Det finns två sätt du kan specificera vilket typsnitt som gäller:
+				</p>
+				
+				<ol>
+					<li>font-family</li>
+					<li>@font-face</li>
+				</ol>
+				
+				<h4>font-family</h4>
+				
+				<p>
+					Genom att ange font-family så letar webbläsaren efter ett typsnitt med 
+					motsvarande namn på datorn. Om datorn inte hittar typsnittet så kör den på 
+					standardtypsnittet. (Du kan hitta en lista på typsnitt som alla datorer borde 
+					kunna använda 
+					<a href="https://www.w3schools.com/cssref/css_websafe_fonts.asp">här</a>)
+				</p>
+				
+				<pre><code>p{
+	font-family: helvetica;
+}</code></pre>
+				
+				<p style="font-family:helvetica">
+					Detta är exempel med helvetica. Det är sans-serif.
+					Om du vill ha ett mer specifikt typsnitt, men är rädd för att användaren inte har 
+					det på datorn så kan man ange en backup så här:
+				</p>
+
+				<pre><code>p{
+font-family: helvetica, monospace;
+}</code></pre>
+				
+				<p style="font-family: helvetica, monospace">
+					Om din dator inte har helvetica installerat 
+					så kommer den att visa det här med monospace. Oftast är det en bra idé att lägga upp 
+					en backup som är snarlik den man vill ha. Och då borde vi ha angett sans-serif istället 
+					för monospace i vår CSS-kod.
+				</p>
+				
+				<h4>@font-face</h4>
+				
+				<p>
+					Om du vill vara säker på att din användare ser hemsidan med rätt typsnitt så kan du 
+					skapa ett eget type-face där du laddar in ett typsnitt.
+				</p>
+				
+				<pre><code>@font-face{
+	font-family: 'MittTypsnitt';
+	src: url('platsen den ligger på');
+}
+p{
+	font-family: MittTypsnitt;
+}</code></pre>
+				
+				<p>
+					I din url kan du antingen länka till en plats på datorn eller en plats på internet.
+				</p>
+				
+				<h4>Google Fonts</h4>
+				
+				<p>
+					Det kanske lättaste sättet att få det typsnitt man vill ha är att använda sig utav 
+					<a href="https://fonts.google.com/">fonts.google.com</a>. Där kan man välja ett 
+					typsnitt som man gillar. Där finns HTML-kod du kan kopiera in i din header och sen kan 
+					du använda det som anges på hemsidan.
+				</p>
+				
+				<p style="font-family: Texturina">
+					Här är ett exempel du nog inte har på din dator men 
+					som vi kan ladda hem från Google när sidan laddas.
+				</p>
+			
+			</section>
+			
+			<section id="teckenstorlek">
+				
+				<h3>Teckenstorlek</h3>
+				
+				<p>
+					Man brukar mäta teckenstorleken på tre olika sätt:
+				</p>
+				
+				<ol>
+					<li>Pixlar, px</li>
+					<li>Procent, %</li>
+					<li>Em</li>
+				</ol>
+				
+				<p>
+					Standardstorleken för typsnitt i webbläsaren brukar vara 16&nbsp;px vilket då motsvarar 
+					100&nbsp;% och 1&nbsp;em.
+				</p>
+				
+				<p>
+					För att bestämma teckenstorleken skriver du så här i din CSS-kod:
+				</p>
+				
+				<pre><code>p{
+	font-size: 12px;
+}
+				</code></pre>
+				
+				<p style="font-size: 12px">
+					Den här texten är skriven i 12&nbsp;px. Den är tydligt mindre än 
+					den som är i 16&nbsp;px.
+				</p>
+				
+				<h4>px</h4>
+				
+				<p>
+					I skrivprogram brukar man kunna välja teckenstorlek i punkter. Lite slarvigt har man 
+					tidigare kunnat säga att en punkt är ungefär lika stor som en pixel. Nu när skärmar har 
+					blivit pixel-tätare så kan man inte längre uttrycka sig på det viset. Punkt-storlekarna 
+					kommer från när tryckpressarna uppfanns på 1400-talet och lever kvar idag.
+				</p>
+				
+				<p>
+					Eftersom vi inte vet hur stor en pixel på en skärm är så vet vi inte hur många det går 
+					på en punkt, därför har man frikopplat det och mäter teckenstorleken i antal pixlar. Så 
+					om teckenstorleken är 16&nbsp;px så är avståndet mellan <i>cap height</i> och 
+					<i>baseline</i> 16&nbsp;px.
+				</p>
+				
+				<h4>procent</h4>
+				
+				<p>
+					Om du anger teckenstorleken i procent så utgår du från standardstorleken på 16&nbsp;px.
+					Så om du anger att något ska vara dubbelt så stort: <span style="font-size:200%">så här typ</span>,
+					så skriver du:
+				</p>
+				
+				<pre><code>p{
+	font-size: 200%;
+}</code></pre>
+				
+				<h4>em</h4>
+				
+				<p>
+					En em är oftast lika med bredden på stora bokstaven M. Det vanligt att mäta i em:s när 
+					man jobbar i typsättningsprogrammet LaTeX.
+				</p>
+				
+				<pre><code>p{
+	font-size: 1.5em;
+}</code></pre>
+				
+				<p style="font-size: 1.5em">
+					Den här texten är skriven i 1.5&nbsp;em vilket är samma sak som 
+					150&nbsp;% och 24&nbsp;px. I alla fall oftast. Både när man anger 
+					teckenstorlek i em och % så är det <em>relativt</em> till det 
+					element som kapslar in elementet du skriver i. Exempelvis har 
+					<span style="font-size: 1.5em">detta</span> också storleken 1.5&nbsp;em.
+					Då har vi satt 150&nbsp;% av 150&nbsp;% vilket ju faktiskt är 
+					225&nbsp;%. Fördelen med att jobba i px är att 16&nbsp;px alltid
+					är 16&nbsp;px. 
+				</p>
+				
+				
+				<h3>Standardstorlekar</h3>
+				
+				<table>
+				
+					<caption>16 pixel-skalan</caption>
+					
+					<thead>
+						<tr>
+							<th>Element</th>
+							<th>Pixlar</th>
+							<th>Procent</th>
+							<th>Em</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>h1</td>
+							<td>32 px</td>
+							<td>200 %</td>
+							<td>2 em</td>
+						</tr>
+						<tr>
+							<td>h2</td>
+							<td>24 px</td>
+							<td>150 %</td>
+							<td>1.5 em</td>
+						</tr>
+						<tr>
+							<td>h3</td>
+							<td>18 px</td>
+							<td>133 %</td>
+							<td>1.125 em</td>
+						</tr>
+						<tr>
+							<td>body</td>
+							<td>16 px</td>
+							<td>100 %</td>
+							<td>1 em</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</section>
+		
+		</article>
+	
+		<article class="main-matter">
+		
+			<h2 id="uppgifter">Övningar</h2>
+			
+			<p>
+				Jobba vidare med din hemsida med den fiktiva föreningen.
+			</p>
+			
+			<ol>
+				<li>Ha ett fantasy-typsnitt på rubriken till föreningen</li>
+				<li>Gör huvudrubriken 5 gånger så stor som vanlig text.</li>
+				<li>Ha ett sans-serif-typsnitt på övriga rubriker</li>
+				<li>Ha ett annat än standard-typsnittet på brödtexten</li>
+				<li>Lägg till en länk till en wikipedia-sida som är relevant för föreningen.</li>
+				<li>Gör alla länkar på sidan till storleken 0.75&nbsp;em.</li>
+				<li>Hitta två olika typsnitt från varje kategori på 
+					<a href="https://fonts.google.com/">Googles typsnittssida</a> 
+					som du tycker är användbara.</li>
+				<li>Gör så att varje nivå av rubrik har olika färger.</li>
+				<li>Gå in på HTML-validatorn <a href="https://validator.w3.org/#validate_by_upload" target="_blank">https://validator.w3.org/</a> och kontrollera att din hemsida är korrekt.</li>
+			</ol>
+		
+		</article>
+		
+		<article>
+			
+			<section id="dekorering">
+			
+				<h2>Textdekorering</h2>
+				
+				<p>
+					Vi har tidigare kollat på HTML-kommandon som ändrar textens utseende:
+				</p>
+				
+				<table>
+					<thead>
+						<caption>HTML-kommandon</caption>
+						<tr>
+							<th>Kommando</th>
+							<th>Effekt</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>&lt;b&gt;</td>
+							<td><b>fetstilt (Bold)</b></td>
+						</tr>
+						<tr>
+							<td>&lt;i&gt;</td>
+							<td><i>kursivt (Italics)</i></td>
+						</tr>
+						<tr>
+							<td>&lt;s&gt;</td>
+							<td><s>Struket</s></td>
+						</tr>
+						<tr>
+							<td>&lt;u&gt;</td>
+							<td><u>Understruket</u></td>
+						</tr>
+						<tr>
+							<td>&lt;sup&gt;</td>
+							<td><sup>upphöjt (SUPer script)</sup></td>
+						</tr>
+						<tr>
+							<td>&lt;sub&gt;</td>
+							<td><sub>nedsänkt (SUB script)</sub></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p>
+					Idag ska vi kolla på hur vi kan göra samma sak med CSS-kod.
+				</p>
+				
+				<h4>Fetstilt</h4>
+				
+				<p>
+					Om man vill göra sin text <span style="font-weight:bold">fetstilt</span> med CSS 
+					skriver vi så här:
+				</p>
+				
+				<pre><code>p{ /* Stycken */
+	font-weight: bold; /* Fetstilt */
+}
+a{ /* Länkar */
+	font-weight: normal /* Normalt */
+}</code></pre>
+				
+				<h5>Diskussionspunkt</h5>
+
+				<p>
+					Varför kan man tänka sig behöva "normal" <code>font-weight</code>?
+				</p>
+				<!-- Om man har en övergripande regel som gör det fetstilt, men sen vill ha det normalt i ett specifikt fall -->
+				
+				
+				<h4>Kursivt</h4>
+				
+				<p>
+					Om du vill göra din text <span style="font-style: italic">kursiv</span> eller 
+					<span style="font-style: oblique">sned</span> med CSS:
+				</p>
+				
+				<pre><code>p{
+	font-style: italic;
+}
+a{
+	font-style: oblique;
+}</code></pre>
+				
+				<p>
+					Vill man återställa från kursivt till normalt så kan man ange 
+					<code>font-style: normal;</code>
+				</p>
+				
+				<h4>Understruket</h4>
+				
+				<p>
+					Här kommer koden för att <span style="text-decoration: underline">
+					stryka under</span> text med CSS:
+				</p>
+				
+				<pre><code>p{
+	text-decoration: underline;
+}</code></pre>
+				
+				<h4>Genomstruket</h4>
+				
+				<p>
+					Här kommer koden för att 
+					<span style="text-decoration: line-through">stryka genom</span> 
+					text med CSS:
+				</p>
+				
+				<pre><code>	p{
+	text-decoration: line-through;
+}</code></pre>
+				
+				<h4>Överstruket</h4>
+				
+				<p>
+					Här kommer koden för att 
+					<span style="text-decoration: overline">stryka ovanför</span> 
+					text med CSS:
+				</p>
+				
+				<pre><code>p{
+	text-decoration: overline;
+}</code></pre>
+				
+				<h4>Superscript</h4>
+				
+				<p>
+					Här kommer koden för att 
+					<span style="vertical-align: super">höja upp</span> 
+					text med CSS:
+				</p>
+				
+				<pre><code>p{
+	vertical-align: super;
+}</code></pre>
+				
+				<h4>Subscript</h4>
+				
+				<p>
+					Här kommer koden för att 
+					<span style="vertical-align: sub">sänka ner</span> 
+					text med CSS:</p>
+				
+				<pre><code>p{
+	vertical-align: sub;
+}
+</code></pre>
+				
+			</section>
+			
+			<section id="nydekor">
+				
+				<h3>Ny dekorering</h3>
+				
+				<p>
+					Med hjälp av CSS kan vi förändra vår text ytterliggare än vad vi kunnat tidigare med HTML.
+				</p>
+				
+				<h4>Transformering</h4>
+				
+				<p>
+					Genom kommandot <code>text-transform</code> så kan vi göra om 
+					text till stora eller små bokstäver:
+				</p>
+				
+				<h5 style="text-transform: uppercase">Uppercase</h5>
+				
+				<p>
+					Här kommer koden för att 
+					<span style="text-transform: uppercase">göra alla bokstäver till versaler</span>
+					med CSS:
+				</p>
+				
+				<pre><code>p{
+	text-transform: uppercase;
+}</code></pre>
+				
+				<h5 style="text-transform: lowercase">Lowercase</h5>
+				
+				<p>
+					Här kommer koden för att 
+					<span style="text-transform: lowercase">göra alla bokstäver till gemener</span>
+					med CSS:
+				</p>
+				
+				<pre><code>p{
+	text-transform: lowercase;
+}</code></pre>
+				
+				<h5 style="text-transform: capitalize">Capitalize</h5>
+				
+				<p>
+					Här kommer koden för att 
+					<span style="text-transform: capitalize">göra första bokstaven till versal</span>
+					med CSS:
+				</p>
+				
+				<pre><code>p{
+	text-transform: capitalize;
+}</code></pre>
+				
+			</section>
+			
+			<section id="avstånd">
+				
+				<h3>Avstånd</h3>
+				
+				<h4>Radavstånd</h4>
+				
+				<p id="test" style="line-height: 1.4em">
+					Era svenskalärare har genom tiderna tjatat om att ni ska ha 1.5 i radavstånd.
+					När man väljer radavstånd så är det bra att välja ett avstånd som är större än avståndet mellan orden i 
+					texten. Detta för att det hjälper ögat att följa texten vågrätt istället för lodrätt. Det här stycket 
+					är skrivet med radhöjden 1.4em. Radavstånd rekommenderas att mätas i em istället för px.
+				</p>
+				
+				<pre><code>p{
+	line-height: 1.4em;
+}</code></pre>
+				
+				<h4>Mellan ord</h4>
+				
+				<p style="word-spacing: 0.5em">
+					Den här texten har avståndet 0.5em mellan alla ord, standard är 0.25em.
+				</p>
+				
+				<pre><code>p{
+	word-spacing: 0.5em;
+}</code></pre>
+				
+				<h4>Mellan tecken</h4>
+				
+				<p style="letter-spacing: 0.2em">
+					Den här texten har avståndet 0.2em mellan varje tecken, standarden är ännu lägre.
+				</p>
+				
+				<pre><code>p{
+	letter-spacing: 0.1em;
+}</code></pre>
+				
+				<h4>Alignment</h4>
+				
+				<p style="text-align: justify">
+					Detta har inget med Dungeons and Dragons att göra, utan handlar istället om hur 
+					texten fyller sidan. Det finns fyra alternativ:
+				</p>
+				
+				<ol>
+					<li style="text-align: left"><code>left</code>, som vänsterjusterar (standard)</li>
+					<li style="text-align: right"><code>right</code> som högerjusterar</li>
+					<li style="text-align: center"><code>center</code>, som centrerar</li>
+					<li style="text-align: justify"><code>justify</code>, som alltid börjar längst till vänster och sluter längst till höger (om det når så långt)</li>
+				</ol>
+				
+				<pre><code>p{
+	text-align: justify;
+}</code></pre>
+				
+				<h4>
+			
+			</section>
+			
+		</article>
+		
+		<article class="main-matter">
+		
+			<section id="uppgifter2">
+			
+				<h2>Övningar 2</h2>
+			
+				<p>
+					Fortsätt med din sida om din fiktiva förening.
+				</p>
+				
+				<ol>
+					<li>Gör all text högerjusterad</li>
+					<li>Gör h1-rubriken centrerad</li>
+					<li>Ändra radhöjden till 1.5em på texten</li>
+					<li>Fyll på med mer text om din fiktiva förening. Vilka är medlemmar i den? (Detta är inte GDPR-säkert längre)</li>
+					<ul>
+						<li>Följande två övnignar kräver att du använder id. Sätt ett id på 
+							stycket du vill ändra, och skriv <code>#ditt-id{din CSS-kod}</code> i <code>&lt;style&gt;</code></li>
+					</ul>
+					<li>Gör ett stycke med annorlunda avstånd mellan orden.</li>
+					<li>Gör ett annat stycke med annorlunda avstånd mellan tecken.</li>
+					<li>Alla rubriker ska vara med bara VERSALER! (använd CSS för att lösa detta)</li>
+					<li>Gör h2-rubriker kursiva</li>
+				</ol>
+			
+			</section>
+		
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2024&ndash;11&ndash;18
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<title>Webbutveckling</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		
+		<!-- Detta gör att visad kod ska bli snyggare -->
+		<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+		<script src="highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	
+		<script src="script/showHideMenu.js"></script>
+		<script src="script/prettier-page.js"></script>
+		
+	</head>
+
+	<body>
+		
+		<header>
+
+			<div>
+				<!-- This is one part -->
+				<figure>
+					<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+				</figure>
+
+				<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+				
+				<figure class="flex-push">
+					<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+				</figure>
+
+			</div>
+			
+			<!-- This is a new part -->
+			<nav>
+				<button id="html-head">HTML</button>
+				<button id="css-head">CSS</button>
+				<button id="js-head">JavaScript</button>
+			</nav>
+
+			<nav id="html-nav">
+				<a href="html-1-first-lesson.html">Kom igång</a>
+				<a href="html-2-internet.html">Inter&shy;net</a>
+				<a href="html-3-text.html">Text</a>
+				<a href="html-4-listor.html">Listor</a>
+				<a href="html-5-lankar.html">Länkar</a>
+				<a href="html-6-bilder.html">Bilder</a>
+				<a href="html-7-tabeller.html">Tabell&shy;er</a>
+				<a href="html-8-formular.html">Formulär</a>
+				<a href="html-9-ljud-video.html">Ljud och video</a>
+			</nav>
+
+			<nav id="css-nav">
+				<a href="css-1-farger.html">Färger</a>
+				<a href="css-2-text.html">Text</a>
+				<a href="css-3-klasser-id.html">Klasser och ID</a>
+				<a href="css-4-margin-padding-border.html">Marginaler</a>
+				<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+				<a href="css-6-positionering.html">Position&shy;ering</a>
+				<a href="css-7-grid-flex.html">Grid och flex</a>
+				<a href="css-8-bilder.html">Bilder</a>
+				<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+			</nav>
+
+			<nav id="js-nav">
+				<a href="js-1-start.html">Start</a>
+				<a href="js-2-if.html">If-satser</a>
+				<a href="js-3-loopar.html">Loopar</a>
+				<a href="js-4-dom.html">DOM</a>
+			</nav>
+
+		</header>
+		
+		<aside class="side">
+
+			<section id="sammanfattning">
+
+				<h2>Om mig</h2>
+
+				<p>
+					Jag har arbetat som lärare sedan 2013 och innan dess programmerade jag telefoner.
+					Ämnena jag undervisar i är matematik, programmering och historia.
+					Detta är första gången jag undervisar i webutveckling. Materialet på dessa sidor
+					är från början utvecklat av Calle Ketola som arbetade här tidigare.
+				</p>
+				
+				<p>
+					På fritiden spelar jag brädspel, är med familjen och vandrar i skogen. Jag lyssnar 
+					på poddar och ljudböcker. Min superkraft är att jag saknar luktsinne.<br>
+					Bästa datorspel: Civilisation 6<br>
+					Bästa bok: Expeditionen en kärlekshistoria<br>
+					Bästa podd: The rest is history	<br>
+				</p>
+				
+				<p>
+					
+				</p>
+
+			</section>
+
+		</aside>
+			
+		<main>
+			
+			<article>
+
+				<h2>Sidans syfte</h2>
+			
+				<p>
+					Den här sidan är tänk som en navigations-sida till innehållet i kursen 
+					webbutveckling. Det och en kort kort introduktion till kursen.
+				</p>
+
+			</article>
+			
+			<article>
+
+				<h2>Kursens innehåll</h2>
+				
+				<p>
+					Följande citat är saxat från Skoverkets hemsida:
+				</p>
+				
+				<blockquote cite="Skolverket"
+					src="https://www.skolverket.se/undervisning/gymnasieskolan/laroplan-program-och-amnen-i-gymnasieskolan/gymnasieprogrammen/amne?url=1530314731%2Fsyllabuscw%2Fjsp%2Fsubject.htm%3FsubjectCode%3DWEU%26lang%3Dsv%26tos%3Dgy%26p%3Dp&sv.url=12.5dfee44715d35a5cdfa92a3">
+					Ämnet webbutveckling behandlar de tekniker som används för att presentera 
+					och bearbeta information i webbläsaren samt utifrån dessa tekniker skapa 
+					och vidareutveckla statiska och dynamiska webbsidor, webbplatser eller 
+					webbapplikationer.
+				</blockquote>
+				
+				<p>
+					Huvudsyftet med ämnet är alltså att presentera information på webben. 
+					Vill man läsa mer kan man göra det på 
+					<a href="https://www.skolverket.se/undervisning/gymnasieskolan/laroplan-program-och-amnen-i-gymnasieskolan/gymnasieprogrammen/amne?url=1530314731%2Fsyllabuscw%2Fjsp%2Fsubject.htm%3FsubjectCode%3DWEU%26lang%3Dsv%26tos%3Dgy%26p%3Dp&sv.url=12.5dfee44715d35a5cdfa92a3">Skolverkets hemsida</a>.
+					Vi kommer att lägga ett stort fokus på webbsidor, vilket är det som bygger 
+					upp webbplatser.
+				</p>
+				
+				<p>
+					Vi lägger mycket fokus på <em>HTML</em> och <em>CSS</em> &mdash; de två 
+					språk som används för att skapa de flesta sidorna på webben. En bit in på 
+					kursen börjar vi kolla på <em>JavaScript</em> för att göra dynamiska 
+					webbsidor.
+				</p>
+
+			</article>
+			
+			<article>
+
+				<h2>Verktyg</h2>
+				
+				<p>
+					Vi kommer att använda oss utav boken <em>HTML &amp; CSS: Design and Build 
+					websites</em> av 
+					<a href="https://www.goodreads.com/author/show/135171.Jon_Duckett">Jon 
+					Duckett</a>. Boken är på engelska vilket är ett medvetet val från min sida. 
+					När man ska jobba med nästan vad som helst inom datorvärlden så är det 
+					mesta av materialet på engelska. Genom att ha en kursbok på engelska och 
+					genomgångar på svenska så kan man lättare använda internet som resurs för 
+					att ta sig vidare.
+				</p>
+				
+				<!--
+				<p> 
+					I mina genomgångar kommer jag att använda programmet <i>Notepad++</i>, som 
+					är helt gratis att använda, för att skriva min kod. Du kan ladda ner det 
+					<a href="https://notepad-plus-plus.org/downloads/">här</a>.
+				</p>
+				-->
+				<p> 
+					I mina genomgångar kommer jag att använda programmet <i>Notepad++</i>, som 
+					är helt gratis att använda, för att skriva min kod. Du kan ladda 
+					ner det <a href="https://notepad-plus-plus.org/downloads/">här</a>. Vill man 
+					så kan man använda något annat program.
+				</p>
+				
+				<p>
+					I övrigt kommer vi att göra våra webbsidor lokalt på datorn till en början 
+					(jag hoppas på att vi får tillgång till en server av kommunen för att 
+					publicera våra sidor framgent). Annars kommer vi att använda XAMPP som kan 
+					simulera en nätverksplats. XAMPP kan man ladda ner 
+					<a href="https://www.apachefriends.org/index.html">här</a>.
+				</p>
+			
+			</article>
+			
+			<article>
+
+				<h2>Kontakt</h2>
+				
+				<p>
+					Vill man nå mig så gör man det lättast via epost: 
+					<a href="mailto:karl.stengard@lund.se">karl.stengard@lund.se</a>
+				</p>
+			
+			</article>
+		
+		</main>
+
+		<footer>
+
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+					alt="Lunds kommuns logotyp"/>
+			</figure>
+
+			<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+				Skapad av Calle Ketola<br>
+				Uppdaterad av Karl Stengård<br>
+				Hedda Anderssongymnasiet<br>
+				Svanevägen 17<br>
+				222 29 Lund
+			</address>
+	
+			<p>
+				Senast uppdaterad: 2024&ndash;08&ndash;21
+			</p>
+
+		</footer>
+
+		<script>
+			document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+			document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+			document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+			HilightActivePageLink();
+
+			(function(){
+				HilightActiveSectionLink()
+				setTimeout(arguments.callee, 100);
+			})();
+		</script>
+		
+	</body>
+
+</html>

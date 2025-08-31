@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>HTML 7 - Tabeller</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+
+	<aside>
+
+		<h2>Sammanfattning</h2>
+		
+		<nav class="content">
+			<a href="#start">Start</a>
+			<a href="#skapa">Skapa en tabell</a>
+			<a href="#th">Rubriker</a>
+			<a href="#caption">Tabelltitel</a>
+			<a href="#semantik">Semantik</a>
+			<a href="#span">Sammanslagna celler</a>
+			<a href="#uppgifter">Övningar</a>
+		</nav>
+
+		<section id="sammanfattning">
+			
+			<p>
+				Tabeller är utmärkta för att presentera viss sorts information. Till 
+				exempel sportresultat och tid<b>tabeller</b>.
+			</p>
+			
+			<p>
+				Tabeller ska absolut inte användas för att designa sin hemsida och få 
+				saker att ligga där man vill. Gör man det gör man fel. Det är sånt vi 
+				ska lösa med <abbr title="Cascading Style Sheets">CSS</abbr>.
+			</p>
+			
+			<dl>
+				<dt><code>&lt;table&gt;</code></dt>
+				<dd>tabell-elementet</dd>
+				<dt><code>&lt;tr&gt;</code></dt>
+				<dd>"table-row" skapar en tabellrad</dd>
+				<dt><code>&lt;td&gt;</code></dt>
+				<dd>"table-data" innehållet i en cell</dd>
+				<dt><code>&lt;th&gt;</code></dt>
+				<dd>"table-heading" rubrik</dd>
+				<dt>scope</dt>
+				<dd>"row" eller "col" beroende på vad rubriken tillhör</dd>
+				<dt><code>&lt;thead&gt;</code></dt>
+				<dd>Lite som tabellens egen &lt;head&gt; här sätter man 
+				rubriker och dylikt</dd>
+				<dt><code>&lt;tbody&gt;</code></dt>
+				<dd>Tabellens <code>&lt;body&gt;</code> här ska innhållet in.</dd>
+				<dt><code>&lt;tfoot&gt;</code></dt>
+				<dd>Botten på tabellen.</dd>
+				<dt><code>&lt;caption&gt;</code></dt>
+				<dd>Tabellens rubrik</dd>
+				<dt>colspan</dt>
+				<dd>Hur många kolumner cellen ska sträcka sig över</dd>
+				<dt>rowspan</dt>
+				<dd>Hur många rader cellen ska sträcka sig över</dd>
+			</dl>
+
+		</section>
+		
+	</aside>
+
+	<main>
+				
+		<article id="start">
+		
+			<h2>Tabeller på webben</h2>
+			
+			<p>
+				Tabeller är fruktansvärt bra sätt att presentera information på, särskilt 
+				information i sifferform och när den beror på två saker. Typ en tidtabell 
+				där det beror på dag och tid.
+			</p>
+			
+			<table>
+
+				<caption>Mitt schema</caption>
+				<thead>
+					<tr>
+						<th></th>
+						<th scope="col">Måndag</th>
+						<th scope="col">Tisdag</th>
+						<th scope="col">Onsdag</th>
+						<th scope="col">Torsdag</th>
+						<th scope="col">Fredag</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">08</th>
+						<td>Web</td>
+						<td>Pro</td>
+						<td>Möte</td>
+						<td>Web</td>
+						<td>Ledig</td>
+					</tr>
+					<tr>
+						<th scope="row">09</th>
+						<td>Web</td>
+						<td>Pro/Mat</td>
+						<td>Möte/Pro</td>
+						<td>Web/Mat</td>
+						<td>Mat</td>
+					</tr>
+					<tr>
+						<th scope="row">10</th>
+						<td>Planera</td>
+						<td>Mat</td>
+						<td>Mat</td>
+						<td>Mat</td>
+						<td>Mat</td>
+					</tr>
+					<tr>
+						<th scope="row">11</th>
+						<td>Mat</td>
+						<td>Web</td>
+						<td>Lunch</td>
+						<td>Lunch</td>
+						<td>Lunch</td>
+					</tr>
+					<tr>
+						<th scope="row">12</th>
+						<td>Mat/Lunch</td>
+						<td>Web</td>
+						<td>Planera</td>
+						<td>Planera</td>
+						<td>Planera</td>
+					</tr>
+					<tr>
+						<th scope="row">13</th>
+						<td>Planera</td>
+						<td>Ledig</td>
+						<td>Planera</td>
+						<td>Planera</td>
+						<td>Planera/Pro</td>
+					</tr>
+					<tr>
+						<th scope="row">14</th>
+						<td>Planera</td>
+						<td>Ledig</td>
+						<td>Planera</td>
+						<td>Planera</td>
+						<td>Pro</td>
+					</tr>
+					<tr>
+						<th scope="row">15</th>
+						<td>Möte</td>
+						<td>Ledig</td>
+						<td>Web</td>
+						<td>Pro</td>
+						<td>Ledig</td>
+					</tr>
+					<tr>
+						<th scope="row">16</th>
+						<td>Möte</td>
+						<td>Ledig</td>
+						<td>Web</td>
+						<td>Pro</td>
+						<td>Ledig</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<p>
+				Eller en resultattabell:
+			</p>
+			
+			<table>
+				<caption>Tärningskast</caption>
+				<thead>
+					<tr>
+						<th scope="col">Siffra</th>
+						<th scope="col">100</th>
+						<th scope="col">1 000</th>
+						<th scope="col">1 000 000</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>15</td>
+						<td>171</td>
+						<td>166096</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>20</td>
+						<td>176</td>
+						<td>166474</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>13</td>
+						<td>176</td>
+						<td>167309</td>
+					</tr>
+					<tr>
+						<th scope="row">4</th>
+						<td>21</td>
+						<td>176</td>
+						<td>167289</td>
+					</tr>
+					<tr>
+						<th scope="row">5</th>
+						<td>16</td>
+						<td>176</td>
+						<td>166528</td>
+					</tr>
+					<tr>
+						<th scope="row">6</th>
+						<td>15</td>
+						<td>176</td>
+						<td>166314</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h3 id="skapa">
+				Skapa en tabell
+			</h3>
+			
+			<p>
+				En tabell innehåller ett antal rader och ett antal kolumner. Rader är 
+				horizontella och kolumner är vertikala. Varje ruta i en tabell kallas 
+				för <i>cell</i>. Så en tabell med 3 rader och 4 kolumner har som regel 
+				3&times;4=12 celler.
+			</p>
+			
+			<p>
+				När du skapar en tabell så börjar du som med allt annat i HTML att du 
+				öppnar och stänger elementet:
+			</p>
+			
+			<pre><code>&lt;table&gt;
+	
+&lt;/table&gt;</code></pre>
+				
+			<p>
+				Sen skapar du en tabell i HTML rad för rad med elementet: <code>&lt;tr&gt;</code> som 
+				står för "<i>table row</i>".
+			</p>
+			
+			<pre><code>&lt;table&gt;
+	&lt;tr&gt;
+	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+	
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- En tabell med tre rader --&gt;</code></pre> <!-- test -->
+				
+			<p>
+				Nu har du en tom tabell med tre rader. För att fylla dem med innehåll så 
+				skapar du inte en hög med kolumner, utan istället skapar du celler till 
+				raderna. Du skapar en cell med elementet <code>&lt;td&gt;</code> som står 
+				för "<i>table data</i>".
+			</p>
+			
+			<pre><code>&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- En tabell med tre rader och fyra kolumner--&gt;</code></pre>
+				
+			<p>
+				Nu när du har skapat tabellen så kan du fylla den med data genom att 
+				skriva text mellan varje <code>&lt;td&gt;</code> och 
+				<code>&lt;/td&gt;</code>-par.
+			</p>
+			
+			<pre><code>&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Ryssland&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;
+		&lt;td&gt;Österrike&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- En tabell över topp tre i de fyra senaste olympiska vinterspelen--&gt;</code></pre>
+				
+			<table>
+				<tr>
+					<td>Norge</td>
+					<td>Ryssland</td>
+					<td>Kanada</td>
+					<td>Tyskland</td>
+				</tr>
+				<tr>
+					<td>Tyskland</td>
+					<td>Norge</td>
+					<td>Tyskland</td>
+					<td>USA</td>	
+				</tr>
+				<tr>
+					<td>Kanada</td>
+					<td>Kanada</td>
+					<td>USA</td>
+					<td>Österrike</td>
+				</tr>
+			</table>
+			
+			<h3 id="th">Rubriker</h3>
+			
+			<p>
+				En tabell är dock väldigt svårläst utan rubriker. För att skapa en rubrik 
+				så använder du elementet <code>&lt;th&gt;</code>. För att få in rubriker över 
+				kolumnerna korrekt behöver du lägga dem på en egen rad med <code>&lt;tr&gt;</code>. För 
+				att få in dem rätt bredvid raderna så lägger du till dem som om de vore en 
+				ny cell.
+			</p>
+			
+			<pre><code>&lt;table&gt;
+	<b>&lt;tr&gt; &lt;!-- Den nya raden med rubriker--&gt;
+		&lt;th scope="col"&gt;2018&lt;/th&gt;
+		&lt;th scope="col"&gt;2014&lt;/th&gt;
+		&lt;th scope="col"&gt;2010&lt;/th&gt;
+		&lt;th scope="col"&gt;2006&lt;/th&gt;
+	&lt;/tr&gt;</b>
+	&lt;tr&gt;
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Ryssland&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;
+		&lt;td&gt;Österrike&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- En tabell över topp tre i de fyra senaste olympiska vinterspelen--&gt;</code></pre>
+				
+			<table>
+				<tr> <!-- Den nya raden med rubriker-->
+					<th scope="col">2018</th>
+					<th scope="col">2014</th>
+					<th scope="col">2010</th>
+					<th scope="col">2006</th>
+				</tr>
+				<tr>
+					<td>Norge</td>
+					<td>Ryssland</td>
+					<td>Kanada</td>
+					<td>Tyskland</td>
+				</tr>
+				<tr>
+					<td>Tyskland</td>
+					<td>Norge</td>
+					<td>Tyskland</td>
+					<td>USA</td>	
+				</tr>
+				<tr>
+					<td>Kanada</td>
+					<td>Kanada</td>
+					<td>USA</td>
+					<td>Österrike</td>
+				</tr>
+			</table>
+				
+			<h4>scope</h4>
+			
+			<p>
+				Notera att du bör skriva om rubriken sitter över en kolumn eller vid en 
+				rad med attributet <i>scope</i>.
+			</p>
+			
+			<pre><code>&lt;table&gt;
+	&lt;tr&gt;
+		
+		&lt;th scope="col"&gt;2018&lt;/th&gt;
+		&lt;th scope="col"&gt;2014&lt;/th&gt;
+		&lt;th scope="col"&gt;2010&lt;/th&gt;
+		&lt;th scope="col"&gt;2006&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		<b>&lt;th scope="row"&gt;1&lt;/th&gt; &lt;!--Rubrik för raden--&gt;</b>
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Ryssland&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		<b>&lt;th scope="row"&gt;2&lt;/th&gt; &lt;!--Rubrik för raden--&gt;</b>
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		<b>&lt;th scope="row"&gt;3&lt;/th&gt; &lt;!--Rubrik för raden--&gt;</b>
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;
+		&lt;td&gt;Österrike&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- En tabell över topp tre i de fyra senaste olympiska vinterspelen--&gt;</code></pre>
+				
+			<table>
+				<tr>
+					
+					<th scope="col">2018</th>
+					<th scope="col">2014</th>
+					<th scope="col">2010</th>
+					<th scope="col">2006</th>
+				</tr>
+				<tr>
+					<th scope="row">1</th> <!--Rubrik för raden-->
+					<td>Norge</td>
+					<td>Ryssland</td>
+					<td>Kanada</td>
+					<td>Tyskland</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th> <!--Rubrik för raden-->
+					<td>Tyskland</td>
+					<td>Norge</td>
+					<td>Tyskland</td>
+					<td>USA</td>	
+				</tr>
+				<tr>
+					<th scope="row">3</th> <!--Rubrik för raden-->
+					<td>Kanada</td>
+					<td>Kanada</td>
+					<td>USA</td>
+					<td>Österrike</td>
+				</tr>
+			</table>
+
+			<p>
+				Nu när du har lagt till en rubrik på varje rad så har vi i praktiken 5 
+				kolumner. Då behöver vi justera antalet celler i den översta raden och 
+				lägga till en rubrik för kolumnen med rad-rubriker.
+			</p>
+
+			<pre><code>&lt;table&gt;
+	&lt;tr&gt;
+		<b>&lt;th scope="col"&gt;Placering&lt;/th&gt;</b>
+		&lt;th scope="col"&gt;2018&lt;/th&gt;
+		&lt;th scope="col"&gt;2014&lt;/th&gt;
+		&lt;th scope="col"&gt;2010&lt;/th&gt;
+		&lt;th scope="col"&gt;2006&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;1&lt;/th&gt; 
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Ryssland&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;2&lt;/th&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;3&lt;/th&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;
+		&lt;td&gt;Österrike&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- En tabell över topp tre i de fyra senaste olympiska vinterspelen--&gt;</code></pre>
+				
+			<table>
+				<tr>
+					<th scope="col">Placering</th>
+					<th scope="col">2018</th>
+					<th scope="col">2014</th>
+					<th scope="col">2010</th>
+					<th scope="col">2006</th>
+				</tr>
+				<tr>
+					<th scope="row">1</th> 
+					<td>Norge</td>
+					<td>Ryssland</td>
+					<td>Kanada</td>
+					<td>Tyskland</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Tyskland</td>
+					<td>Norge</td>
+					<td>Tyskland</td>
+					<td>USA</td>	
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td>Kanada</td>
+					<td>Kanada</td>
+					<td>USA</td>
+					<td>Österrike</td>
+				</tr>
+			</table>
+
+			<h3 id="caption">Tabelltitel</h3>
+			
+			<p>
+				Om du vill lägga till en titel eller en <i>caption</i> på sin tabell 
+				använder du dig utav elementet <code>&lt;caption&gt;</code> inuti tabellen.
+			</p>
+		
+			<pre><code>&lt;table&gt;
+	&lt;caption&gt;Medaljplaceringar i vinter-OS&lt;/caption&gt;
+	&lt;tr&gt;
+		&lt;th scope="col"&gt;Placering&lt;/th&gt;
+		&lt;th scope="col"&gt;2018&lt;/th&gt;
+		&lt;th scope="col"&gt;2014&lt;/th&gt;
+		&lt;th scope="col"&gt;2010&lt;/th&gt;
+		&lt;th scope="col"&gt;2006&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;1&lt;/th&gt; 
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Ryssland&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;2&lt;/th&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;3&lt;/th&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;
+		&lt;td&gt;Österrike&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- En tabell över topp tre i de fyra senaste olympiska vinterspelen--&gt;</code></pre>
+				
+		<table>
+			<caption>Medaljplaceringar i vinter-OS</caption>
+			<tr>
+				<th scope="col">Placering</th>
+				<th scope="col">2018</th>
+				<th scope="col">2014</th>
+				<th scope="col">2010</th>
+				<th scope="col">2006</th>
+			</tr>
+			<tr>
+				<th scope="row">1</th> 
+				<td>Norge</td>
+				<td>Ryssland</td>
+				<td>Kanada</td>
+				<td>Tyskland</td>
+			</tr>
+			<tr>
+				<th scope="row">2</th>
+				<td>Tyskland</td>
+				<td>Norge</td>
+				<td>Tyskland</td>
+				<td>USA</td>	
+			</tr>
+			<tr>
+				<th scope="row">3</th>
+				<td>Kanada</td>
+				<td>Kanada</td>
+				<td>USA</td>
+				<td>Österrike</td>
+			</tr>
+		</table>
+			
+		<h3 id="semantik">Semantik</h3>
+		
+		<p>
+			För att hjälpa personer med skärmuppläsning så kan du använda dig utav 
+			elementen <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> samt 
+			<code>&lt;tfoot&gt;</code> för att förtydliga strukturen på din tabell.
+		</p>
+		
+		<h4>&lt;thead&gt;</h4>
+		
+		<p>
+			I det här elementet lägger du in rubriker och annan information som beskriver 
+			tabeller, lite som <code>&lt;head&gt;</code>. Det här elementet har ingen 
+			inverkan på utseendet som standard, men det kan man ändra på med CSS.
+		</p>
+			
+		<pre><code>&lt;table&gt;
+	&lt;caption&gt;Medaljplaceringar i vinter-OS&lt;/caption&gt;
+	<b>&lt;thead&gt;</b>
+		&lt;tr&gt;
+			&lt;th scope="col"&gt;Placering&lt;/th&gt;
+			&lt;th scope="col"&gt;2018&lt;/th&gt;
+			&lt;th scope="col"&gt;2014&lt;/th&gt;
+			&lt;th scope="col"&gt;2010&lt;/th&gt;
+			&lt;th scope="col"&gt;2006&lt;/th&gt;
+		&lt;/tr&gt;
+	<b>&lt;/thead&gt;</b>
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;1&lt;/th&gt; 
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Ryssland&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;2&lt;/th&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;Norge&lt;/td&gt;
+		&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;	
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th scope="row"&gt;3&lt;/th&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;Kanada&lt;/td&gt;
+		&lt;td&gt;USA&lt;/td&gt;
+		&lt;td&gt;Österrike&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- En tabell över topp tre i de fyra senaste olympiska vinterspelen--&gt;</code></pre>
+				
+			<h4>&lt;tbody&gt;</h4>
+			
+			<p>
+				Precis som i <code>&lt;body&gt;</code> så är det här själva innehållet ska 
+				vara. Så all data ska in i <code>&lt;tbody&gt;</code>.
+			</p>
+			
+			<pre><code>&lt;table&gt;
+	&lt;caption&gt;Medaljplaceringar i vinter-OS&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th scope="col"&gt;Placering&lt;/th&gt;
+			&lt;th scope="col"&gt;2018&lt;/th&gt;
+			&lt;th scope="col"&gt;2014&lt;/th&gt;
+			&lt;th scope="col"&gt;2010&lt;/th&gt;
+			&lt;th scope="col"&gt;2006&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	<b>&lt;tbody&gt;</b>
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;1&lt;/th&gt; 
+			&lt;td&gt;Norge&lt;/td&gt;
+			&lt;td&gt;Ryssland&lt;/td&gt;
+			&lt;td&gt;Kanada&lt;/td&gt;
+			&lt;td&gt;Tyskland&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;2&lt;/th&gt;
+			&lt;td&gt;Tyskland&lt;/td&gt;
+			&lt;td&gt;Norge&lt;/td&gt;
+			&lt;td&gt;Tyskland&lt;/td&gt;
+			&lt;td&gt;USA&lt;/td&gt;	
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;3&lt;/th&gt;
+			&lt;td&gt;Kanada&lt;/td&gt;
+			&lt;td&gt;Kanada&lt;/td&gt;
+			&lt;td&gt;USA&lt;/td&gt;
+			&lt;td&gt;Österrike&lt;/td&gt;
+		&lt;/tr&gt;
+	<b>&lt;/tbody&gt;</b>
+&lt;/table&gt;
+&lt;!-- En tabell över topp tre i de fyra senaste olympiska vinterspelen--&gt;</code></pre>
+				
+			<h4>&lt;tfoot&gt;</h4>
+			
+			<p>
+				En footer som du kan använda om du har någon sorts avslutande information 
+				i botten av din tabell. Till exempel om du räknar ut någon summa av alla 
+				värdena ovanför.
+			</p>
+			
+			<h3 id="span">Sammanslagna celler</h3>
+			
+			<p>
+				Ibland vill du slå ihop celler så att de sträcker sig över flera rader 
+				eller kolumner. Då kan du lägga till attributen <code>colspan</code> eller 
+				<code>rowspan</code> beroende på om de ska sträcka sig över kolumner eller 
+				rader.
+			</p>
+			
+			<pre><code>&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1 cell&lt;/td&gt;
+		&lt;td colspan="2"&gt;2 cell&lt;/td&gt;
+		&lt;td rowspan="2"&gt;2 cell&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td rowspan="3"&gt;3 cell&lt;/td&gt;
+		&lt;td&gt;1 cell&lt;/td&gt;
+		&lt;td&gt;1 cell&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td rowspan="2" colspan="2"&gt;4 cell&lt;/td&gt;
+		&lt;td&gt;1 cell&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1 cell&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+				
+			<table class="bordered_table">
+				<tr>
+					<td>1 cell</td>
+					<td colspan="2">2 cell</td>
+					<td rowspan="2">2 cell</td>
+				</tr>
+				<tr>
+					<td rowspan="3">3 cell</td>
+					<td>1 cell</td>
+					<td>1 cell</td>
+				</tr>
+				<tr>
+				
+					<td rowspan="2" colspan="2">4 cell</td>
+					<td>1 cell</td>
+				</tr>
+				<tr>
+					<td>1 cell</td>
+				</tr>
+			</table>
+			
+			<p>
+				När man slår samman celler så gäller det att hålla tungan rätt i mun så 
+				att man faktiskt får rätt på antalet celler och deras placering.
+			</p>
+			
+		</article>
+
+		<article>
+		
+			<h2 id="uppgifter">Övningar</h2>
+			
+			<ol>
+				<li>
+					Ladda ner filen <i>tabell-uppgifterna.html</i> från Classroom.
+				</li>
+				<li>Skapa en tabell med fem rader och två kolumner.
+					<ol type="a">
+						<li>I första kolumnen ska du skriva efternamnet 
+						på fem i klassen.</li>
+						<li>I andra kolumnen ska du skriva deras förnamn</li>
+					</ol></li>
+				<li>Skapa en tabell med fyra rader och fyra kolumner
+					<ol type="a">
+						<li>Översta raden ska ha rubrikerna: "Hand", "Sten" "Sax" och "Påse"</li>
+						<li>Den första kolumnen ska ha samma rubriker</li>
+						<li>Fyll i tabellen så att man ser om rubriken i raden 
+						vinner över rubriken i kolumnen</li>
+						<li>CSS (frivillig): gör rutan grön om raden vinner, röd om den förlorar och svart om de är lika</li>
+					</ol>
+				</li>
+				<li>Skapa en tabell som visar den nuvarnade ställningen i 
+				<a href="https://www.shl.se/" title="Svenska Hockey Ligan">SHL</a>
+					<ol type="a">
+						<li>Första kolumnen ska visa placering</li>
+						<li>Andra kolumnen ska visa lagets logga</li>
+						<li>Tredje kolumnen ska visa lagnamnet</li>
+						<li>Fjärde kolumnen ska visa spelade matcher</li>
+						<li>Femte kolumnen ska visa målstatistik (+/-)</li>
+						<li>Sjätte kolumnen ska visa poängen</li>
+						<li>Tabellen ska ha titeln "SHL ställningen 2023&ndash;09&ndash;19"</li>
+						<li>CSS (frivillig): gör färgen på ditt favoritlag grönt</li>
+					</ol>
+				</li>
+				<li>Gör en tabell som ser ut exakt så här: <br/> <img src="../Material/html/tabeller.PNG" alt="En bild med en knasig tabell"/><br/>
+				Använd den tabell som jag skapat som grund så får du med kanterna.</li>
+			</ol>
+		
+		</article>
+
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;09&ndash;15
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

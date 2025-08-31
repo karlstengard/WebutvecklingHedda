@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+	<meta charset="utf-8" />
+	<title>CSS 4 - Marginaler</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+	<style>
+		#lådex{
+			background-color : silver;
+			width : 300px;
+		}
+		#lådex p{
+			width : 50%;
+			text-decoration : none;
+			background-color: red;
+			padding: 25px;
+			border: 3px solid blue;
+			margin : 50px;
+		}
+
+		pre code{
+			display: block;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+
+	<aside>
+
+		<nav>
+			<a href="#start">Lådor</a>
+			<a href="#margin">Marginaler och padding</a>
+			<a href="#kant">Kantlinjer</a>
+			<a href="#width">Bredd och höjd</a>
+			<a href="#overflow">Overflow</a>
+			<a href="#övningar">Övningar</a>
+		</nav>
+			
+		<section>
+
+			<h2>Sammanfattning</h2>
+		
+			<p>
+				Varje element omgärdas av en låda.
+			</p>
+		
+			<h3>Kod</h3>
+			
+			<dl>
+				<dt>width</dt>
+				<dd>ändrar bredden</dd>
+				<dt>height</dt>
+				<dd>Ändrar höjden</dd>
+				<dt>min-width</dt>
+				<dd>Minsta tillåtna bredd</dd>
+				<dt>max-width</dt>
+				<dd>Största tillåtna bredd</dd>
+				<dt>min-height</dt>
+				<dd>Minsta tillåtna höjd</dd>
+				<dt>max-height</dt>
+				<dd>Största möjliga höjd</dd>
+				<dt>overflow</dt>
+				<dd>Om man överfyller en låda</dd>
+				
+				<dt>border</dt>
+				<dd>Kantlinje</dd>
+				<dt>margin</dt>
+				<dd>Område utanför border</dd>
+				<dt>padding</dt>
+				<dd>Område mellan border och innehållet</dd>
+				
+				<dt>border-width</dt>
+				<dd>Tjocklek på kantlinjen</dd>
+				<dt>border-style</dt>
+				<dd>Utseendet på kantlinjen</dd>
+				<dt>border-color</dt>
+				<dd>Färgen på kantlinjen</dd>
+				<dt>border-radius</dt>
+				<dd>Hur rundad kantlinjen ska vara</dd>
+			</dl>
+		
+		</section>
+		
+	</aside>
+		
+	<main>
+	
+		<article id="start">
+		
+			<section>
+		
+				<h2>Lådor</h2>
+				
+				<p>Innan vi pratar om att positionera våra element på 
+				andra sätt än bara rakt över varandra så ska vi kolla 
+				på lådor. Varje element i HTML omgärdas av en låda som 
+				består av tre delar:</p>
+				
+				<ol>
+					<li>Margin</li>
+					<li>Border</li>
+					<li>Padding</li>
+				</ol>
+
+				<figure id="lådex">
+					<p>Text</p>
+				</figure>
+
+				<p>I lådan ovanförvisar det silvriga <i>marginalen</i>, 
+				det blåa <i>kanten</i> och det röda visar <i>paddingen</i>.</p>
+				
+			</section>
+
+			<section id="margin">
+			
+				<h3>Ändra margin och padding</h3>
+				
+				<p>Om vi vill ändra på marginalerna och paddingen så 
+				finns det lite olika sätt:</p>
+				
+				<pre><code>.enklass{
+	margin: 10px;
+	margin-left: 15px;
+	padding: 5px;
+	padding-top: 20px;
+}</code></pre>
+					
+				<p>Koden ovanför fungerar så här:</p>
+				
+				<dl>
+					<dt><code>margin : 10px</code></dt>
+					<dd>Gör marginalen runt hela elementet till 10px.</dd>
+					<dt><code>margin-left : 15px;</code></dt>
+					<dd>Gör marginalen till vänster om elementet till 15px.</dd>
+					<dt><code>padding : 5px;</code></dt>
+					<dd>Gör paddingen runt hela elementet till 5px.</dd>
+					<dt><code>padding-top</code></dt>
+					<dd>Gör paddingen ovanför elementet till 20px.</dd>
+				</dl>
+				
+				<p>
+					Självklart kan du ändra på <code>-bottom</code> och <code>-right</code> också
+				</p>
+			
+			</section>
+				
+			<section id="kant">
+			
+				<h3>Border</h3>
+				
+				<p>
+					Vill du lägga till en kantlinje runt ett element kan 
+					du skriva så här:
+				</p>
+				
+				<pre><code style="border: solid 10px green;">.enklass2{
+	border: solid;
+	border-width: 10px;
+	border-color: green;
+}</code></pre>					
+					
+				<pre><code style="border:dotted 5px;">.enklass3{
+	border: dotted;
+	border-width: 5px;
+}</code></pre>
+					
+				<pre><code style="border:double; border-radius: 20px;">.enklass4{
+	border: double;
+	border-radius: 20px;
+}</code></pre>
+
+				<pre><code style="border : dashed;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 100px;">.enklass5{
+	border: dashed;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 100px;
+}</code></pre>
+
+			</section>
+				
+			<section id="width">
+				
+				<h3>width & height</h3>
+				
+				<p>
+					Ett elements bredd beror som standard på två saker:
+				</p>
+
+				<ol>
+					<li>Storleken på objektet det ligger i</li>
+					<li>Om det är ett block- eller ett inline-element</li>
+				</ol>
+				
+				<p>
+					Ett block-element är enkelt sagt ett element som kan 
+					innehålla andra element. Exempelvis &lt;div&gt; eller &lt;p&gt;.
+					Ett inline-element innehåller däremot sällan andra element exempelvis
+					&lt;img&gt; och &lt;a&gt;. Ett inline element tar är lika brett som det man ser. Ett block-element 
+					däremot går från kant till kant.
+				</p>
+				
+				<p>
+					För att ändra på bredden på ett element så anger vi:
+				</p>
+				
+				<pre><code style="border:solid 5px; width:250px;">.enklass6{
+	border: solid 5px;
+	width: 250px;
+}</code></pre>
+					
+				<p>
+					Du kan också ange bredden som en procent av ytan den har 
+					att tillgå:
+				</p>
+				
+				<pre><code style="border:solid 5px; width:50%">.enklass7{
+	border: solid 5px;
+	width: 50%;
+}</code></pre>
+					
+				<p>
+					Höjden ändrar vi med height. Som standard så är höjden 
+					bara lagom för att hålla i hela elementet.
+				</p>
+					
+				<pre><code style="border:solid 5px; height:150px">.enklass8{
+	border: solid 5px;
+	height: 150px;
+}</code></pre>
+				
+			</section>
+				
+			<section id="overflow">
+
+				<h3>Overflow</h3>
+					
+				<p>
+					Om man råkar överfylla en låda, eller om man medvetet gör lådan 
+					för liten så kan man styra vad som ska hända med kommandot overflow.
+				</p>
+				
+					
+				<pre><code>.enklass9{
+	border: solid 5px;
+	height: 100px;
+	width: 100px; 
+}</code></pre>
+					
+				<p style="border:  solid 5px; height:100px; width:100px; ">
+					Här har jag skrivit text som absolut inte for plats 
+					i den lilla rutan! Vad i allsin dar ska vi ta oss till?
+				</p>
+					
+				<p style="margin-top: 60px;">
+					Som vi ser så har vi fått ett overflow. Det kan vi lösa genom att ange 
+					hur overflow ska hanteras i koden:
+				</p>
+
+					
+				<pre><code>.enklass9{
+	border: solid 5px;
+	height: 100px;
+	width: 100px; 
+	overflow: hidden;
+}</code></pre>
+					
+				<p style="border:  solid 5px; height:100px; width:100px; overflow:hidden;">
+					Här har jag skrivit text som absolut inte for plats 
+					i den lilla rutan! Vad i allsin dar ska vi ta oss till?
+				</p>
+				
+				<p>
+					Med hidden så kan vi dölja det som inte får plats. Vilket inte alltid är 
+					bra.
+				</p>
+				
+				<pre><code>.enklass9{
+	border: solid 5px;
+	height: 100px;
+	width: 100px; 
+	overflow: scroll;
+}</code></pre>
+					
+				<p style="border:  solid 5px; height:100px; width:100px; overflow:scroll;">
+					Här har jag skrivit text som absolut inte for plats 
+					i den lilla rutan! Vad i allsin dar ska vi ta oss till?
+				</p>
+
+			</section>
+				
+		</article>
+		
+		<article>
+		
+			<section id="övningar">
+			
+				<h2>Övningar</h2>
+			
+				<p>
+					Gå tillbaka till Dijkstras.html
+				</p>
+				
+				<ol>
+					<li>Gör olika rutor runt de olika rubrikerna.</li>
+					<li>Gör en av rutorna till en cirkel.</li>
+					<li>Ge en av texterna en för liten ruta så att du behöver kontrollera overflow.</li>
+					<li>Alla texter ska börja minst 50px från kanten på sidan.</li>
+					<li>Rubrikerna ska ha minst 25px mellan texten och kantlinjen.</li>
+				</ol>
+			
+			</section>
+		
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+	
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+		
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+
+</body>
+
+</html>

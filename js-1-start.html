@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+	<meta charset="utf-8" />
+	<title>JS 1 - Intro</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+
+		<nav>
+			<a href="#start">Start</a>
+			<a href="#crashcourse">Om man kodat tidigare</a>
+			<a href="#newbie">Från början</a>
+			<a href="#data">Datatyper</a>
+			<a href="#ovningar">Övningar</a>
+		</nav>
+
+		<section>
+	
+			<h2>Sammanfattning</h2>
+			
+			<p>
+				På den här sidan gör vi en snabb översikt över JavaScript.
+			</p>
+		
+		</section>
+		
+	</aside>
+	
+	<main>
+	
+		<article id="start">
+		
+			<section>
+		
+				<h2>JavaScript</h2>
+				
+				<p>
+					JavaScript är ett scriptingspråk som används på hemsidor för att 
+					göra dem responsiva, dynamiska och bättre. Trots sitt namn har det 
+					ingenting att göra med språket Java. När man lägger till ett 
+					script på sin sida så gör man det i ett <code>&lt;script&gt;</code>-element:
+				</p>
+				
+				<pre><code title="HTML-kod">&lt;script&gt;	// Detta är en kommentar
+	/* 
+	Detta är en lång kommentar 
+	*/
+&lt;/script&gt;</code></pre>
+				
+			</section>
+				
+			<section id="crashcourse">
+				
+				<h3>Om man programmerat tidigare</h3>
+				
+				<p>
+					JavaScript är i mångt och mycket likt andra programmeringsspråk
+					med <code>if</code>-satser och <code>for</code>-loopar. Här kommer 
+					en snabb sammanfattning av vanliga kommandon.
+				</p>
+				
+				<h4>Datatyper</h4>
+				
+				<p>
+					JavaScript skiljer sig från C-språken med att man inte behöver 
+					deklarera datatyper. Där är JavaScript mer likt Python. Det finns 
+					däremot tre olika sätt att deklarera variabler:
+				</p>
+				
+				<pre><code>var a = 10; // Notera semikolon
+let b = 20;
+const c = 30;</code></pre>
+				
+				<h4>var</h4>
+				
+				<p>
+					Tidigare var det här det enda sättet att deklarera variabler. En 
+					<code>var</code>-variabel är kopplad till den funktion den skapades 
+					i. Detta kan leda till problem.
+				</p>
+				
+				<p>
+					En kursare som jobbar med att utveckla mjukvara berättade för mig att 
+					de undvikar <code>var</code> helt och hållet för att istället uteslutande 
+					använda <code>let</code> och <code>const</code> istället.
+				</p>
+				
+				<h4>let</h4>
+				
+				<blockquote cite="Matt Walton"> <!-- cite="https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var?page=1&tab=votes#tab-top -->
+					<a href="https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var?page=1&tab=votes#tab-top" 
+						class="citation-link"
+						target="_blank">
+						The reason why (the) <code>let</code> keyword was introduced to the language was function 
+						scope is confusing and was one of the main sources of bugs in JavaScript.
+					</a>
+				</blockquote>
+				
+				<p>
+					En <code>let</code> variabel är bara definierad inom det block där den är skapad. 
+					Detta gör att man inte får lika många problem med att variabler behåller
+					sitt värde mellan funktions-anrop.
+				</p>
+
+				<p>
+					I alla exempel i den här kursen kommer du nästan uteslutande att stöta 
+					på och uppmanas att använda <code>let</code>. De andra två sätten att 
+					deklarera variabler, <code>var</code> och <code>const</code>, omnämns 
+					för att du ska känna till dem, och i <code>var</code>s fall veta att 
+					i gammal kod så hade man inget annat alternativ. Men man kan nästan 
+					alltid ersätta <code>var</code> med <code>let</code>.
+				</p>
+				
+				<h4>const</h4>
+				
+				<p>
+					En <code>const</code> är som namnet antyder en konstant variabel, som när du har 
+					gett den ett värde kan du inte ändra på det.
+				</p>
+				
+				<h4>if-satser</h4>
+				
+				<p>
+					Det som är annorlunda med JavaScript jämfört med andra språk är att 
+					JavaScript har två olika sätt att kolla "lika med".
+				</p>
+				
+				<dl>
+					<dt><code>==</code></dt>
+					<dd>Kollar om värdet är lika, även om de är olika datatyper.
+					<dt><code>===</code></dt>
+					<dd>Kollar om värdet OCH datatypen är lika</dd>
+				</dl>
+				
+				<pre><code>if (a == 5 && b === 5.5 || c >= 3){
+	// Notera paranteser runt villkoren och måsvingar (klammerparanteser) runt blocket
+}
+else if (a == 6){
+	// Kod
+}
+else {
+	// Kod
+}</code></pre>
+				
+				
+				<h5>Villkoret</h5>
+				
+				<dl>
+					<dt>och</dt>
+					<dd><code>&&</code> betyder och</dd>
+					<dt>eller</dt>
+					<dd><code>||</code> betyder eller</dd>
+					<dt>lika med</dt>
+					<dd><code>==</code> alternativt <code>===</code> enligt ovan</dd>
+					<dt>inte lika med</dt>
+					<dd><code>!=</code> eller <code>!==</code> (som lika med)</dd>
+					<dt>större än</dt>
+					<dd><code>&gt;</code>, <code>&gt;=</code></dd>
+					<dt>mindre än</dt>
+					<dd><code>&lt;</code>, <code>&lt;=</code></dd>					
+				</dl>
+				
+				<h4>Loopar</h4>
+				
+				<h5>while-loopen</h5>
+				
+				<pre><code>while (villkor){
+	// Villkoret skrivs som i if-satser
+}</code></pre>
+				
+				<h5>for-loopen</h5>
+				
+				<pre><code>for (i=0; i&lt;10; i++){
+	// Börjar på 0 slutar på 9
+	// tar ett steg 
+}</code></pre>
+			
+				<p>
+					Formatet är (start; slut; steg;).
+				</p>
+				
+				<h4>Funktioner</h4>
+				
+				<pre><code>function foo(x,y,z){
+	// DO STUFF
+	return x*y*z; // Produkten av x, y och z
+}</code></pre>
+				
+			</section>
+			
+		</article>
+
+		<article id="newbie">
+			
+			<h3>Från början</h3>
+			
+			<p>
+				Med JavaScript kan vi ändra på olika delar av vår hemsida eller 
+				till och med göra små spel i webbläsaren. Men innan vi börjar med 
+				det så behöver vi lära oss grunderna i programmering.
+			</p>
+
+			<section>
+			
+				<h4>Ett enkelt script</h4>
+				
+				<pre><code>let idag = new Date(); // Nuvarande datum & tid
+let timme = idag.getHours(); // Nuvarande timme
+let hälsning; // En tom variabel
+
+if (timme &gt;= 21){
+	hälsning = "God natt";
+}
+else if (timme &gt;= 18){
+	hälsning = "God kväll";
+}
+else if (timme &gt;= 12){
+	hälsning = "God eftermiddag";
+}
+else if (timme &gt;= 9){
+	hälsning = "God förmiddag";
+}
+else if ( timme &gt;= 6){
+	hälsning = "God morgon";
+}
+else {
+	hälsning = "God natt";
+}
+
+console.log(hälsning); // Skriver till konsolen</code></pre>
+
+			</section>
+
+			<section>
+					
+				<h4 id="tid"></h4>
+					
+				<script>
+					let idag = new Date(); // Nuvarande datum & tid
+					let timme = idag.getHours(); // Nuvarande timme
+					let hälsning; // En tom variabel
+
+					if (timme >= 21){
+						hälsning = "God natt";
+					}
+					else if (timme >= 18){
+						hälsning = "God kväll";
+					}
+					else if (timme >= 12){
+						hälsning = "God eftermiddag";
+					}
+					else if (timme >= 9){
+						hälsning = "God förmiddag";
+					}
+					else if ( timme >= 6){
+						hälsning = "God morgon";
+					}
+					else {
+						hälsning = "God natt";
+					}
+
+					console.log(hälsning) // Skriver till konsolen
+					document.getElementById("tid").innerHTML = hälsning; // Uppdaterar ett element på sidan
+				</script>
+				
+				<p>
+					Först skapar vi tre variabler: <code>idag</code>, <code>timme</code> och <code>hälsning</code>. 
+					<code>idag</code> är ett objekt av typen <code>Date</code> som innehåller dagens datum 
+					med mera. Sen sparar vi nuvarande timmen med <code>idag.getHours()</code> 
+					som hämtar den från <code>idag</code> i variabeln <code>timme</code>. Den sista variabeln,  
+					<code>hälsning</code> är just nu tom, men kommer att innehålla en bit text.
+				</p>
+				
+				<p>
+					Sen gör vi en väldans massa jämförelser. Om värdet i <code>timme</code> är större 
+					eller lika med <code>21</code> så ska vi spara ner texten <code>"God natt"</code> i 
+					variabeln <code>hälsning</code>. Annars så kollar vi om värdet sparat i vartiabeln 
+					<code>timme</code> är större eller lika med 18 o.s.v.
+				</p>
+				
+				<p>
+					Till sist så skriver vi ut i konsolen på vår webbläsare den text
+					som vi sparat i variabeln <code>hälsning</code>.
+				</p>
+				
+				<p>
+					Konsolen hittar man om man klickar på F12.
+				</p>
+			
+			</section>
+				
+			<section id="data">
+			
+				<h3>Datatyper</h3>
+				
+				<p>
+					JavaScript har huvudsakligen fyra olika datatyper:
+				</p>
+				
+				<ol>
+					<li>tal</li>
+					<li>text</li>
+					<li>booleans</li>
+					<li>objekt</li>
+				</ol>
+
+				<p>
+					Sen såg vi att det fanns en typ som kallades <code>Date</code> i exemplet ovan.
+				</p>
+				
+				<h4>Operatorer på tal</h4>
+
+				<table>
+					<tr>
+						<td>Addition</td>
+						<td>+</td>
+					</tr>
+					<tr>
+						<td>Subtraktion</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>Multiplikation</td>
+						<td>*</td>
+					</tr>
+					<tr>
+						<td>Division</td>
+						<td>/</td>
+					</tr>
+					<tr>
+						<td>Upphöjt till</td>
+						<td>**</td>
+					</tr>
+					<tr>
+						<td>Rest</td>
+						<td>%</td>
+					</tr>
+				</table>
+
+			</section>
+
+		</article>
+			
+		<article id="ovningar">
+		
+			<h2>Övningar</h2>
+			
+			<p>Här kommer ett par övningar för att vi ska testa att 
+			skriva lite kod.</p>
+			
+			<ol>
+				<li>Skriv ett skript som skapar två variabler, <code>a</code> och <code>b</code>, 
+				som det sen adderar ihop, sparar i en variabel <code>c</code> och 
+				skriver ut i konsolen.</li>
+				<li>Dela <code>a</code> med <code>b</code> istället och skriv ut svaret.</li>
+				<li>Ta svaret, <code>c</code>, upphöjt till <code>b</code>.</li>
+				
+				<li>Gör en loop som går från 0 till 100 och skriver ut 
+				varje tal.</li>
+				<li>Skriv bara ut talet om det är delbart på två.</li>
+				<li>Skriv bara ut talet om det är en kvadrat. Alltså kan skrivas på formen x&sdot;x</li>
+
+				<li>Skriv ett script som skriver ut det nuvarande klockslaget.</li>
+				<li>Skriv ut årtalet också.</li>
+			</ol>
+
+		</article>
+	
+	</main>
+	
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br/>
+			Hedda Anderssongymnasiet<br/>
+			Svanevägen 17<br/>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+
+</body>
+
+</html>

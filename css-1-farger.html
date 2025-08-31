@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+	
+	<meta charset="utf-8">
+	<title>CSS 1 - Färger</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+
+	<style>
+		p{
+			color: #000000;
+			/*background-color: grey;*/
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+
+		<nav>
+			<a href="#start">Start</a>
+			<a href="#HSLA">HSLA</a>
+			<a href="#genomskinlighet">Genomskinlighet</a>
+			<a href="#fargval">Färgval</a>
+			<a href="#ovningar">Uppgifter</a>
+		</nav>
+
+		<section>
+
+			<h2>Sammanfattning</h2>
+
+			<p>
+				Allt som påverkar utseendet skrivs med CSS i elementet 
+				<code>&lt;style&gt;</code> som ska ligga i <code>&lt;head&gt;</code>.
+				Här nedanför kommer ett kort exempel på hur man ändrar färgen på alla 
+				textstycken och bakgrundsfärgen på hela sidan:
+			</p>
+
+			<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta ...&gt;
+		&lt;title&gt;...&lt;/title&gt;
+
+		&lt;style&gt;
+			html{
+				background-color: AntiqueWhite;
+			}
+			p{
+				color: DarkBlue;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		...
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+			<p>
+				Det finns dessutom fyra sätt att ange färg:
+			</p>
+
+			<ol>
+				<li>färgnamn, exempelvis: "orange"</li>
+				<li>RGB-kod: <code>rgb(255,165,0)</code> som ger orange</li>
+				<li>Hexadecimal: <code>#FFA500</code> som ger samma som ovan</li>
+				<li>HSL: <code>hsl(39,100%,50%)</code> som också ger samma färg</li>
+			</ol>
+
+			<p>
+				Du kan hitta en lista över alla färgnamn 
+				<a href="https://www.w3schools.com/cssref/css_colors.asp">här</a>.
+			</p>
+
+		</section>
+		
+	</aside>
+		
+	<main>
+
+		<article id="start">
+		
+			<h2>Färger</h2>
+			
+			<p>
+				Om vi vill ändra färgen på något på vår hemsida så 
+				kan vi använda oss utav CSS &mdash; Cascading Style Sheets. 
+				När vi vill lägga till CSS-kod till vår hemsida så finns det 
+				tre olika sätt:
+			</p>
+			
+			<ol>
+				<li>Koppla det till ett enskilt element i vår HTML-kod.</li>
+				<li>Lägga till regler i början av vår HTML-kod</li>
+				<li>Ladda in regler från ett annat dokument till vår HTML-kod</li>
+			</ol>
+			
+			<p>Har man bara något väldigt litet som ska piffas upp så räcker 
+			alternativ ett. Om man ska göra stora förändringar i utseendet på en 
+			sida så kan alternativ två vara lämplig. Om man ska ha ett liknande 
+			utseende på flera olika sidor så är alternativ tre överlägset bäst.</p>
+			
+			<p>Idag kommer vi att använda alternativ två som fungerar så här:</p>
+			
+			<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+	&lt;head&gt;
+		&lt;meta charset="utf-8"/&gt;
+		&lt;title&gt;CSS 1 - Färger&lt;/title&gt;
+		
+		&lt;style&gt;
+			/* Här skriver man CSS-kod*/
+			/* Detta är en kommentar */
+		&lt;/style&gt;
+
+	&lt;/head&gt;
+
+	&lt;body&gt;
+
+	&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+			
+			<p>Det är i elementet <code>&lt;style&gt;</code> du skriver din CSS-kod.</p>
+			
+			
+			<h3>Hur du ändrar vad</h3>
+			
+			<p>
+				När du ska ändra på utseendet på hemsidan så behöver du 
+				först specificera vad det är du ska ändra på. Om det till 
+				exempel är <code>p</code>-elementen eller om det är hela sidan.
+			</p>
+			
+			<p>
+				Om det är en sorts element du vill ändra på skriver du så
+				här:
+			</p>
+			
+			<pre><code>p{
+	/* Det här påverkar alla p element */
+}
+
+body{
+/* Det här påverkar allt innanför &lt;body&gt;-taggarna */
+}
+
+h1{
+	/* Det här ändrar på h1 element */
+}
+h2, h3, h4, h5, h6{
+	/* Det här ändrar på alla andra rubriker */
+}</code></pre>
+			
+			<h3>Textfärg</h3>
+			
+			<p>
+				Om du vill ändra på textfärgen så anger du <code>color: färg;</code>. Så om 
+				du vill ändra färgen på alla stycken skriver du:
+			</p>
+			
+			<pre><code>p{
+	color: blue;
+}</code></pre>
+			
+			<p>
+				Du kan hitta en lista på alla tillåtna färgnamn 
+				<a href="https://www.w3schools.com/cssref/css_colors.asp">här</a>.
+				Om du inte är nöjd med de ca 140 färger som finns fördefinierade 
+				kan du ange färgens RGB-kod i hexadecimal form. Hexdadecimal form 
+				ser ut typ så här: <code>#A01F99</code>. Där du anger värdena med 
+				siffrorna 0&ndash;F. De två första siffrorna anger hur mycket rött, 
+				de två mittersta mängden grönt och de två sista mängden blått. Färgen 
+				vit har så mycket färg det bara går och har koden: <code>#FFFFFF</code>. 
+				Färgen svart saknar färg och har koden: <code>#000000</code>. Du kan 
+				också ange färg med rgb: <code>rgb(125,255,0)</code>
+			</p>
+
+			<h3>Bakgrundsfärg</h3>
+			
+			<p>
+				Om du vill ändra på bakgrundsfärgen så använder du kommandot 
+				<code>background-color: färg</code> du kan ändra på färgen på 
+				hela sidan i body eller på enskilda element-typer. Till 
+				exempel bara på onumrerade listor:
+			</p>
+			
+			<pre><code>ul{
+	background-color: grey;
+}</code></pre>
+			
+			<ul style="background-color: grey; color: white;">
+				<li>Ett ord</li>
+				<li>Två ord</li>
+			</ul>
+			
+		</article>
+		
+		<article id="HSLA">
+		
+			<h2>HSLA</h2>
+			
+			<p>
+				HSLA står för <i>Hue</i>, <i>Saturation</i>, 
+				<i>Light</i> och <i>Alpha</i>. Detta är ett fjärde sätt att 
+				ange färg.
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(300, 100%, 100%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 100%, 100%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			<h4>Ändra på L</h4>
+			
+			<p>
+				Om vi sänker värdet på L:
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(300, 100%, 75%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 100%, 75%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			
+			<pre><code>p{
+	background-color: hsl(300, 100%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 100%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			
+			<pre><code>p{
+	background-color: hsl(300, 100%, 25%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 100%, 25%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(300, 100%, 0%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 100%, 0%)">
+				Det här är effekten av koden ovan
+			</p>
+
+			<h4>Ändra på S</h4>
+			
+			<p>
+				Om vi förändrar värdet på S:
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(300, 100%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 100%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+
+			<pre><code>p{
+	background-color: hsl(300, 75%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 75%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+
+			<pre><code>p{
+	background-color: hsl(300, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+
+			<pre><code>p{
+	background-color: hsl(300, 25%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 25%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+
+			<pre><code>p{
+	background-color: hsl(300, 0%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 0%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+
+			
+			<h4>Ändra på H</h4>
+			
+			<p>
+				Om vi förändrar värdet på H:
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(0, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(0, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(50, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(50, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(100, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(100, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(150, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(150, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(200, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(200, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(250, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(250, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+
+			<pre><code>p{
+	background-color: hsl(300, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(300, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+			
+			<pre><code>p{
+	background-color: hsl(350, 50%, 50%);
+}</code></pre>
+			
+			<p style="background-color: hsl(350, 50%, 50%)">
+				Det här är effekten av koden ovan
+			</p>
+		
+		</article>
+
+		<article id="genomskinlighet">
+		
+			<h3>Genomskinlighet</h3>
+			
+			<p>
+				Om du vill göra din färg genomskinlig så finns det ett par olika sätt:
+			</p>
+
+			<ol>
+				<li>RGBA</li>
+				<li>HSLA</li>
+				<li>Opacity</li>
+			</ol>
+			
+			<p>
+				A i RGBA och HSLA står för alpha. Alpha-kanalen i en färg 
+				anger opaciteten som betyder hur genomskinlig den är. Oftast 
+				går värdet på A från 0&ndash;1
+			</p>
+			
+			<pre><code>p{
+	background-color: rgba(255,255,255,1); /* Vitt med opacitet 1 */
+}</code></pre>
+			
+			<p style="background-color: rgba(255,255,255,1)">
+				Det här är effekten av koden ovan
+			</p>
+		
+			<pre><code>p{
+	background-color: rgba(255,255,255,0.5); /* Vitt med opacitet 0.5 */
+}</code></pre>
+			
+			<p style="background-color: rgba(255,255,255,0.5)">
+				Det här är effekten av koden ovan
+			</p>
+		
+			<p>
+				Här ser man hur färgen bakom texten lyser igenom.
+			</p>
+			
+			<pre><code>p{
+	background-color: hsla(0,0%,100%,1); /* Vitt med opacitet 1 */
+}</code></pre>
+			
+			<p style="background-color: hsla(0,0%,100%,1)">
+				Det här är effekten av koden ovan
+			</p>
+		
+			<pre><code>p{
+	background-color: hsla(0,0%,100%,0.5); /* Vitt med opacitet 0.5 */
+}</code></pre>
+			
+			<p style="background-color: hsla(0,0%,100%,0.5)">
+				Det här är effekten av koden ovan
+			</p>
+		
+			<pre><code>p{
+	background-color: white; /* Vitt med opacitet 1 */
+	opacity: 1
+}</code></pre>
+			
+			<p style="background-color: white; opacity: 1;">
+				Det här är effekten av koden ovan
+			</p>
+		
+			<pre><code>p{
+	background-color: white; /* Vitt med opacitet 0.5 */
+	opacity: 0.5
+}</code></pre>
+			
+			<p style="background-color: white; opacity: 0.5;">
+				Det här är effekten av koden ovan
+			</p>
+		
+			<p>
+				Här märker vi att med det sista alternativet så sätter 
+				vi opaciteten på HELA text-stycket. Inklusive själva texten.
+			</p>
+		
+		</article>
+		
+		<article id="fargval">
+		
+			<h2>Färgval</h2>
+			
+			<p>
+				Estetik anses ofta vara subjektivt och individuellt.
+				Det jag tycker är vackert kan du tycka är gräsligt. Men 
+				det finns vissa saker som är ganska universiellt och som 
+				ökar tillgängligheten på sidan.
+			</p>
+			
+			<h3>RGB vs. CMY</h3>
+			
+			<h4>Red Green Blue</h4>
+			
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/AdditiveColor.svg/400px-AdditiveColor.svg.png"
+				title="Addiativ modell" 
+				alt="Tre överlappande färgcirklar i RGB-modellen"/>
+			
+			<p>
+				Skärmar består av flera ljuspunkter som grupperade kallas för 
+				pixlar och består av färgerna röd, grön och blå. Beroende på hur 
+				starkt varje lampa lyser så får man olika färger.
+			</p>
+			
+			<h4>Cyan Magenta Yellow</h4>
+			
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/CMY_ideal_version.svg/600px-CMY_ideal_version.svg.png"
+				title="Subtraktiv modell" 
+				alt="Tre överlappande färgcirklar i CMY-modellen"/>
+			
+			<p>
+				Den här färgmodellen används när man trycker saker på papper.
+				Den fungerar omvänt mot RGB, där istället för att man lyser med 
+				dem färger man vill ha absorberar dem färgar man inte vill ha och 
+				reflekterar dem färger som man vill ha.
+			</p>
+			
+			<p>
+				När du målar med färger IRL så fungerar det så här.
+			</p>
+			
+			
+			<h3>Kontraster</h3>
+			
+			<p>
+				När du använder färg på din sida så ska du tänka på hur färgerna 
+				kontrasterar mot varandra. <span style="background-color:lightyellow; color:purple;">
+				Har du en ljus bakgrund så vill du använda dig av en mörk färg i förgrunden på 
+				det som är viktigt och ska synas</span>.
+				<span style="background-color: purple; color: lightyellow;">Om du har en 
+				mörk bakgrund bör du använda dig utav en ljus färg i förgrunden.</span></p>
+			
+			<h3>Färgblindhet</h3>
+			
+			<p>
+				Det finns tre olika typer av färgblindhet och det är något 
+				man bör tänka på när man designar en hemsida. Om man väljer 
+				"fel" färger så kan information missas av somliga.
+			</p>
+			
+			<p>
+				Texten som kommer är saxad från 
+				<a href="https://www.1177.se/Skane/sjukdomar--besvar/ogon-oron-nasa-och-hals/syn/fargblindhet/">Vårdguiden</a>.
+			</p>
+			
+			<h4>Röd-grön</h4>
+			
+			<p>
+				Den vanligaste formen av färgblindhet innebär att du har svårt 
+				att skilja på rött och grönt.
+			</p>
+
+			<p>
+				Då har du svårt att se skillnaden mellan färger som har delar 
+				av rött och grönt i sig. Du kan till exempel ha svårt att se 
+				skillnaden mellan blått och lila. Det beror på att lila är en 
+				blandning av blått och rött. Du kan också ha svårt att se skillnad 
+				mellan grönt och brunt eftersom brunt är en blandning av grönt och 
+				rött.
+			</p>
+
+			<p>
+				Röd-grön färgblindhet innebär alltså inte att du ser gräsmattan 
+				som röd eller stoppsignalen som grön. Utan det innebär att du har 
+				svårt att se skillnaden mellan rött och grönt.
+			</p>
+			
+			<img src="https://www.1177.se/globalassets/1177/nationell/media/fotografier/sjukdomar-och-besvar/ogon-oron-nasa-och-hals/fargblind_rodgron.jpg?saved=2019-01-10+12:50&preset=preset_1000"
+				title="Röd grön färgblindhet" 
+				alt="En bild på färgpennor och hur normalseende respektive färgblinda ser dem"/>
+			
+			<h4>Gul-blå</h4>
+			
+			<p>
+				Blå-gul färgblindhet är mer ovanlig. Men det innebär inte att du 
+				har svårt att skilja på färgerna blå och gul. Det heter blå-gul 
+				färgblindhet eftersom du har svårt att se skillnad mellan färger som 
+				befinner sig mellan blå och gul på färgskalan.
+			</p>
+			
+			<img src="https://www.1177.se/globalassets/1177/nationell/media/fotografier/sjukdomar-och-besvar/ogon-oron-nasa-och-hals/fargblind_blagul.jpg?saved=2019-01-10+12:50&preset=preset_1000"
+				title="Röd grön färgblindhet" 
+				alt="En bild på färgpennor och hur normalseende respektive färgblinda ser dem"/>
+			
+			<p>
+				Blå-gul färgblindhet innebär att du har svårt att se skillnaden 
+				mellan blå och grön och skillnaden mellan gul och rosa.
+			</p>
+
+			<p>
+				Det kan också vara svårt att till exempel skilja mellan olika nyanser 
+				av lila som uppfattas som blå. Andra färger kan också uppfattas lite 
+				annorlunda.
+			</p>
+			
+			<h4>Total</h4>
+			
+			<p>
+				Den typ av färgblindhet som gör att en person inte ser några färger alls 
+				utan ser världen i gråskala är mycket ovanligt.
+			</p>
+			
+			<h4>Lösning</h4>
+			
+			<p>
+				Eftersom totalfärgblindhet är ytterst ovanlig är det sällan man behöver 
+				tänka på det. Liknande med gul-blå färgblindhet. Istället är det bäst att 
+				fokusera på röd-grön blindhet.
+			</p>
+			
+			<p>
+				Det vanligaste tipset är att undvika att ha rött och grönt tillsammans.
+				Och att då istället försöka använda någon annan färg. En annan lösning är att 
+				istället jobba med mörk och ljus färg, eftersom de allra flesta ser skillnaden 
+				på mörk röd och ljus grön &mdash; oavsett vilken sorts färgblindhet. Det finns 
+				mycket info online om man är intresserad av att läsa mer.
+			</p>
+		
+		</article>
+	
+		<article id="ovningar">
+		
+			<h2>Övningar</h2>
+			
+			<ol>
+				<li>Gör en hemsida för en påhittad förening, exempelvis: 
+				"Föreningen Gatstens Fantasterna (FGF)"</li>
+				<li>På hemsidan ska all text ha en ljus färg.</li>
+				<li>Bakgrundsfärgen på sidan ska vara mörk.</li>
+				<li>Du ska ha en text på sidan som beskriver vad föreningen 
+				gör.</li>
+				<li>Hemsidan ska ha en stor och prydlig rubrik</li>
+				<li>Rubriken ska ha en annan färg än all annan text</li>
+				<li>Föreningen ska ha en logotyp som visas under rubriken</li>
+			</ol>
+		
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

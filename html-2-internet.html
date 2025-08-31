@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>HTML 2 - Internet</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+	
+		<nav>
+				<h3>Innehåll</h3>
+				
+				<a href="#start">Vad är internet?</a>
+				<a href="#DNS">Hur man hittar på internet</a>
+				<a href="#TCPUDP">TCP och UDP</a>
+		</nav>
+
+		<h2>Sammanfattning</h2>
+		
+		<p>
+			På den här sidan så pratar vi om grunderna i hur internet fungerar. Vad händer 
+			när man öppnar webbläsaren och knappar in en adress? Kortfattat kan man säga 
+			att datorn slår upp adressen i en gigantisk adressbok som kopplar det textade 
+			namnet till en ip-adress. Sen upprättas en kontakt mellan den datorn 
+			webbläsaren är på och den server där webbplatsen finns.
+		</p>
+		
+		<p>
+			Informationen skickas antingen med UDP eller TCP. UDP används vanligtvis vid 
+			strömning medan TCP används till det mesta annat.
+		</p>
+		
+		<h3>Ordlista</h3>
+		
+		<dl>
+			<dt>Router</dt>
+			<dd>Maskin som knyter samman nätverk</dd>
+			
+			<dt>DNS</dt>
+			<dd>Domain Name Server, en adressbok över internet</dd>
+			
+			<dt>ISP</dt>
+			<dd>Internet Service Provider, internetleverantör</dd>
+			
+			<dt>DHCP</dt>
+			<dd>Dynamic Host Configuration Protocol</dd>
+			
+			<dt>TCP</dt>
+			<dd>Transmission Control Protocol</dd>
+			
+			<dt>UDP</dt>
+			<dd>User Datagram Protocol</dd>
+		</dl>
+			
+	</aside>
+
+	<main>
+
+		<article>
+				
+			<h2>Vad är internet?</h2>
+					
+			<p>
+				Internet är inte en pryl. Det är inte någon samling datorer som står i en 
+				serverhall någonstans. Internet är kopplingen mellan alla världens datorer.
+			</p>
+					
+			<p>
+				De flesta hem i västvärlden idag har en <em>router</em> som bildar ett 
+				hemnätverk &mdash; en sammankoppling av datorerna i hemmet. Det tillåter 
+				datorerna i hemmet att kommunicera med varandra. Routern är oftast också 
+				kopplad mot resten av internet.
+			</p>
+			
+			<p>
+				Så skulle en katastrof radera Europa från världskartan så skulle effekten 
+				på internet inte vara att allt kollapsa. Istället skulle det leda till att 
+				webbtrafik inte skulle kunna gå genom Europa och istället behöva ta andra 
+				vägar. Det skulle också leda till att de webbplatser enbart har sina 
+				servrar i Europa skulle försvinna från webben. Annars skulle allt annat 
+				finnas kvar. Man säger att internet är <em>decentraliserat</em>.
+			</p>
+
+			<figure>
+				<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Submarine_cable_map_umap.png" 
+				title="Karta som visar stora nätverkskablar" 
+				alt="Karta som visar stora nätverkskablar"/>
+				<figcaption>Karta över stora nätverkskablar i haven.</figcaption>
+			</figure>
+			
+			<p>
+				Om det är någon organisation som kan sägas styras över internet så är det 
+				<a href="http://www.w3.org">World Wide Web Consortium (W3C)</a> som 
+				arbetar med att ta fram standarder för hur webben (World Wide Web) ska 
+				fungera. Det är W3C som utvecklar HTML, CSS och JavaScript som är dem tre 
+				språk vi kommer att använda under kursen.
+			</p>
+			
+			<div style="text-align:center;">
+				<iframe class="youtube-video" 
+				src="https://www.youtube.com/embed/iDbyYGrswtg" 
+				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+				allowfullscreen>
+				</iframe>
+			</div>
+			
+			<h3>Webben vs. internet</h3>
+			
+			<p>
+				I dagligt tal blandar man gärna ihop webben (www) och internet. Men webben 
+				är egentligen bara det man når genom sin webbläsare (och då egentligen 
+				allt det heller). Medan internet är själva nätverket. Så webben är en del 
+				av internet. Ett exempel på något som är en del av internet men inte 
+				webben är Snapchat.
+			</p>
+			
+		</article>
+				
+		<article class="main-matter" id="DNS">
+		
+			<h2>Hur man hittar på internet</h2>
+			
+			<p>
+				Precis som byggnader har gatuadresser så har datorer ip-adresser. För att 
+				adresserna ska vara vettiga och för att alla paket ska komma fram så 
+				behöver varje dator ha en unik ip-adress. Så när man skriver in till 
+				exempel <a href="www.lund.se">www.lund.se</a> så översätts det till en 
+				ip-adress så att datorn kan hitta Lunds hemsidas server. Översättningen 
+				från text-adress till ip-adress sker med hjälp av en så kallad 
+				<em>DNS</em> (Domain Name Server) som fungerar som en adressbok över 
+				internet.
+			</p>
+			
+			<figure class="centered" style="width:100%">
+				<img src="Bilder/dns.png" alt="En illustration över hur datorn 
+				hittar webbplatser" title="Den här gjorde jag i PowerPoint!"
+				width="75%"/>
+			</figure>
+			
+			<p>
+				Idag har varje dator en IPv4-adress på formen: 123.231.071.165 med tal 
+				mellan 0 och 255. Det ger fyra tal med 256 möjligheter vilket ger 
+				256<sup>4</sup>=4&nbsp;294&nbsp;967&nbsp;296 möjliga ip-adresser (eller 2<sup>32</sup>). 
+				4,3 miljarder adresser kan låta som offantligt mycket, men det är bara 
+				drygt halva jordens befolkning. Så adresserna tar slut om bara varannan 
+				person har mer än en pryl uppkopplad mot internet. Och idag har många mer 
+				än en pryl. Det kan vara en dator eller telefon. Ni i skolan har till 
+				exempel fått var sin dator och många har en telefon.
+			</p>
+			
+			<p>
+				För att lösa problemet med att ip-adresserna tar slut har man gjort en ny 
+				standard, IPv6, som har upp till 2<sup>128</sup>=340 282 366 920 938 463 
+				463 374 607 431 768 211 456 (340&nbsp;sextiljoner 282&nbsp;kvintiljarder 366&nbsp;kvintiljoner 
+				920&nbsp;kvadriljarder 938&nbsp;kvadriljoner 463&nbsp;triljarder 463&nbsp;triljoner 
+				374&nbsp;biljarder 607&nbsp;biljoner 431&nbsp;miljarder 768&nbsp;miljoner 
+				211&nbsp;tusen 456) unika adresser (340&times;10<sup>36</sup>). På engelska så 
+				pratar vi om undecilion. De här adresserna lär räcka ett tag. Så många adresser 
+				skulle kunna ge 3,4&times;10<sup>17</sup> ip-adresser åt varje 
+				stjärnssystem i universum.
+			</p>
+
+			<div style="text-align:center;">
+				<iframe class="youtube-video" 
+				src="https://www.youtube.com/embed/uOfonONtIuk" 
+				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+				allowfullscreen>
+				</iframe>			
+			</div>
+		
+		</article>
+		
+		<article id="DHCP">
+		
+			<h2>Dynamic Host Configuration Protocol</h2>
+			
+			<p>
+				För att alla ska kunna koppla sig till internet idag, trots att vi har 
+				fler nätverksenheter än ip-adresser används <em>DHCP</em>, Dynamic Host 
+				Configuration Protocol. DHCP delar ut ip-adresser till alla enheter på 
+				nätverket och ser till att alla adresser på nätverket är unika. Det 
+				geniala DHCP-servrar gör är att de lånar ut ip-adresser till enheterna på 
+				nätverket. Det gör att att enheter som just nu inte är på nätverket inte 
+				har någon plats och då kan man få in andra andra enheter som kan ta dem 
+				platserna. Det gör att vi kan få in fler enheter i IPv4 systemet än vad 
+				det egentligen finns platser för.
+			</p>
+			
+			<p>
+				DHCP är inte hela lösningen på att få IPv4-adresserna att räcka längre, 
+				exempelvis behöver enheter inom ett nätverk bara vara unika inom 
+				nätverket. I de allra flesta hemma-nätverk så tilldelas enheter adresser 
+				mellan 192.168.0.1 till 192.168.0.255. Däremot måste routern sen ha en 
+				unik adress utåt. (Ofta ligger den på 192.168.0.1 lokalt).
+			</p>
+			
+		</article>
+		
+		<article class="main-matter" id="TCPUDP">
+		
+			<h2>TCP vs UDP</h2>
+			
+			<p>
+				När ett paket väl har nått datorn så måste den veta vart på datorn det ska 
+				ta vägen. Datorns interna adresser kallas för portar och varje dator 131 
+				070 stycken. 65 535 av dessa (hälften) är reserverade för något som kallas 
+				TCP förbindningar och lika många är reserverade för UDP. Vill man veta 
+				vilka portar som är aktiva just nu (på en Windowsmaskin) kan man skriva 
+				"netstat -an" i kommandotolken.
+			</p>
+			
+			<h3>TCP</h3>
+			
+			<p>
+				TCP står för <em>Transmission Control Protocol</em> och är det protokoll 
+				som används vid filöverföring och dylikt när det är viktigt att hela filen 
+				kommer fram. För att kontrollera att varje paket kommer fram så skickar 
+				mottagaren en bekräftelse på att den har tagit emot paketet. Detta brukar 
+				kallas för en TCP-handskakning.
+			</p>
+			
+			<h3>UDP</h3>
+			
+			<p>
+				UDP står för <em>User Datagram Protocol</em> och fungerar lite annorlunda 
+				jämfört med TCP. Istället för en lång och utdragen handskakning för att se 
+				till att allt kommer fram så skickar UDP bara på alla paket. Detta kan 
+				leda till att paket försvinner på vägen eller kommer fram i fel ordning. 
+				Detta är inte alltid ett problem, utan kan vara ganska användbart i vissa 
+				fall när det viktigaste är att tillräckligt mycket kommer fram så snabbt 
+				som möjligt. Exempelvis vid streaming.
+			</p>
+			
+		</article>
+
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br/>
+			Hedda Anderssongymnasiet<br/>
+			046-359 61 35<br/>
+			Svanevägen 17<br/>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;23
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+
+</body>
+
+</html>

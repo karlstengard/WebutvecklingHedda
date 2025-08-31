@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+	<meta charset="utf-8" />
+	<title>15. Layout</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+	<style>
+		#lådex{
+			background-color : silver;
+			width : 250px;
+		}
+		#lådex p{
+			width : 50%;
+			text-decoration : none;
+			background-color: red;
+			padding	: 25px;
+			border	: 3px solid blue;
+			margin  : 25%;
+		}
+		.kolumn{
+			float: left;
+			width: 50%;
+			font-size: 50%;
+		}
+		.kolumn2{
+			float: left;
+			width: 50%;
+			font-size: 50%;
+		}
+		
+		@media screen and (max-width:500px){
+			.kolumn2{
+				width: 100%;
+				color: silver;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside class="side">
+		
+		<h2>Sammanfattning</h2>
+		
+		<nav class="content">
+			<a href="#start">Layout</a>
+			<a href="#normal">Normal flow</a>
+			<a href="#relative">Relativ position</a>
+			<a href="#absolut">Absolut position</a>
+			<a href="#fixed">Fixed position</a>
+			<a href="#float">Float</a>
+			<a href="#uppgifter">Övningar</a>
+		</nav>
+
+		<section>
+		
+			<h3>Kod</h3>
+			
+			<dl>
+				<dt><code>float</code></dt>
+				<dd>Gör att element lägger sig bredvid.</dd>
+				<dt><code>static</code></dt>
+				<dd>Normalfallet</dd>
+				<dt><code>relative</code></dt>
+				<dd>Flyttar elementet relativt till dess position i normal flow.</dd>
+				<dt><code>absolute</code></dt>
+				<dd>Bestämmer elementets position på sidan exakt.</dd>
+				<dt><code>fixed</code></dt>
+				<dd>Det här elementet har samma palts på skärmen hela tiden.</dd>
+			</dl>
+		
+		</section>
+		
+	</aside>
+		
+	<main>
+		
+		<article id="start">
+		
+			<section>
+		
+				<h2>Layout</h2>
+				
+				<p>
+					Än så länge har vi ändrat på hur element på vår sida ser ut med CSS.
+					Men nu ska vi börja ändra på var element ligger. Och det är med detta 
+					som CSS verkligen kommer till användning. Vi har fem olika sätt att 
+					välja hur element på vår sida ska positionera sig:
+				</p>
+				
+				<dl>
+					<dt>Normal flow</dt>
+					<dd>Detta är normalläget. Alla block element hamnar på en ny rad.</dd>
+					<dt>Relativ position</dt>
+					<dd>Flyttar elementet i relation till vart det skulle ha varit i 
+					normal flow.</dd>
+					<dt>Absolut position</dt>
+					<dd>Tar ut elementet ur normal flow och placerar det i förhållande till 
+					det block det ligger i.</dd>
+					<dt>Fixed position</dt>
+					<dd>Detta tar också ut elementet ur normal flow och placerar det på en 
+					specifik plats på skärmen.</dd>
+					<dt>Floating</dt>
+					<dd>Plockar ut elementet ur normal flow och flyttar det till vänster 
+					eller höger. Andra element kan sen "flöda" runt det.</dd>
+				</dl>
+				
+			</section>
+
+			<section id="normal">
+			
+				<h3>Normal flow</h3>
+				
+				<p>
+					Normal flow är standard inom HTML och är det som gör att block-element 
+					kommer nedanför varandra. Skulle man vilja specificera att ett element ska 
+					vara i Normal flow skriver man:
+				</p>
+				
+				<pre><code>.enklass{
+	position: static;
+}</code></pre>
+				
+			</section>
+				
+			<section id="relative">
+				
+				<h3>Relativ position</h3>
+				
+				<p>
+					Relativ position utgår från vart elementet hade legat i det normala 
+					flödet. Sen kan man justera om det ska flyttas uppåt, nedåt, vänster eller 
+					höger.
+				</p>
+				
+				<pre><code>.enklass2{
+	position: relative;
+	bottom: 100px;
+	left: 200px;
+}</code></pre>
+					
+				<p style="position:relative; bottom:100px; left:200px;">
+					Den här texten är flyttad uppåt och åt höger. Och om vi har mer text ser vi 
+					hur den wrappar som man hade velat. Nu fyller vi den med lite mer text. 
+					Bara för att den garanterat ska wrappa även om vi har sidan utzoomad.
+				</p>
+				
+				<p>
+					Det kan vara bra att notera att även om vi har flyttat det övre stycket åt 
+					höger så är det lika brett som tidigare och vi behöver därför scrolla i 
+					sidled för att kunna se hela texten. För att slippa det så behöver vi ange width.
+				</p>					
+				
+			</section>
+			
+			<section id="absolut">
+			
+				<h3>Absolut position</h3>
+				
+				<p>
+					Om man vill ha mer kontroll över vart ett element ska visas kan man 
+					ange en absolut position. Om man inte anger några värden på top eller 
+					så flyttas det inte, men alla andra element ignorerar det för att bestämma 
+					sin position. Om man anger några andra värden så utgår det från sidans 
+					övre vänstra hörn.
+				</p>
+				
+				<pre><code>.enklass3{
+	position: absolute;
+	left: 100px;
+	width: 200px;	
+}</code></pre>
+					
+				<p style="position:absolute;left:100px;width:200px;">
+					Resten av elementen ignorerar det här elementet för att bestämma vart 
+					de ska ligga.
+				</p>
+			
+			</section>
+				
+			<section id="fixed">
+				
+				<h3>Fixed position</h3>
+					
+				<p>
+					Om man anger en position till fixed så är den på samma plats på skärmen 
+					hela tiden.
+				</p>
+						
+				<pre><code>.enklass4{
+	position: fixed;
+	top:50px;
+}</code></pre>
+					
+				<button id="showtext">
+					Tryck för att se texten
+				</button>
+					
+				<p id="fixedtext" style="background-color:white;position:fixed; top:50px; visibility: Hidden">
+					Den här texten är hela tiden på samma ställe. Bra va?
+				</p>
+					
+				<script>
+					function hideshow(){
+					
+						let text = document.getElementById('fixedtext');
+						let butt = document.getElementById('showtext');
+						
+						if (text.style.visibility === 'visible'){
+							text.style.visibility = 'hidden';
+							butt.innerHTML = "Tryck för att se texten";
+						}
+						else{
+							text.style.visibility = 'visible';
+							butt.innerHTML = "Tryck för att dölja texten";
+						}
+					}
+					
+					let el = document.getElementById('showtext');
+					
+					if (el.addEventListener){
+						el.addEventListener("click", hideshow, false);
+					}
+					else if (el.attachEvent){
+						el.attachEvent("onclick", hideshow);
+					}
+				</script>
+					
+			</section>
+				
+			<section id="float">
+				
+				<h3>Float</h3>
+				
+				<p>
+					Float kan användas för att få andra element att fortsätta 
+					bredvid elementet.
+				</p>
+				
+				<pre><code>.enklass5{
+	float: left;
+}</code></pre>
+				
+				<div>
+
+				<figure style="float:left; width:150px;">
+					<img src="https://www.ironmaiden.com/files/2024/08/17_Senjutsu.jpg"/>
+				</figure>
+					
+				<p>
+					Till vänster har vi Iron Maidens senaste album "Senjutsu". Den är uppstyckad på två CD-skivor, eller tre LP-skivor.
+				</p>
+				
+				<figure style="float:right; width:150px;">
+					<img src="https://www.ironmaiden.com/files/2024/08/12_BraveNewWorld.jpg"/>
+				</figure>
+				
+				<p>
+					Man kan också ha saker floatade till höger.
+				</p>
+				
+				<p>
+					En massa text. Jag borde ha haft typ lite lorem ispum här 
+					så att jag itne själv hade behövt skriva en massa och 
+					slita ut mina vackra fingerspetsar.
+					Vem vet vad som kan hända med mina fingeravtryck 
+					om jag sitter och skriver hela dagen på mitt 
+					tangentbord? Kanske försvinner de helt! Flera bokstäver på 
+					mitt tangentbord har redan börjat försvinna. Det är ju då 
+					framför allt bokstäverna "C" och "V" som typ är borta. 
+					Tangenterna "S", "D", "Ctrl" och "Alt" är också nästan
+					helt nedslitna. Men tangenten "Alt gr" är helt utsuddad.  
+					Men jag var inte duktig nog och förberedde mig som jag 
+					borde ha gjort! Den här genomgången är lite rolig, appropå,
+					inget särskilt. Men har du orkat läsa ner hit så förtjänar du 
+					lite trivia. Tidigare har jag lärt ut hur man använder float 
+					för att göra kolumner. Men det är fett jobbigt och det finns 
+					väldigt mycket bättre sätt att göra det på. Så nu har jag 
+					strukit den biten. Så det här var bara halva sidan förut. 
+					Nu borde jag ha skrivit tillräckligt mycket. Det räcker 
+					om man zoomar in i alla fall.
+				</p>
+
+				</div>
+				
+			</section>
+				
+		</article>
+		
+		<article>
+		
+			<section id="uppgifter">
+			
+				<h2>Övningar</h2>
+			
+				<p>Utgå från filen "Art-of-War.html" som ligger på Classroom.</p>
+				
+				<ol>
+					<li>Huvudrubriken ska hela tiden synas överst på sidan. 
+						(Det finns en betydligt snyggare lösning där man sätter <code>position: sticky;</code> 
+						men man kan behöva kludda lite för att det ska bli bra.)</li>
+					<li>Lägg till en bild som relaterar till texten
+					där du sen har en text till vänster som beskriver bilden.</li>
+					<li>
+						Flytta det första stycket en bit upp och höger. Så att det hamnar i nivå med rubriken.
+					</li>
+					<li>
+						Gör sidan snygg.
+					</li>
+				</ol>
+			
+			</section>
+		
+		</article>
+	
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

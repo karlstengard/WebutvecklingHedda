@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>HTML 9 - Ljud/Video</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+			
+		<nav>
+			<a href="#start">Start</a>
+			<a href="#audio">Ljud</a>
+			<a href="#video">Video</a>
+			<a href="#filformat">Filformat</a>
+			<a href="#uppgifter">Övningar</a>
+		</nav>
+
+		<section id="sammanfattning">
+
+			<h2>Sammanfattning</h2>
+		
+			<p>
+				Att stoppa in ljud och video kan vara ett bra sätt att 
+				förhöja upplevelsen på en webbplats.
+			</p>
+			
+			<dl>
+				<dt>&lt;audio&gt;</dt>
+					<dd>Ljud-elementet</dd>
+				<dt>&lt;video&gt;</dt>
+					<dd>Video-elementet</dd>
+				<dt>controls</dt>
+					<dd>Visar spelknapparna</dd>
+				<dt>type</dt>
+					<dd>Typ av mediafil</dd>
+				<dt>loop</dt>
+					<dd>Om mediet ska upprepas</dd>
+				<dt>autoplay</dt>
+					<dd>Om mediet ska spelas upp automatiskt (fungerar dåligt)</dd>
+				<dt>preload</dt>
+					<dd>När klippet ska filenska laddas</dd>
+
+				<dt>&lt;iframe&gt;</dt>
+					<dd>Ett fönster till en annan webbplats</dd>
+			</dl>
+		
+		</section>
+	
+	</aside>
+		
+	<main>
+		
+		<article id="start">
+			
+			<h2>Ljud och video</h2>
+			
+			<p>
+				Att få in ljud och video på din webbsida är nästan lika lätt som att få in 
+				en bild. För att få in ljud och video så använder man sig av elementen 
+				<code>&lt;audio&gt;</code> respektive <code>&lt;video&gt;</code>. Till 
+				skillnad från <code>&lt;img&gt;</code> så är <code>&lt;audio&gt;</code> 
+				och <code>&lt;video&gt;</code> inte tomma taggar.
+			</p>
+			
+			<p>
+				Ljud- och videoelementen fungerar till stora delar likadant. De har många 
+				gemensamma attribut och gör egentligen samma grej: spelar upp media.
+			</p>
+			
+			<section id="audio">
+
+				<h3>&lt;audio&gt;</h3>
+				
+				<p>
+					Det finns två huvudsakliga sätt att använda sig utav 
+					<code>&lt;audio&gt;</code>
+				</p>
+				
+				<pre><code>&lt;audio controls src="minljudfil" type="audio/XXX"&gt;&lt;/audio&gt;</code></pre>
+					
+				<p>Alternativt:</p>
+				
+				<pre><code>&lt;audio controls&gt;
+	&lt;source src="minljudfil" type="audio/XXX"/&gt;	
+&lt;/audio&gt;</code></pre>
+				
+				<audio controls src="Alarm03.wav">
+					Din webbläsare kan inte spela upp ljud som den bör
+				</audio>
+				
+				<p>
+					Metod ett är den lättaste men också den som är minst kompatibel med olika 
+					webbläsare. Metod två kan expanderas så att den fungerar med alla olika 
+					webbläsare:
+				</p>
+				
+				<pre><code>&lt;audio controls&gt;
+	&lt;source src="minljudfil1" type="audio/XXX"/&gt;
+	&lt;source src="minljudfil2" type="audio/YYY"/&gt;
+	&lt;source src="minljudfil3" type="audio/ZZZ"/&gt;
+&lt;/audio&gt;</code></pre>
+				
+				<p>
+					Här kan du lägga upp samma ljud fast i olika format och så att varje 
+					webbläsare spelar upp ljudet så bra som möjligt. Det här fungerar som så 
+					att din webbläsare först försöker öppna den första filen, går inte det så 
+					testar den nästa osv. I praktiken är det kanske lättast att välja ett 
+					format på ljudet som alla klarar av, exempelvis .mp3. Annars kan man 
+					hoppas på att ingen använder Explorer och köra på FLAC som har det bästa 
+					ljudet och som alla de övriga klarar av.
+				</p>
+				
+				<h4>controls</h4>
+				
+				<p>
+					Attributet controls gör så att man kan se play-knappen och volymkontrollen.
+				</p>
+				
+				<h4>type</h4>
+				
+				<p>
+					Attributet <code>type</code> berättar för webbläsaren vad det är för sorts 
+					mediafil och hur den ska spelas upp. En lista över olika filformat kommer 
+					längre ner.
+				</p>
+				
+				<h4>loop</h4>
+				
+				<p>
+					<code>loop</code> är ett annat attribut som berättar för webbläsaren att 
+					ljudet eller videon ska upprepas.
+				</p>
+				
+				<h4>autoplay</h4>
+				
+				<p>
+					Ett trixigt attribut som inte fungerar i alla webbläsare.
+				</p>
+				
+				<h4>preload</h4>
+				
+				<p>
+					Det här attributet berättar hur filen ska förladdas. Man kan ge den tre 
+					olika värden:
+				</p>
+				
+				<dl>
+					<dt>none</dt>
+					<dd>Ska inte förladdas</dd>
+					<dt>metadata</dt>
+					<dd>Laddar typ bara hur lång den är osv.</dd>
+					<dt>auto</dt>
+					<dd>Laddar filen direkt</dd>
+				</dl>
+				
+				<p>
+					Det är värt att veta att <code>autoplay</code> kör över 
+					<code>preload</code> och att alla webbläsare inte nödvändigtvis lyssnar på 
+					attributet ändå.
+				</p>
+
+			</section>
+
+			<section id="video">
+			
+				<h3>&lt;video&gt;</h3>
+			
+				<p>
+					Kommandot för att spela upp video fungerar likadant som det som spelar upp audio:
+				</p>
+			
+				<pre><code>&lt;video controls&gt;
+	&lt;source src="videofil" type="video/XXX"&gt;
+&lt;/video&gt;</code></pre>
+				
+				<video controls width="250">
+					<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+					<track label="Test" kind="captions" srclang="sv" src="subs.vtt" default/>
+				</video>
+				
+				<p>
+					Precis som för bilder så måste bilden antingen ligga på samma ställe som 
+					koden eller så kan man länka till videon med dess url.
+				</p>
+			
+				<h4>YouTube</h4>
+				
+				<p>
+					Om man vill länka till en video på YouTube så är de så snälla att om man 
+					högerklickar på en video så kan man välja "kopiera inbäddningskod" och 
+					bara klistra in det i sin kod:
+				</p>
+				
+				<pre><code>&lt;iframe width="450" height="253" src="https://www.youtube.com/embed/bS4Q-WWyl3Q" 
+	frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+	gyroscope; picture-in-picture" allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+				
+				<iframe width="450" height="253" src="https://www.youtube.com/embed/bS4Q-WWyl3Q" 
+					frameborder="0" 
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+					allowfullscreen></iframe>
+
+			</section>
+					
+			<section>
+				
+				<h3 id="filformat">Filformat</h3>
+				
+				<p>
+					Precis som med bilder så finns det olika filformat som passar till olika 
+					saker. Tillskillnad från bilder så klarar inte alla webbläsare av alla 
+					ljud- eller videoformat.
+				</p>
+
+				
+				<h4>Ljudformat</h4>
+				
+				<dl>
+					<dt>WAV</dt>
+					<dd>WAV (WAVE) är ett okomprimerat filformat som tar mer plats än MP3,
+					men utan ljudförlust.</dd>
+					<dt>MP3<dt>
+					<dd>Det kanske mest kända och vanliga filformatet. Stöds av alla 
+					webbläsare. MP3-formatet komprimerar originalfilen vilket leder till 
+					att en del information (ljud) försvinner.</dd>
+					<dt>MP4</dt>
+					<dd>MP4 är ett filformat för både ljud och video. Vanligtvis använder 
+					filer med enbart ljud ändelsen .m4a. Stöds av alla (Firefox kan spela 
+					upp det genom opererativsystemet)</dd>
+					<dt>AAC</dt>
+					<dd><i>Advanced Audio Codec</i> är en förbättring av MP3-formatet som 
+					ska ta lika mycket utrymme men ha högre ljudkvalitet.</dd>
+					<dt>Ogg</dt>
+					<dd>Det finns tre huvudsakliga varianter av Ogg:
+						<dt>.ogg</dt>
+						<dd>Vorbis audio-fil</dd>
+						<dt>.oga</dt>
+						<dd>För rena ljudfiler</dd>
+						<dt>.ogv</dt>
+						<dd>För videofiler</dd>
+					</dd>
+					<dt>WebM</dt>
+					<dd>Motsvar WebP för ljud och video.</dd>
+					<dt>FLAC</dt>
+					<dd><i>Free Lossless Audio Codec</i> är ett filformat som behåller all information 
+					i en ljudfil och ger på så vis en bätter ljudkvalitet än exempelvis mp3. Priset 
+					för detta är att ljudfilen blir större.</dd>
+				</dl>
+				
+				<h4>Videoformat</h4>
+				
+				<dl>
+					<dt>MP4</dt>
+					<dd>Det finns två varianter av MP4 som fungerar lite olika. Den ena versionen fungerar på 
+					alla webbläsare, den andra fungerar på Android och Safari.</dd>
+					<dt>Ogg</dt>
+					<dd>Video-versionen av .ogg.</dd>
+					<dt>WebM</dt>
+					<dd>Videoversionen av WebM.</dd>
+				</dl>
+				
+				<table>
+					<caption>Kompatabilitetstabell</caption>
+					<thead>
+						<tr>
+							<th>Format</th>
+							<th>MIME</th>
+							<th>Chrome</th>
+							<th>Edge</th>
+							<th>Explorer</th>
+							<th>Firefox</th>
+							<th>Opera</th>
+							<th>Safari</th>
+						</tr>
+					<thead>
+					<tbody>
+						<tr>
+							<td>WAV</td>
+							<td>audio/wav</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+						</tr>
+						<tr>
+							<td>MP3</td>
+							<td>audio/mpeg</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+						</tr>
+						<tr>
+							<td>MP4</td>
+							<td>audio/mp4</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:orange">(X)</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+						</tr>
+						<tr>
+							<td>ADTS</td>
+							<td>audio/aac<br/>audio/aacp</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+							<td style="background-color:orange">(X)</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+						</tr>
+						<tr>
+							<td>Ogg</td>
+							<td>audio/ogg</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+						</tr>
+						<tr>
+							<td>WebM</td>
+							<td>audio/webm</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+						</tr>
+						<tr>
+							<td>FLAC</td>
+							<td>audio/flac</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+						</tr>
+						<tr>
+							<td>MP4</td>
+							<td>video/mp4</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+						</tr>
+						<tr>
+							<td>Ogg</td>
+							<td>video/ogg</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+						</tr>
+						<tr>
+							<td>WebM</td>
+							<td>video/webm</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:red"></td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:lime">X</td>
+							<td style="background-color:orange">(X)</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</section>
+			
+		</article>
+	
+		<article class="main-matter">
+		
+			<h2 id="uppgifter">Övningar</h2>
+			
+			<ol>
+				<li>Ladda ned följande filer från Classroom:
+				<ul>
+					<li>"LetandeKatt.mp4"</li>
+					<li>"ljud.mp3"</li>
+				</ul>
+				<li>Skapa en sida som spelar upp filen "ljud.mp3"</li>
+				<li>Lägg till videon "LetandeKatt.mp4" på sidan.</li>
+				<li>Länka en video från YouTube på din sida.</li>
+				<li>Lägg till textning till filmklippet.</li>				
+			</ol>
+		
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Lunds stadsvapen"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+	
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+	
+</body>
+
+</html>

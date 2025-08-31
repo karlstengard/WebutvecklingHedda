@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<title>HTML 4 - Listor</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		
+		<!-- Detta gör att visad kod ska bli snyggare -->
+		<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+		<script src="highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	
+		<script src="script/showHideMenu.js"></script>
+		<script src="script/prettier-page.js"></script>
+		
+	</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+
+	
+	<aside>
+	
+		<h2>Sammanfattning</h2>
+		
+		<nav class="content">
+		
+			<h3>Innehåll</h3>
+		
+			<a href="#start">Start</a>
+			<a href="#custom">Utseende</a>
+			<a href="#uppgifter">Övningar</a>
+		
+		</nav>
+		
+		<p>
+			På den här sidan så pratar vi om hur man gör listor i HTML. Det finns tre 
+			sorters inbygda listor:
+		</p>
+
+		<ol>
+			<li>Numrerad lista <code>&lt;ol&gt;</code></li>
+			<li>Onumrerad lista <code>&lt;ul&gt;</code></li>
+			<li>Definitionslista <code>&lt;dl&gt;</code></li>
+		</ol>
+		
+		<p>
+			Numrerade och onumrerade listor fungerar likadant, först deklarerar vad 
+			det är för lista och sen stoppar man in varje punkt med <code>&lt;li&gt;</code>.
+		</p>
+			
+		<p>
+			Definitionslistan fungerar lite annorlunda. Där använder man <code>&lt;dt&gt;</code> på 
+			termen som definieras och sen <code>&lt;dd&gt;</code> för själva definitionen.
+		</p>
+	
+	</aside>
+		
+	<main>
+		
+		<article id="start">
+		
+			<h2>Listor</h2>
+			
+			<p>
+				Det är ganska ofta som man vill lista upp saker. <abbr title="Bland annat">
+				Bl. a.</abbr> när du har ett recept, eller när du bara vill rabbla 
+				saker du har i din samling. Du kan också använda dig utav listor när du 
+				vill presentera dagens uppgifter till en lektion.
+			</p>
+			
+			<h3>Numrerad lista &lt;ol&gt;</h3>
+			
+			<p>
+				En numrerad lista, eller <i>ordered list</i> på engelska (alternativt 
+				till och med <i>enumerated list</i>), är en lista där varje punkt är 
+				numrerad. Du skapar en numrerad lista med &lt;ol&gt;
+			</p>
+			
+			<ol>
+				<li>
+					Det första du ska tänka på när du gör en lista är att listan 
+					<strong>får</strong> inte ligga i ett &lt;p&gt;-element. Hemsidan kommer att 
+					fungera, men det är fel att göra så.
+				</li>
+				<li>
+					Sen när du har skrivit dina <code>&lt;ol&gt;</code>- och <code>&lt;/ol&gt;</code>-taggar så 
+					skapar du varje list-element med <code>&lt;li&gt;</code> som står för <i>list 
+					item</i>.
+				</li>
+				<li>
+					Text som står innanför <code>&lt;li&gt;</code>- och <code>&lt;/li&gt;</code>-taggarna ska 
+					<strong>inte</strong> ha <code>&lt;p&gt;</code>-taggar runt sig.
+				</li>
+			</ol>
+			
+			<h3>Punktlista &lt;ul&gt;</h3>
+			
+			<p>
+				Du skapar en punktlista med taggarna <code>&lt;ul&gt;</code> och <code>&lt;/ul&gt;</code>. ul står 
+				för <i>unordered list</i>, i motsats till <i>ordered list</i>.
+			</p>
+			
+			<ul>
+				<li>
+					Punktlistor fungerar precis likadant som numrerade listor.
+				</li>
+				<li>
+					Samma regler gäller och samma <code>&lt;li&gt;</code>-taggar används.
+				</li>
+			</ul>
+			
+			<h3>Listor i listor</h3>
+			
+			<p>
+				Om du programmerar så är listor i listor ofta besvärligt och 
+				kontraintuitivt. I HTML är listor i listor inget konstigt alls, om än 
+				kanske lite bökigt. Om du vill ha en underpunkt i en lista så skapar du 
+				den genom att du skapar en ny lista inne i <code>&lt;li&gt;</code>-elementet.
+			</p>
+			
+			
+			
+			<h4>Exempel</h4>
+			
+			<pre><code>&lt;h5&gt;Mina favoritsaker&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Lov
+    &lt;ol&gt;
+      &lt;li&gt;Sommarlov&lt;/li&gt;
+      &lt;li&gt;Jullov&lt;/li&gt;
+      &lt;li&gt;Höstlov&lt;/li&gt;
+      &lt;li&gt;Påsklov&lt;/li&gt;
+      &lt;li&gt;Sportlov&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Snabbmat
+    &lt;ol&gt;
+      &lt;li&gt;Pizza
+        &lt;ol&gt;
+          &lt;li&gt;Kebabpizza m. pommes&lt;/li&gt;
+          &lt;li&gt;Vezuvio m. béarnaisesås&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Dumplings&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Sova&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+				
+			<h5>Mina favoritsaker</h5>
+			
+			<ol>
+				<li>Lov
+					<ol>
+						<li>Sommarlov</li>
+						<li>Jullov</li>
+						<li>Höstlov</li>
+						<li>Påsklov</li>
+						<li>Sportlov</li>
+					</ol>
+					</li>
+				<li>Snabbmat
+					<ol>
+						<li>Pizza
+						<ol>
+							<li>Kebabpizza m. pommes</li>
+							<li>Vezuvio m. béarnaisesås</li>
+						</ol>
+						</li>
+						<li>Dumplings</li>
+					</ol>
+				</li>
+				<li>Sova</li>
+			</ol>
+			
+			<h3>Definitionslista</h3>
+			
+			<p>
+				En definitionslista skiljer sig ganska så dramatiskt från de andra två 
+				listorna i HTML. Dels är det en visuell skillnad, men också en 
+				skillnad i hur du skriver dem. Du startar en definitionslista med 
+				<code>&lt;dl&gt;</code> som då står för <i>definition list</i>. Sen använder du 
+				<code>&lt;dt&gt;</code> (<i>definition term</i>) för termen som ska definieras. Och 
+				<code>&lt;dd&gt;</code> (<i>definition description</i>) för att skriva ut 
+				definitionen.
+			</p>
+			
+			<dl>
+				<dt>DNS</dt>
+				<dd>Domain Name Server</dd>
+				<dt>DHCP</dt>
+				<dd>Dynamic Host Configuration Protocoll</dd> 
+			</dl>
+		
+		</article>
+		
+		<article id="custom">
+
+			<!-- To remove entirely? -->
+		
+			<h2>Utseende</h2>
+			
+			<p>
+				När du vill förändra utseendet på din sida så ska du som regel använda 
+				dig utav CSS. Men just när det gäller listor finns det lite granda du 
+				kan göra utan CSS.
+			</p>
+			
+			<h3>Numrerade listor</h3>
+			
+			<h4>Bokstäver</h4>
+			
+			<p>
+				Om du vill att din lista ska använda sig utav bokstäver istället för 
+				siffror kan du lägga till attributet type i din öppningstagg till 
+				listan och ge det värdet "A" om du vill ha stora bokstäver eller "a" 
+				om du vill ha små:
+			</p>
+				
+			<pre><code>&lt;ol type="A"&gt;
+	&lt;li&gt;Hej&lt;/li&gt;
+	&lt;li&gt;Hejsan&lt;/li&gt;
+	&lt;li&gt;Tja&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+				
+			<ol type="A">
+				<li>Hej</li>
+				<li>Hejsan</li>
+				<li>Tja</li>
+			</ol>
+
+			<pre><code>&lt;ol type="a"&gt;
+	&lt;li&gt;Hej&lt;/li&gt;
+	&lt;li&gt;Hejsan&lt;/li&gt;
+	&lt;li&gt;Tja&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+				
+			<ol type="a">
+				<li>Hej</li>
+				<li>Hejsan</li>
+				<li>Tja</li>
+			</ol>
+			
+			<h4>Romerska siffror</h4>
+			
+			<p>
+				Sätter du type till bokstaven "I" eller "i" så får du med romerska 
+				siffror istället.
+			</p>
+			
+			<pre><code>&lt;ol type="I"&gt;
+	&lt;li&gt;Alea&lt;/li&gt;
+	&lt;li&gt;Iacta&lt;/li&gt;
+	&lt;li&gt;Est&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+				
+			<ol type="I">
+				<li>Alea</li>
+				<li>Iacta</li>
+				<li>Est</li>
+			</ol>
+
+			<pre><code>&lt;ol type="i"&gt;
+	&lt;li&gt;Alea&lt;/li&gt;
+	&lt;li&gt;Iacta&lt;/li&gt;
+	&lt;li&gt;Est&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+				
+			<ol type="i">
+				<li>Alea</li>
+				<li>Iacta</li>
+				<li>Est</li>
+			</ol>
+			
+			<h4>Vanliga siffror</h4>
+			
+			<p>
+				De vanliga siffrorna dyker upp om man inte anger någon type. Men om du 
+				ändrat på någon regel och vill ha siffror på bara en lista kan du ange 
+				<code>type="1"</code> så får du med vanliga siffror.
+			</p>
+			
+			<h4>Startvärde</h4>
+			
+			<p>
+				Ibland vill du inte starta på 1 utan du vill börja på kanske 17. Då 
+				kan man ange startvärde för sin lista med attributet 
+				<code>start="17"</code>.
+			</p>
+			
+			<pre><code>&lt;ol start="17"&gt;
+	&lt;li&gt;Primtal nummer 7&lt;/li&gt;
+	&lt;li&gt;Delbart med 2, 3, 6, 9&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+			<ol start="17">
+				<li>Primtal nummer 7</li>
+				<li>Delbart med 2, 3, 6, 9</li>
+			</ol>
+
+			<p>
+				Det fungerar för bokstäver också:
+			</p>
+
+			<pre><code>&lt;ol start="6" type="a"&gt;
+	&lt;li&gt;En bokstav efter e&lt;/li&gt;
+	&lt;li&gt;En bokstav efter f&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+							
+			<ol start="6" type="a">
+				<li>En bokstav efter e</li>
+				<li>En bokstav efter f</li>
+			</ol>
+			
+			<p>
+				Detta du man enkelt kombinera med type, utan att behöva veta vilken 
+				bokstav eller romerskt tal du landar på:
+			</p>
+
+			
+			
+			<pre><code>&lt;ol start="17" type="i"&gt;
+	&lt;li&gt;Det finns säkert en Pokémon med det namnet&lt;/li&gt;
+	&lt;li&gt;Det är utvecklingen&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+				
+			<ol start="17" type="i">
+				<li>Det finns säkert en Pokémon med det namnet</li>
+				<li>Det är utvecklingen</li>
+			</ol>
+
+			
+		</article>
+		
+		<article id="uppgifter">
+		
+			<h2>Övningar</h2>
+			
+			<ol>
+				<li>Skriv en hemsida med ett recept på ditt favoritbakverk
+					<ul>
+						<li>Ingredienserna ska vara i punktform</li>
+						<li>Stegen i receptet ska vara numrerade</li>
+					</ul>
+				</li>
+				<li>Vilket café/vilken butik säljer bäst version av ditt bakverk?</li>
+				<li>Lägg till en bild på bakverket (finns i kapitel fem eller 
+				<a href="https://www.w3schools.com/html/html_images.asp">här</a>)</li>
+			</ol>
+		
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+
+</body>
+
+</html>

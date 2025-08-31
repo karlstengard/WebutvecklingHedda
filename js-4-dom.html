@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>JS 4 DOM</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+	
+			<nav>
+				<a href="#start">Start</a>
+				<a href="#getbyid">Komma åt ett element</a>
+				<a href="#inner">innerHTML</a>
+				<a href="#css">CSS</a>
+				<a href="#övningar1">Övningar</a>
+				<a href="#flera">Komma åt flera element</a>
+				<a href="#listor">Listor</a>
+				<a href="#övningar1">Övningar</a>
+			</nav>
+
+		<section id="sammanfattning">
+
+			<h2>Sammanfattning</h2>
+			
+			<p>
+				DOM &mdash; Document Object Model &mdash; är ett sätt att komma 
+				åt element på webbsidan. Modellen utgår från hemsidan och alla element 
+			</p>
+			
+			<dl>
+				<dt>getElementById("id")</dt>
+				<dd>Läser in elementet man vill ha</dd>
+				<dt>.innerHTML</dt>
+				<dd>Innehållet mellan ett elements taggar</dd>
+				<dt>.style</dt>
+				<dd>CSS-koden relaterat till ett element</dd>
+				<dt>.value</dt>
+				<dd>Värdet i ett &lt;input&gt;-element</dd>
+			</dl>
+			
+			<p>
+				Om man vill komma åt flera element samtidigt så kan man använda 
+				följande kommandon:
+			</p>
+			
+			<dl>
+				<dt>getElementsByTagName("tagg")</dt>
+				<dd>Läser in alla element som har den taggen</dd>
+				
+				<dt>getElementsByClassName("klass")</dt>
+				<dd>Fungerar som den övre men med klasser</dd>
+			</dl>
+			
+			<p>
+				När man har flera element i samma variabel så sparas 
+				de i en lista/array. För att komma åt enskilda element 
+				använder man hakparanteser och positionen i listan.
+			</p>
+			
+			<pre><code>let allaP;
+allaP = document.getElementsByTagName("p");
+let förstaP;
+förstaP = allaP[0];</code></pre>
+
+			
+		</section>
+			
+	</aside>
+		
+	<main>
+	
+		<article id="start">
+		
+			<section>
+		
+				<h2>Document Object Model &mdash; DOM</h2>
+				
+				<p>
+					För att JavaScript ska kunna komma åt saker i HTML dokumentet så 
+					behöver dokumentet ha någon form utav struktur. Ett sätt att ordna 
+					alla element är med DOM, eller Document Object Model. Då struktureras 
+					sidan på samma sätt som du har skrivit den.
+				</p> 
+				
+				<figure>
+					<img title="Saxad från wikipedia" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/DOM-model.svg" alt="Ett DOM-träd"/>
+					<figcaption>Ett DOM-träd</figcaption>
+				</figure>
+				
+				<p>
+					Du kan se det lite som en klädkammare. 
+					<code>&lt;html&gt;</code>-taggarna skapar själva rummet med väggarna. 
+					Sen är <code>&lt;head&gt;</code>- och 
+					<code>&lt;body&gt;</code>-taggarna skåp. Inne i skåpen kan du ha olika 
+					sorters block som <code>&lt;div&gt;</code>, 
+					<code>&lt;article&gt;</code> eller <code>&lt;section&gt;</code>, dem 
+					kan du se som lådor. I dem lådorna ligger sen våra andra element.
+				</p>				
+				
+				
+			</section>
+		
+			<section id="getbyid">
+			
+				<h3>Komma åt ett element</h3>
+				
+				<p>
+					När du vill komma åt ett specifikt HTML-element på din sida är 
+					det	lättast att ge det ett id och komma åt det så här:
+				</p>
+				
+				<pre><code>let el;
+el = document.getElementById("id");
+// Vi ska tolka det här som:
+// I dokumentet -> 
+//Hitta något som heter "id" ->
+//Lagra det i variabeln el</code></pre>
+					
+				<p>
+					När du har kommit åt ett element så kan du göra vad du vill med 
+					det.
+				</p>
+				
+			</section>
+			
+			<section id="inner">
+			
+				<h3>innerHTML</h3>
+				
+				<p>
+					För att ändra på det som finns mellan öppningstaggen och 
+					stängningstaggen (typ mellan <code>&lt;h2&gt;</code> och 
+					<code>&lt;/h2&gt;</code>) kan du nu skriva så här:
+				</p>
+				
+			<pre><code>&lt;script&gt;
+	let el;
+	el = document.getElementById("id");
+	el.innerHTML = "Rolig text";
+&lt;/script&gt;</code></pre>
+					
+					
+				<p>
+					Om du vill spara innehållet i elementet kan du skriva så här:
+				</p>
+				
+				<pre><code>&lt;script&gt;
+	let el;
+	el = document.getElementById("id");
+	let innehåll;
+	innehåll = el.innerHTML;
+&lt;/script&gt;</code></pre>
+					
+				<p>
+					Om det är så att du använder dig utav <code>&lt;input&gt;</code> 
+					för att ta emot information så behöver du skriva 
+					<code>value</code> istället för <code>innerHTML</code> för att få ut 
+					texten. För som du kanske minns är <code>&lt;input/&gt;</code> ett 
+					tomt element. Så den har ingen inre HTML.
+				</p>
+				
+				
+				<h4>exempel</h4>
+				
+				<h5 id="exempelRubrik1">Rubriken</h5>
+				
+				<input id="exempelInput1"/>
+				<button id="exempelKnapp1">Klicka här</button>
+				
+				<pre><code>&lt;h5 id="exempelRubrik1">Rubriken&lt;/h5&gt;
+&lt;input id="exempelInput1" /&gt;	
+&lt;button id="exempelKnapp1"&gt;Klicka här&lt;/button&gt;
+				
+&lt;script&gt;
+	function byt(){
+		let rubrik, input;
+
+		rubrik = document.getElementById("exempelRubrik1");
+		input = document.getElementById("exempelInput1");
+
+		let text;
+
+		text = input.value;
+		rubrik.innerHTML = text;
+	}
+	let knapp1;
+	knapp1 = document.getElementById("exempelKnapp1");
+	knapp1.addEventListener('click', byt);
+&lt;/script&gt;</code></pre>
+					
+				<script>
+					function byt(){
+						let rubrik, input;
+
+						rubrik = document.getElementById("exempelRubrik1");
+						input = document.getElementById("exempelInput1");
+
+						let text;
+
+						text = input.value;
+						rubrik.innerHTML = text;
+					}
+					let knapp1;
+					knapp1 = document.getElementById("exempelKnapp1");
+					knapp1.addEventListener('click', byt);
+				</script>
+					
+			</section>
+		
+			<section id="css">
+			
+				<h3>CSS</h3>
+			
+				<p>
+					Du kan också komma åt och ändra på enskilda elements CSS-regler:
+				</p>
+				
+				<pre><code>let el;
+el = document.getElementById("id");
+
+el.style['color'] = "yellow";
+el.style['background-color'] = "black";</code></pre>
+					
+					<h4>Exempel</h4>
+
+					<h5 id="exempelRubrik2">Rubriken</h5>
+					
+					<input id="exempelinput2a" /> <br/>
+					<input id="exempelinput2b"/> <br/>
+					
+					<button id="exempelKnapp2">Klicka här</button>
+
+					<pre><code>&lt;h5 id="exempelRubrik2">Rubriken&lt;/h5&gt;
+&lt;input id="exempelinput2a"/&gt; &lt;br/&gt;
+&lt;input id="exempelinput2b"/&gt;  &lt;br/&gt;
+&lt;button id="exempelKnapp2"&gt;Klicka här&lt;/button&gt;
+
+&lt;script&gt;
+	function färger(){
+		let rubrik, input1, input2;
+		
+		rubrik = document.getElementById("exempelRubrik2");
+		input1 = document.getElementById("exempelinput2a");
+		input2 = document.getElementById("exempelinput2b");
+
+		rubrik.style['color'] = input1.value;
+		rubrik.style['background-color'] = input2.value;
+		
+		console.log(input1.value);
+	}
+
+	let knapp2;
+	knapp2.getElementById("exempelRubrik2");
+	knapp2.addEventListener('click',färger);
+&lt;/script&gt;</code></pre>
+					
+				<script>
+					function färger(){
+						let rubrik, input1, input2;
+						
+						rubrik = document.getElementById("exempelRubrik2");
+						input1 = document.getElementById("exempelinput2a");
+						input2 = document.getElementById("exempelinput2b");
+
+						rubrik.style['color'] = input1.value;
+						rubrik.style['background-color'] = input2.value;
+					}
+					let knapp2;
+					knapp2 = document.getElementById("exempelKnapp2");
+					knapp2.addEventListener('click',färger);
+				</script>
+			
+			</section>
+		
+		</article>
+		
+		<article id="övningar1">
+		
+			<h2>Övningar</h2>
+			
+			<ol>
+				<li>Utgå från filen <a href="js-4-övningar.html">js-4-ovningar.html</a></li>				
+				<li>Följ instruktionerna i filen.</li>
+			</ol>
+		
+		</article>
+	
+		<article>
+		
+			<h2>Flera element</h2>
+		
+			<section id="flera">
+				
+				<p>
+					Ibland vill du ändra på flera element samtidigt, exempelvis alla 
+					element med samma klass, eller alla av samma element (typ alla 
+					<code>&lt;li&gt;</code>-element).
+				</p>
+			
+				<h3>Samma klass</h3>
+				
+				<p>
+					Med <code>getElementsByClassName()</code> kommer du åt alla element 
+					med samma klass.
+				</p>
+				
+				<h3>Samma tagg</h3>
+				
+				<p>	Med <code>getElementsByTagName("tagg")</code> så kan du komma åt alla 
+					element av samma sort.
+				</p>
+			
+				<pre><code>let allaP = document.getElementsByTagName("p");</code></pre>
+				
+			</section>
+		
+			<section id="listor">
+			
+				<h3>Listor</h3>
+				
+				<p>
+					När du använder någon av de två metoderna ovanför så svarar JavaScript 
+					alltid med en så kallad <i>NodeList</i>. En NodeList är en sorts 
+					<i>array</i> (lista med element) som innehåller alla element som du 
+					har letat efter.
+				</p>
+				
+				<p>
+					Om du vill komma åt ett särskilt element ur en lista så gör du det med 
+					hakparanteser <code>[]</code> och vilken plats det är man vill komma 
+					åt. <code>[X]</code>
+				</p>
+				
+				<pre><code>let allaP = document.getElementsByTagName("p");
+allaP[0].innerHTML="Tja";</code></pre>
+					
+				<h4>Index</h4>
+				
+				<p>
+					En sak som kan vara klurigt i början är att listor börjar räkna från 
+					0. Det kan kännas kosntigt men är ett smart sätt att få plats med fler 
+					saker med mindre använt minne. Dessutom gör det att datorn hittar lite 
+					snabbare.
+				</p>
+				
+				<p>
+					Det faktum att vi börjar räkna från 0 gör att om vi har 10 element i 
+					en lista så hittar vi det sista elementet på plats 9.
+				</p>
+				
+				<pre><code>let element = document.getElementsByTagName("p");
+
+for (i = 0; i &lt; element.length; i++){
+	element[i].style['color'] = "blue";
+}</code></pre>
+					
+				<p>
+					Testa att köra koden här ovanför i konsolen och se vad som händer.
+				</p>
+					
+				<p>
+					En sak som kan vara värd att kolla på är att alla listor har ett 
+					attribut som heter <code>"length"</code> som håller koll på hur många 
+					saker som finns i listan. Så om en lista har 13 element så kan man 
+					hitta saker på platserna: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 och 12.
+				</p>
+				
+			</section>
+		
+		</article>
+			
+		<article id="övningar2">
+		
+			<h2>Övningar 2</h2>
+		
+			<ol>
+				<li>Utgå från filen <a href="js-4-dom-övningar2.html">js-4-dom-övningar2.html</a></li>
+				<li>Följ instruktionerna i den filen</li>
+			</ol>
+		
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br/>
+			Hedda Anderssongymnasiet<br/>
+			Svanevägen 17<br/>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2025&ndash;03&ndash;24
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

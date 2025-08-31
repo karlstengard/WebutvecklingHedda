@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+
+<!-- Det här borde inte vara moment 9 övningarna är bara till pseudoklasser-->
+
+<html lang="sv">
+
+<head>
+	<meta charset="utf-8" />
+	<title>14. Tabeller</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	
+	<style>		
+		.färgaderader tr:nth-child(2n){
+			background-color: yellow;
+		}
+		
+		.radhover tr:hover{
+			background-color: silver;
+		}
+		.cellhover td:hover{
+			background-color: black;
+			color: yellow;
+		}
+		.cellpop td:hover{
+			background-color: black;
+			color: yellow;
+			font-size: 200%;
+		}
+		.tal{
+			text-align: right;
+		}
+
+		.kladdig, .kladdig td, .kladdig th{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+	
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formulär.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-färger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+
+	<aside>
+	
+		<nav class="content">
+			<a href="#start">Start</a>
+			<a href="#num">Numrerade listor</a>
+			<a href="#onum">Onumrerade listor</a>
+			<a href="#bild">Bilder</a>
+			<a href="#pos">Position</a>
+			<a href="#tab">Tabeller</a>
+			<a href="#läs">Läslighet</a>
+			<a href="#övningar">Övningar</a>
+		</nav>
+
+		<section>
+
+			<h2>Sammanfattning</h2>
+
+			<p>
+				På den här sidan går vi igenom hur ändra 
+				utseendet på på listor och tabeller med 
+				CSS. Till listorna tillkommer det en del 
+				nya kommandon, medan för tabellerna så 
+				handlar det snarare om att använda gamla 
+				kommandon på ett smart sätt.
+			</p>
+
+			<dl>
+				<dt><code>list-style-type:</code></dt>
+				<dd>
+					För numrerade listor finns:
+					<ul>
+						<li><code>lower-roman</code></li>
+						<li><code>upper-roman</code></li>
+						<li><code>decimal</code></li>
+						<li><code>decimal-leading-zero</code></li>
+						<li><code>lower-alpha</code></li>
+						<li><code>upper-alpha</code></li>
+						<li><code>lower-greek</code></li>
+					</ul>
+					För onumrerade listor finns:
+					<ul>
+						<li><code>square</code></li>
+						<li><code>disc</code></li>
+						<li><code>circle</code></li>
+						<li><code>none</code></li>
+					</ul>
+				</dd>
+				<dt>
+					<code>list-style-image:</code>
+				</dt>
+				<dd>
+					Här anger du bilden  
+					<code>url("bilden");</code>
+				</dd>
+				<dt>
+					<code>list-style-position:</code>
+				</dt>
+				<dd>
+					Det här kommandot styr upp om punkten är 
+					en del av stycket eller ligger utanför.
+				</dd>
+
+			</dl>
+
+		</section>
+		
+	</aside>
+
+	<main>
+	
+		<article id="start">
+		
+			<section id="num">
+		
+				<h2>CSS och listor</h2>
+				
+				<h3>Numrerade listor</h3>
+				
+				<p>
+					Vi har redan pratat om hur vi kan ändra utseendet på våra 
+					numrerade listor med HTML:
+				</p>
+				
+				<pre><code title="HTML-kod">&lt;ol type="i"&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+			
+				<ol type="i">
+					<li>i</li>
+					<li>I</li>
+					<li>1</li>
+					<li>a</li>
+					<li>A</li>
+				</ol>
+				
+				<p>
+					Vi kan åstadkomma samma resultat genom CSS-kod:
+				</p>
+				
+				<pre><code title="CSS-kod som ska vara i style">ol{
+	list-style-type: lower-roman;
+}</code></pre>
+			
+				
+				<ol style="list-style-type: lower-roman">
+					<li>lower-roman</li>
+					<li>upper-roman</li>
+					<li>decimal</li>
+					<li>decimal-leading-zero</li>
+					<li>lower-alpha</li>
+					<li>upper-alpha</li>
+					<li>lower-greek</li>
+				</ol>
+				
+				<p>
+					Även om det är mer att skriva för att göra en lista 
+					annorlunda, så blir det mindre om man tänker på att man 
+					kan få det att gälla för flera olika listor samtidigt.
+				</p>
+				
+			</section>
+			
+			<section id="onum">
+			
+				<h3>Onumrerade listor</h3>
+				
+				<p>
+					Med CSS kan vi också ändra på hur onumrerade listor ska se ut:
+				</p>
+				
+				<pre><code title="CSS-kod som ska skrivas i style">ul{
+	list-style-type: square;
+}</code></pre>
+			
+				<ul style="list-style-type: square;">
+					<li>square</li>
+					<li>disc</li>
+					<li>circle</li>
+					<li>none</li>
+				</ul>
+			
+			</section>
+			
+			<section id="bild">
+			
+				<h3>Bilder som punkter</h3>
+				
+				<p>
+					Vi kan också lägga till en bild som vi vill använda 
+					som punkt istället för någon av de inbyggda.
+				</p>
+				
+				<pre><code title="CSS-kod som ska skrivas i style.">ul{
+	list-style-image: url("bilden");
+}</code></pre>
+			
+			<ul style="list-style-image: url('https://static.planetminecraft.com/files/avatar/146107.png');">
+				<li>Titta</li>
+				<li>Här</li>
+			</ul>
+				
+				<p>
+					Det är dock viktigt att tänka på storleken på bilden. 
+					Somliga föreslår att man lägger in den som en bakgrundsbild 
+					och sen justerar padding så att den ser ut att vara en punkt. 
+					Då har de också använt sig av <code>list-style-type: none;</code>
+				</p>
+				
+			</section>
+			
+			<section id="pos">
+		
+				<h3>list-style-position</h3>
+				
+				<p>
+					Kommandot list-style-position justerar hur punbkten och texten 
+					ska ligga i förhållande till varandra.
+				</p>
+				
+				<pre><code title="CSS-kod som ska ligga i style">ul{
+	list-style-position: outside; /* Detta är standard */
+}</code></pre>
+				
+				<ul style="list-style-position: outside;">
+					<li>
+						För att visa hur detta fungerar behöver vi ha en del text 
+						(eller använde <code>&lt;br/&gt;</code> men vad är det roliga i det). Så nu
+						skriver jag på här för få till en radbrytning eftersom jag skriver 
+						så mycket. Jag hade också kunnat ställa in width i min CSS för 
+						att göra det lättare för mig.
+					</li>
+				</ul>
+			
+				<pre><code title="CSS-kod som ska ligga i style">ul{
+	list-style-position: inside; 
+}</code></pre>
+				
+				<ul style="list-style-position: inside;">
+					<li>
+						För att visa hur detta fungerar behöver vi ha en del text 
+						(eller använde <code>&lt;br/&gt;</code> men vad är det roliga i det). Så nu
+						skriver jag på här för få till en radbrytning eftersom jag skriver 
+						så mycket. Jag hade också kunnat ställa in width i min CSS för 
+						att göra det lättare för mig.
+					</li>
+				</ul>
+			
+			</section>
+			
+		</article>
+
+		<article> <!-- Här måste jag fixa -->
+		
+			<section id="tab">
+			
+				<h2>CSS och tabeller</h2>
+				
+				<h3>Snabb recap</h3>
+				
+				<pre><code title="HTML-kod">&lt;table&gt;
+	&lt;caption&gt;Officiella äventyr till Dungeons and Dragons&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Utgåva&lt;/th&gt;
+			&lt;th&gt;Äventyr&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;3rd&lt;/td&gt;
+			&lt;td&gt;30&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;4th&lt;/td&gt;
+			&lt;td&gt;24&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;5th&lt;/td&gt;
+			&lt;td&gt;22&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Summa&lt;/th&gt;
+			&lt;td&gt;76&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+				
+				<table>
+					<caption>Officiella äventyr till Dungeons and Dragons</caption>
+					<thead>
+						<tr>
+							<th>Utgåva</th>
+							<th>Äventyr</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>3rd</td>
+							<td>30</td>
+						</tr>
+						<tr>
+							<td>4th</td>
+							<td>24</td>
+						</tr>
+						<tr>
+							<td>5th</td>
+							<td>22</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Summa</th>
+							<td>76</td>
+						</tr>
+					</tfoot>
+				</table>
+				
+			</section>
+			
+			<section id="läs">
+
+				<h3>Oläslighet</h3>
+
+				<p>
+					Det är vanligt att tänka att ett rutnät gör en tabell mer 
+					lättläst. Det kan stämma på en liten tabell, men så fort du 
+					har en stor tabell med flera rader och kolumner så blir det 
+					kladdigt.
+				</p>
+
+				<table class="kladdig">
+					<caption>NHL:s tabell 2001 (toppen)</caption>
+					<thead>
+						<tr>
+							<th>Placering</th>
+							<th>Lag</th>
+							<th>Vinster</th>
+							<th>Förluster</th>
+							<th>Oavgjorda</th>
+							<th>Övertidsvinster</th>
+							<th>Poäng</th>
+							<th>Gjorda mål</th>
+							<th>Insläppta mål</th>
+							<th>&pm;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td><td>Colorado</td><td>52</td><td>16</td><td>10</td><td>4</td><td>118</td><td>270</td><td>192</td><td>+78</td>
+						</tr>
+						<tr>
+							<td>2</td><td>Detroit</td><td>49</td>	<td>20</td>	<td>9</td>	<td>4</td>	<td>111</td>	<td>253</td>	<td>202</td>	<td>+51</td>
+						</tr>
+						<tr>
+							<td>3</td><td>New Jersey</td> <td>48</td><td>19</td><td>12</td><td>3</td><td>111</td><td>295</td><td>195</td><td>+100</td>
+						</tr>
+						<tr>
+							<td>4</td><td>Ottawa</td><td>48</td><td>21</td><td>9</td><td>4</td><td>109</td><td>274</td><td>205</td><td>+69</td>
+						</tr>
+						<tr>
+							<td>5</td><td>Dallas</td><td>48</td><td>24</td><td>8</td><td>2</td><td>106</td><td>241</td><td>187</td><td>+54</td>
+						</tr>
+						<tr>
+							<td>6</td><td>St Louis</td><td>43</td><td>22</td><td>12</td><td>5</td><td>103</td><td>249</td><td>195</td><td>+54</td>
+						</tr>
+						<tr>
+							<td>7</td><td>Philadelphia</td><td>43</td><td>25</td><td>11</td><td>3</td><td>100</td><td>240</td><td>207</td><td>+33</td>
+						</tr>
+						<tr>
+							<td>8</td><td>Buffalo</td><td>46</td><td>30</td><td>5</td><td>1</td><td>98</td><td>218</td><td>184</td><td>+34</td>
+						</tr>
+						<tr>
+							<td>9</td><td>Pittsburgh</td><td>42</td><td>28</td><td>9</td><td>3</td><td>96</td><td>281</td><td>256</td><td>+25</td>
+						</tr>
+						<tr>
+							<td>10</td><td>Washington</td><td>41</td><td>27</td><td>10</td><td>4</td><td>96</td><td>233</td><td>211</td><td>+22</td>
+						</tr>
+						<tr>
+							<td>11</td><td>San Jose</td><td>40</td><td>27</td><td>12</td><td>3</td><td>95</td><td>217</td><td>192</td><td>+25</td>
+						</tr>
+						<tr>
+							<td>12</td><td>Edmonton</td><td>39</td><td>28</td><td>12</td><td>3</td><td>93</td><td>243</td><td>222</td><td>+21</td>
+						</tr>
+						<!--
+						<tr>
+							<td>13</td><td>Los Angeles</td><td> </td>
+						</tr>
+						<tr>
+							<td>14</td><td>Toronto</td><td> </td>
+						</tr>
+						<tr>
+							<td>15</td><td>Vancouver</td><td> </td>
+						</tr>
+						<tr>
+							<td>16</td><td>Phoenix</td><td> </td>
+						</tr>
+						<tr>
+							<td>17</td><td>Carolina</td><td> </td>
+						</tr>
+						<tr>
+							<td>18</td><td>Boston</td><td> </td>
+						</tr>
+						<tr>
+							<td>19</td><td>Nashville</td><td> </td>
+						</tr>
+						<tr>
+							<td>20</td><td>Calgary</td><td> </td>
+						</tr>
+						<tr>
+							<td>21</td><td>NY Rangers</td><td> </td>
+						</tr>
+						<tr>
+							<td>22</td><td>Chicago</td><td> </td>
+						</tr>
+						<tr>
+							<td>23</td><td>Columbus</td><td> </td>
+						</tr>
+						<tr>
+							<td>24</td><td>Montréal</td><td> </td>
+						</tr>
+						<tr>
+							<td>25</td><td>Minnesota</td><td> </td>
+						</tr>
+						<tr>
+							<td>26</td><td>Anaheim</td><td> </td>
+						</tr>
+						<tr>
+							<td>27</td><td>Florida</td><td> </td>
+						</tr>
+						<tr>
+							<td>28</td><td>Atlanta</td><td> </td>
+						</tr>
+						<tr>
+							<td>29</td><td>Tampa Bay</td><td> </td>
+						</tr>
+						<tr>
+							<td>30</td><td>NY Islanders</td><td> </td>
+						</tr>		-->			
+					
+					</tbody>
+				</table>
+			
+				<h3>Läslighet</h3>
+				
+				<p>
+					När vi har en tabell med mycket data, om det är många kolumner 
+					eller många rader så hjälper det att ha alternerande färg på 
+					rader/kolumner.
+				</p>
+				
+				<pre><code title="CSS-kod som ska vara i style">tr:nth-child(2n){ /* Ändrar på varannan rad */
+	background-color: yellow;
+}</code></pre>
+				
+				<table class="färgaderader">
+					<caption>NHL:s tabell 2001 (toppen)</caption>
+					<thead>
+						<tr>
+							<th>Placering</th>
+							<th>Lag</th>
+							<th>Vinster</th>
+							<th>Förluster</th>
+							<th>Oavgjorda</th>
+							<th>Övertidsvinster</th>
+							<th>Poäng</th>
+							<th>Gjorda mål</th>
+							<th>Insläppta mål</th>
+							<th>&pm;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td><td>Colorado</td><td>52</td><td>16</td><td>10</td><td>4</td><td>118</td><td>270</td><td>192</td><td>+78</td>
+						</tr>
+						<tr>
+							<td>2</td><td>Detroit</td><td>49</td>	<td>20</td>	<td>9</td>	<td>4</td>	<td>111</td>	<td>253</td>	<td>202</td>	<td>+51</td>
+						</tr>
+						<tr>
+							<td>3</td><td>New Jersey</td> <td>48</td><td>19</td><td>12</td><td>3</td><td>111</td><td>295</td><td>195</td><td>+100</td>
+						</tr>
+						<tr>
+							<td>4</td><td>Ottawa</td><td>48</td><td>21</td><td>9</td><td>4</td><td>109</td><td>274</td><td>205</td><td>+69</td>
+						</tr>
+						<tr>
+							<td>5</td><td>Dallas</td><td>48</td><td>24</td><td>8</td><td>2</td><td>106</td><td>241</td><td>187</td><td>+54</td>
+						</tr>
+						<tr>
+							<td>6</td><td>St Louis</td><td>43</td><td>22</td><td>12</td><td>5</td><td>103</td><td>249</td><td>195</td><td>+54</td>
+						</tr>
+						<tr>
+							<td>7</td><td>Philadelphia</td><td>43</td><td>25</td><td>11</td><td>3</td><td>100</td><td>240</td><td>207</td><td>+33</td>
+						</tr>
+						<tr>
+							<td>8</td><td>Buffalo</td><td>46</td><td>30</td><td>5</td><td>1</td><td>98</td><td>218</td><td>184</td><td>+34</td>
+						</tr>
+						<tr>
+							<td>9</td><td>Pittsburgh</td><td>42</td><td>28</td><td>9</td><td>3</td><td>96</td><td>281</td><td>256</td><td>+25</td>
+						</tr>
+						<tr>
+							<td>10</td><td>Washington</td><td>41</td><td>27</td><td>10</td><td>4</td><td>96</td><td>233</td><td>211</td><td>+22</td>
+						</tr>
+						<tr>
+							<td>11</td><td>San Jose</td><td>40</td><td>27</td><td>12</td><td>3</td><td>95</td><td>217</td><td>192</td><td>+25</td>
+						</tr>
+						<tr>
+							<td>12</td><td>Edmonton</td><td>39</td><td>28</td><td>12</td><td>3</td><td>93</td><td>243</td><td>222</td><td>+21</td>
+						</tr>
+						<!--
+						<tr>
+							<td>13</td><td>Los Angeles</td><td> </td>
+						</tr>
+						<tr>
+							<td>14</td><td>Toronto</td><td> </td>
+						</tr>
+						<tr>
+							<td>15</td><td>Vancouver</td><td> </td>
+						</tr>
+						<tr>
+							<td>16</td><td>Phoenix</td><td> </td>
+						</tr>
+						<tr>
+							<td>17</td><td>Carolina</td><td> </td>
+						</tr>
+						<tr>
+							<td>18</td><td>Boston</td><td> </td>
+						</tr>
+						<tr>
+							<td>19</td><td>Nashville</td><td> </td>
+						</tr>
+						<tr>
+							<td>20</td><td>Calgary</td><td> </td>
+						</tr>
+						<tr>
+							<td>21</td><td>NY Rangers</td><td> </td>
+						</tr>
+						<tr>
+							<td>22</td><td>Chicago</td><td> </td>
+						</tr>
+						<tr>
+							<td>23</td><td>Columbus</td><td> </td>
+						</tr>
+						<tr>
+							<td>24</td><td>Montréal</td><td> </td>
+						</tr>
+						<tr>
+							<td>25</td><td>Minnesota</td><td> </td>
+						</tr>
+						<tr>
+							<td>26</td><td>Anaheim</td><td> </td>
+						</tr>
+						<tr>
+							<td>27</td><td>Florida</td><td> </td>
+						</tr>
+						<tr>
+							<td>28</td><td>Atlanta</td><td> </td>
+						</tr>
+						<tr>
+							<td>29</td><td>Tampa Bay</td><td> </td>
+						</tr>
+						<tr>
+							<td>30</td><td>NY Islanders</td><td> </td>
+						</tr>		-->			
+					
+					</tbody>
+				</table>
+			
+				<p>
+					För att öka läsligheten ytterliggare så kan vi lägga till 
+					en regel för vad som ska hända om man håller musen över en 
+					rad:
+				</p>
+				
+				<pre><code title="CSS-kod som ska vara i style">tr:hover{
+	background-color: silver;
+}</code></pre>
+				
+				<table class="färgaderader radhover">
+					<caption>NHL:s tabell 2001 (toppen)</caption>
+					<thead>
+						<tr>
+							<th>Placering</th>
+							<th>Lag</th>
+							<th>Vinster</th>
+							<th>Förluster</th>
+							<th>Oavgjorda</th>
+							<th>Övertidsvinster</th>
+							<th>Poäng</th>
+							<th>Gjorda mål</th>
+							<th>Insläppta mål</th>
+							<th>&pm;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td><td>Colorado</td><td>52</td><td>16</td><td>10</td><td>4</td><td>118</td><td>270</td><td>192</td><td>+78</td>
+						</tr>
+						<tr>
+							<td>2</td><td>Detroit</td><td>49</td>	<td>20</td>	<td>9</td>	<td>4</td>	<td>111</td>	<td>253</td>	<td>202</td>	<td>+51</td>
+						</tr>
+						<tr>
+							<td>3</td><td>New Jersey</td> <td>48</td><td>19</td><td>12</td><td>3</td><td>111</td><td>295</td><td>195</td><td>+100</td>
+						</tr>
+						<tr>
+							<td>4</td><td>Ottawa</td><td>48</td><td>21</td><td>9</td><td>4</td><td>109</td><td>274</td><td>205</td><td>+69</td>
+						</tr>
+						<tr>
+							<td>5</td><td>Dallas</td><td>48</td><td>24</td><td>8</td><td>2</td><td>106</td><td>241</td><td>187</td><td>+54</td>
+						</tr>
+						<tr>
+							<td>6</td><td>St Louis</td><td>43</td><td>22</td><td>12</td><td>5</td><td>103</td><td>249</td><td>195</td><td>+54</td>
+						</tr>
+						<tr>
+							<td>7</td><td>Philadelphia</td><td>43</td><td>25</td><td>11</td><td>3</td><td>100</td><td>240</td><td>207</td><td>+33</td>
+						</tr>
+						<tr>
+							<td>8</td><td>Buffalo</td><td>46</td><td>30</td><td>5</td><td>1</td><td>98</td><td>218</td><td>184</td><td>+34</td>
+						</tr>
+						<tr>
+							<td>9</td><td>Pittsburgh</td><td>42</td><td>28</td><td>9</td><td>3</td><td>96</td><td>281</td><td>256</td><td>+25</td>
+						</tr>
+						<tr>
+							<td>10</td><td>Washington</td><td>41</td><td>27</td><td>10</td><td>4</td><td>96</td><td>233</td><td>211</td><td>+22</td>
+						</tr>
+						<tr>
+							<td>11</td><td>San Jose</td><td>40</td><td>27</td><td>12</td><td>3</td><td>95</td><td>217</td><td>192</td><td>+25</td>
+						</tr>
+						<tr>
+							<td>12</td><td>Edmonton</td><td>39</td><td>28</td><td>12</td><td>3</td><td>93</td><td>243</td><td>222</td><td>+21</td>
+						</tr>
+						<!--
+						<tr>
+							<td>13</td><td>Los Angeles</td><td> </td>
+						</tr>
+						<tr>
+							<td>14</td><td>Toronto</td><td> </td>
+						</tr>
+						<tr>
+							<td>15</td><td>Vancouver</td><td> </td>
+						</tr>
+						<tr>
+							<td>16</td><td>Phoenix</td><td> </td>
+						</tr>
+						<tr>
+							<td>17</td><td>Carolina</td><td> </td>
+						</tr>
+						<tr>
+							<td>18</td><td>Boston</td><td> </td>
+						</tr>
+						<tr>
+							<td>19</td><td>Nashville</td><td> </td>
+						</tr>
+						<tr>
+							<td>20</td><td>Calgary</td><td> </td>
+						</tr>
+						<tr>
+							<td>21</td><td>NY Rangers</td><td> </td>
+						</tr>
+						<tr>
+							<td>22</td><td>Chicago</td><td> </td>
+						</tr>
+						<tr>
+							<td>23</td><td>Columbus</td><td> </td>
+						</tr>
+						<tr>
+							<td>24</td><td>Montréal</td><td> </td>
+						</tr>
+						<tr>
+							<td>25</td><td>Minnesota</td><td> </td>
+						</tr>
+						<tr>
+							<td>26</td><td>Anaheim</td><td> </td>
+						</tr>
+						<tr>
+							<td>27</td><td>Florida</td><td> </td>
+						</tr>
+						<tr>
+							<td>28</td><td>Atlanta</td><td> </td>
+						</tr>
+						<tr>
+							<td>29</td><td>Tampa Bay</td><td> </td>
+						</tr>
+						<tr>
+							<td>30</td><td>NY Islanders</td><td> </td>
+						</tr>		-->			
+					
+					</tbody>
+				</table>
+			
+			
+				<p>
+					Vi kan också fixa så att den rutan vi håller över byter färg
+				</p>
+				
+				<pre><code title="CSS-kod som ska vara i style">td:hover{
+	background-color: black;
+	color: yellow;
+}</code></pre>
+				
+				<table class="färgaderader radhover cellhover">
+					<caption>NHL:s tabell 2001 (toppen)</caption>
+					<thead>
+						<tr>
+							<th>Placering</th>
+							<th>Lag</th>
+							<th>Vinster</th>
+							<th>Förluster</th>
+							<th>Oavgjorda</th>
+							<th>Övertidsvinster</th>
+							<th>Poäng</th>
+							<th>Gjorda mål</th>
+							<th>Insläppta mål</th>
+							<th>&pm;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td><td>Colorado</td><td>52</td><td>16</td><td>10</td><td>4</td><td>118</td><td>270</td><td>192</td><td>+78</td>
+						</tr>
+						<tr>
+							<td>2</td><td>Detroit</td><td>49</td>	<td>20</td>	<td>9</td>	<td>4</td>	<td>111</td>	<td>253</td>	<td>202</td>	<td>+51</td>
+						</tr>
+						<tr>
+							<td>3</td><td>New Jersey</td> <td>48</td><td>19</td><td>12</td><td>3</td><td>111</td><td>295</td><td>195</td><td>+100</td>
+						</tr>
+						<tr>
+							<td>4</td><td>Ottawa</td><td>48</td><td>21</td><td>9</td><td>4</td><td>109</td><td>274</td><td>205</td><td>+69</td>
+						</tr>
+						<tr>
+							<td>5</td><td>Dallas</td><td>48</td><td>24</td><td>8</td><td>2</td><td>106</td><td>241</td><td>187</td><td>+54</td>
+						</tr>
+						<tr>
+							<td>6</td><td>St Louis</td><td>43</td><td>22</td><td>12</td><td>5</td><td>103</td><td>249</td><td>195</td><td>+54</td>
+						</tr>
+						<tr>
+							<td>7</td><td>Philadelphia</td><td>43</td><td>25</td><td>11</td><td>3</td><td>100</td><td>240</td><td>207</td><td>+33</td>
+						</tr>
+						<tr>
+							<td>8</td><td>Buffalo</td><td>46</td><td>30</td><td>5</td><td>1</td><td>98</td><td>218</td><td>184</td><td>+34</td>
+						</tr>
+						<tr>
+							<td>9</td><td>Pittsburgh</td><td>42</td><td>28</td><td>9</td><td>3</td><td>96</td><td>281</td><td>256</td><td>+25</td>
+						</tr>
+						<tr>
+							<td>10</td><td>Washington</td><td>41</td><td>27</td><td>10</td><td>4</td><td>96</td><td>233</td><td>211</td><td>+22</td>
+						</tr>
+						<tr>
+							<td>11</td><td>San Jose</td><td>40</td><td>27</td><td>12</td><td>3</td><td>95</td><td>217</td><td>192</td><td>+25</td>
+						</tr>
+						<tr>
+							<td>12</td><td>Edmonton</td><td>39</td><td>28</td><td>12</td><td>3</td><td>93</td><td>243</td><td>222</td><td>+21</td>
+						</tr>
+						<!--
+						<tr>
+							<td>13</td><td>Los Angeles</td><td> </td>
+						</tr>
+						<tr>
+							<td>14</td><td>Toronto</td><td> </td>
+						</tr>
+						<tr>
+							<td>15</td><td>Vancouver</td><td> </td>
+						</tr>
+						<tr>
+							<td>16</td><td>Phoenix</td><td> </td>
+						</tr>
+						<tr>
+							<td>17</td><td>Carolina</td><td> </td>
+						</tr>
+						<tr>
+							<td>18</td><td>Boston</td><td> </td>
+						</tr>
+						<tr>
+							<td>19</td><td>Nashville</td><td> </td>
+						</tr>
+						<tr>
+							<td>20</td><td>Calgary</td><td> </td>
+						</tr>
+						<tr>
+							<td>21</td><td>NY Rangers</td><td> </td>
+						</tr>
+						<tr>
+							<td>22</td><td>Chicago</td><td> </td>
+						</tr>
+						<tr>
+							<td>23</td><td>Columbus</td><td> </td>
+						</tr>
+						<tr>
+							<td>24</td><td>Montréal</td><td> </td>
+						</tr>
+						<tr>
+							<td>25</td><td>Minnesota</td><td> </td>
+						</tr>
+						<tr>
+							<td>26</td><td>Anaheim</td><td> </td>
+						</tr>
+						<tr>
+							<td>27</td><td>Florida</td><td> </td>
+						</tr>
+						<tr>
+							<td>28</td><td>Atlanta</td><td> </td>
+						</tr>
+						<tr>
+							<td>29</td><td>Tampa Bay</td><td> </td>
+						</tr>
+						<tr>
+							<td>30</td><td>NY Islanders</td><td> </td>
+						</tr>		-->			
+					
+					</tbody>
+				</table>
+			
+				<p>
+					Vi kan också få den cell vi hovrar över att ploppa ut:
+				</p>
+				
+				<pre><code title="CSS-kod som ska vara i style">td:hover{
+	background-color: black;
+	color: yellow;
+	padding: 5px;
+}</code></pre>
+
+				<table class="färgaderader radhover cellhover cellpop">
+						<caption>NHL:s tabell 2001 (toppen)</caption>
+						<thead>
+							<tr>
+								<th>Placering</th>
+								<th>Lag</th>
+								<th>Vinster</th>
+								<th>Förluster</th>
+								<th>Oavgjorda</th>
+								<th>Övertidsvinster</th>
+								<th>Poäng</th>
+								<th>Gjorda mål</th>
+								<th>Insläppta mål</th>
+								<th>&pm;</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td><td>Colorado</td><td>52</td><td>16</td><td>10</td><td>4</td><td>118</td><td>270</td><td>192</td><td>+78</td>
+							</tr>
+							<tr>
+								<td>2</td><td>Detroit</td><td>49</td>	<td>20</td>	<td>9</td>	<td>4</td>	<td>111</td>	<td>253</td>	<td>202</td>	<td>+51</td>
+							</tr>
+							<tr>
+								<td>3</td><td>New Jersey</td> <td>48</td><td>19</td><td>12</td><td>3</td><td>111</td><td>295</td><td>195</td><td>+100</td>
+							</tr>
+							<tr>
+								<td>4</td><td>Ottawa</td><td>48</td><td>21</td><td>9</td><td>4</td><td>109</td><td>274</td><td>205</td><td>+69</td>
+							</tr>
+							<tr>
+								<td>5</td><td>Dallas</td><td>48</td><td>24</td><td>8</td><td>2</td><td>106</td><td>241</td><td>187</td><td>+54</td>
+							</tr>
+							<tr>
+								<td>6</td><td>St Louis</td><td>43</td><td>22</td><td>12</td><td>5</td><td>103</td><td>249</td><td>195</td><td>+54</td>
+							</tr>
+							<tr>
+								<td>7</td><td>Philadelphia</td><td>43</td><td>25</td><td>11</td><td>3</td><td>100</td><td>240</td><td>207</td><td>+33</td>
+							</tr>
+							<tr>
+								<td>8</td><td>Buffalo</td><td>46</td><td>30</td><td>5</td><td>1</td><td>98</td><td>218</td><td>184</td><td>+34</td>
+							</tr>
+							<tr>
+								<td>9</td><td>Pittsburgh</td><td>42</td><td>28</td><td>9</td><td>3</td><td>96</td><td>281</td><td>256</td><td>+25</td>
+							</tr>
+							<tr>
+								<td>10</td><td>Washington</td><td>41</td><td>27</td><td>10</td><td>4</td><td>96</td><td>233</td><td>211</td><td>+22</td>
+							</tr>
+							<tr>
+								<td>11</td><td>San Jose</td><td>40</td><td>27</td><td>12</td><td>3</td><td>95</td><td>217</td><td>192</td><td>+25</td>
+							</tr>
+							<tr>
+								<td>12</td><td>Edmonton</td><td>39</td><td>28</td><td>12</td><td>3</td><td>93</td><td>243</td><td>222</td><td>+21</td>
+							</tr>
+							<!--
+							<tr>
+								<td>13</td><td>Los Angeles</td><td> </td>
+							</tr>
+							<tr>
+								<td>14</td><td>Toronto</td><td> </td>
+							</tr>
+							<tr>
+								<td>15</td><td>Vancouver</td><td> </td>
+							</tr>
+							<tr>
+								<td>16</td><td>Phoenix</td><td> </td>
+							</tr>
+							<tr>
+								<td>17</td><td>Carolina</td><td> </td>
+							</tr>
+							<tr>
+								<td>18</td><td>Boston</td><td> </td>
+							</tr>
+							<tr>
+								<td>19</td><td>Nashville</td><td> </td>
+							</tr>
+							<tr>
+								<td>20</td><td>Calgary</td><td> </td>
+							</tr>
+							<tr>
+								<td>21</td><td>NY Rangers</td><td> </td>
+							</tr>
+							<tr>
+								<td>22</td><td>Chicago</td><td> </td>
+							</tr>
+							<tr>
+								<td>23</td><td>Columbus</td><td> </td>
+							</tr>
+							<tr>
+								<td>24</td><td>Montréal</td><td> </td>
+							</tr>
+							<tr>
+								<td>25</td><td>Minnesota</td><td> </td>
+							</tr>
+							<tr>
+								<td>26</td><td>Anaheim</td><td> </td>
+							</tr>
+							<tr>
+								<td>27</td><td>Florida</td><td> </td>
+							</tr>
+							<tr>
+								<td>28</td><td>Atlanta</td><td> </td>
+							</tr>
+							<tr>
+								<td>29</td><td>Tampa Bay</td><td> </td>
+							</tr>
+							<tr>
+								<td>30</td><td>NY Islanders</td><td> </td>
+							</tr>		-->			
+						
+						</tbody>
+				</table>
+				
+				<p>
+					Siffor i tabeller är ofta bäst att högerjustera för att man 
+					lättare ska kunna se storleksordningen på dem.
+				</p>
+				
+				<pre><code title="CSS-kod som ska vara i style">.tal{
+	text-align: right;
+}</code></pre>
+				
+				<table class="färgaderader radhover cellhover cellpop kantad">
+					<caption>NHL:s tabell 2001 (toppen)</caption>
+					<thead>
+						<tr>
+							<th>Placering</th>
+							<th>Lag</th>
+							<th>Vinster</th>
+							<th>Förluster</th>
+							<th>Oavgjorda</th>
+							<th>Övertidsvinster</th>
+							<th>Poäng</th>
+							<th>Gjorda mål</th>
+							<th>Insläppta mål</th>
+							<th>&pm;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="tal">1</td><td>Colorado</td><td class="tal">52</td><td class="tal">16</td><td class="tal">10</td><td class="tal">4</td><td class="tal">118</td><td class="tal">270</td><td class="tal">192</td><td class="tal">+78</td>
+						</tr>
+						<tr>
+							<td class="tal">2</td><td>Detroit</td><td class="tal">49</td>	<td class="tal">20</td>	<td class="tal">9</td>	<td class="tal">4</td>	<td class="tal">111</td>	<td class="tal">253</td>	<td class="tal">202</td>	<td class="tal">+51</td>
+						</tr>
+						<tr>
+							<td class="tal">3</td><td>New Jersey</td> <td class="tal">48</td><td class="tal">19</td><td class="tal">12</td><td class="tal">3</td><td class="tal">111</td><td class="tal">295</td><td class="tal">195</td><td class="tal">+100</td>
+						</tr>
+						<tr>
+							<td class="tal">4</td><td>Ottawa</td><td class="tal">48</td><td class="tal">21</td><td class="tal">9</td><td class="tal">4</td><td class="tal">109</td><td class="tal">274</td><td class="tal">205</td><td class="tal">+69</td>
+						</tr>
+						<tr>
+							<td class="tal">5</td><td>Dallas</td><td class="tal">48</td><td class="tal">24</td><td class="tal">8</td><td class="tal">2</td><td class="tal">106</td><td class="tal">241</td><td class="tal">187</td><td class="tal">+54</td>
+						</tr>
+						<tr>
+							<td class="tal">6</td><td>St Louis</td><td class="tal">43</td><td class="tal">22</td><td class="tal">12</td><td class="tal">5</td><td class="tal">103</td><td class="tal">249</td><td class="tal">195</td><td class="tal">+54</td>
+						</tr>
+						<tr>
+							<td class="tal">7</td><td>Philadelphia</td><td class="tal">43</td><td class="tal">25</td><td class="tal">11</td><td class="tal">3</td><td class="tal">100</td><td class="tal">240</td><td class="tal">207</td><td class="tal">+33</td>
+						</tr>
+						<tr>
+							<td class="tal">8</td><td>Buffalo</td><td class="tal">46</td><td class="tal">30</td><td class="tal">5</td><td class="tal">1</td><td class="tal">98</td><td class="tal">218</td><td class="tal">184</td><td class="tal">+34</td>
+						</tr>
+						<tr>
+							<td class="tal">9</td><td>Pittsburgh</td><td class="tal">42</td><td class="tal">28</td><td class="tal">9</td><td class="tal">3</td><td class="tal">96</td><td class="tal">281</td><td class="tal">256</td><td class="tal">+25</td>
+						</tr>
+						<tr>
+							<td class="tal">10</td><td>Washington</td><td class="tal">41</td><td class="tal">27</td><td class="tal">10</td><td class="tal">4</td><td class="tal">96</td><td class="tal">233</td><td class="tal">211</td><td class="tal">+22</td>
+						</tr>
+						<tr>
+							<td class="tal">11</td><td>San Jose</td><td class="tal">40</td><td class="tal">27</td><td class="tal">12</td><td class="tal">3</td><td class="tal">95</td><td class="tal">217</td><td class="tal">192</td><td class="tal">+25</td>
+						</tr>
+						<tr>
+							<td class="tal">12</td><td>Edmonton</td><td class="tal">39</td><td class="tal">28</td><td class="tal">12</td><td class="tal">3</td><td class="tal">93</td><td class="tal">243</td><td class="tal">222</td><td class="tal">+21</td>
+						</tr>
+						<!--
+						<tr>
+							<td>13</td><td>Los Angeles</td><td> </td>
+						</tr>
+						<tr>
+							<td>14</td><td>Toronto</td><td> </td>
+						</tr>
+						<tr>
+							<td>15</td><td>Vancouver</td><td> </td>
+						</tr>
+						<tr>
+							<td>16</td><td>Phoenix</td><td> </td>
+						</tr>
+						<tr>
+							<td>17</td><td>Carolina</td><td> </td>
+						</tr>
+						<tr>
+							<td>18</td><td>Boston</td><td> </td>
+						</tr>
+						<tr>
+							<td>19</td><td>Nashville</td><td> </td>
+						</tr>
+						<tr>
+							<td>20</td><td>Calgary</td><td> </td>
+						</tr>
+						<tr>
+							<td>21</td><td>NY Rangers</td><td> </td>
+						</tr>
+						<tr>
+							<td>22</td><td>Chicago</td><td> </td>
+						</tr>
+						<tr>
+							<td>23</td><td>Columbus</td><td> </td>
+						</tr>
+						<tr>
+							<td>24</td><td>Montréal</td><td> </td>
+						</tr>
+						<tr>
+							<td>25</td><td>Minnesota</td><td> </td>
+						</tr>
+						<tr>
+							<td>26</td><td>Anaheim</td><td> </td>
+						</tr>
+						<tr>
+							<td>27</td><td>Florida</td><td> </td>
+						</tr>
+						<tr>
+							<td>28</td><td>Atlanta</td><td> </td>
+						</tr>
+						<tr>
+							<td>29</td><td>Tampa Bay</td><td> </td>
+						</tr>
+						<tr>
+							<td>30</td><td>NY Islanders</td><td> </td>
+						</tr>		-->			
+					
+					</tbody>
+				</table>
+	
+			</section>
+		
+		</article>
+		
+		<article>
+		
+			<h2>Övningar</h2>
+			
+			<ol>
+				<li>Återskapa tabellen över elitserien (SHL)</li>
+				<li>Gör så att varannan rad är färgad</li>
+				<li>Gör så att när man håller musen över en rad så ska den ändra färg</li>
+				<li>Gör så att när man håller musen över en cell så ska den också byta färg</li>
+				<li>Högerjustera alla tal i tabellen.</li>
+			</ol>
+		
+		</article>
+
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+	</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>JS 2 - If-satser</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+		
+		<nav>
+			<a href="#start">Start</a>
+			<a href="#praktisktexempel">Exempel</a>
+			<a href="#utskrift">Skriva ut</a>
+			<a href="#övningar">Övningar</a>
+		</nav>
+
+		<section id="sammanfattning">
+		
+	
+
+			<h2>Sammanfattning</h2>
+			
+			<p>När man vill att något bara ska 
+			hända ibland eller när något särskilt 
+			villkor är uppfyllt så använder man sig 
+			utav if-satser. De kan tolkas som: "om 
+			något, gör något. Annars gör något annat."</p>
+			
+			<pre><code>if (villkor){
+	// Block
+}
+else if (villkor){
+	// Block
+}
+else{
+	// Block
+}</code></pre>
+				
+			<table>
+				<tr>
+					<th>Operator</th>
+					<th>Betydelse</th>
+				</tr>
+				<tr>
+					<td>&&</td>
+					<td>och</td>
+				</tr>
+				<tr>
+					<td>||</td>
+					<td>eller</td>
+				</tr>
+				<tr>
+					<td>==</td>
+					<td>lika med</td>
+				</tr>
+				<tr>
+					<td>===</td>
+					<td>exakt lika med</td>
+				</tr>
+				<tr>
+					<td>&lt;</td>
+					<td>mindre än</td>
+				</tr>
+				<tr>
+					<td>&gt;</td>
+					<td>större än</td>
+				</tr>
+				<tr>
+					<td>&lt;=</td>
+					<td>mindre eller lika med</td>
+				</tr>					
+				<tr>
+					<td>&gt;=</td>
+					<td>större eller lika med</td>
+				</tr>
+				<tr>
+					<td>!=</td>
+					<td>inte lika med</td>
+				</tr>
+				<tr>
+					<td>!==</td>
+					<td>exakt inte lika med</td>
+				</tr>
+			</table>
+			
+			<h3>Kommandon för utskrift</h3>
+				
+			<ol style="font-family:monospace;">
+				<li>console.log();</li>
+				<li>alert();</li>
+				<li>element.innerHTML = X;
+			</ol>
+			
+		</section>
+
+	</aside>
+	
+	<main>
+	
+		<article id="start">
+		
+			<section>
+		
+				<h2>Villkorssatser</h2>
+				
+				<p>
+					Styrkan i programmering och scripting ligger i automation. Väldigt 
+					ofta i en process vill man göra något om ett särskilt villkor är 
+					uppfyllt. Till exempel:
+				</p>
+				
+				<ol>
+					<li>När du kommer hem:
+						<ul>
+							<li>Om dörren är låst: lås upp</li>
+							<li>Om dörren är olåst: öppna</li>
+						</ul>
+					</li>
+					<li>Din telefon plingar:
+						<ul>
+							<li>Om du är ledig: kolla på telefonen</li>
+							<li>Annars: låt bli telefonen</li>
+						</ul>
+					</li>
+					<li>Det är riksdagsval:
+						<ul>
+							<li>Om du är över 18: rösta</li>
+							<li>Annars: uppmana folk över 18 att rösta</li>
+						</ul>
+					</li>
+				</ol>
+				
+				<p>
+					Generellt kan vi säga att en if-sats är uppbyggd så här:
+				</p>
+				
+				<pre><code>if (villkor){
+	// Kod som ska köras om villkoret är sant;
+}					
+else if (villkor){
+	// Kod som ska köras om villkoret ovanför inte 
+	// var uppfyllt men det nya villkoret är uppfyllt.;
+}
+else{
+	// Kod som ska köras om inget av villkoren ovanför 
+	// är uppfyllda.;
+}</code></pre>
+					
+			</section>
+			
+			<section>
+			
+				<h3>Villkoret</h3>
+				
+				<p>
+					Det viktigaste i en if-sats är själva villkoret.
+					Villkoret består av minst tre delar:
+				</p>
+				
+				<ol>
+					<li>Vänsterled</li>
+					<li>Operator</li>
+					<li>Högerled</li>
+				</ol>
+				
+				<pre><code>if (VL op HL){
+
+}</code></pre>
+					
+				<p>
+					Vi kan jämföra villkoret med en ekvation eller 
+					en olikhet där vi jämför vänstersidan med högersidan.
+					Om olikheten är korrekt så svarar JavaScript med <code>true</code>,
+					men om olikheten inte stämmer så svarar JavaScript med 
+					<code>false</code>.
+				</p>
+				
+				<pre><code>x+5 &gt;= 10
+// om x är 5 eller större så svarar JavaScript true.
+// om x är mindre än 5 så svarar det med false.</code></pre>
+					
+				<p>
+					Vi kan också göra komplicerade villkor där flera olika 
+					saker måste stämma:
+				</p>
+				
+				<pre><code>if (x+5 &gt;= 10 && x &lt; 21){
+	// Nu måste både x vara större eller lika med 5 och 
+	// x måste vara mindre än 21.
+}</code></pre>
+					
+				<p>
+					När man har ett "och" mellan två villkor så måste båda 
+					villkoren vara uppfyllda för att man ska komma in i blocket.
+				</p>
+				
+				<p>
+					Om man istället vill att samma sak ska hända för två olika 
+					villkor kan man lägga till ett "eller" så att om antingen A är 
+					sant eller B är sant så kommer det att hända.
+				</p>
+				
+				<pre><code>if (timme &gt;= 20 || timme &lt;= 6){
+	// Om timme är större än 20 ELLER mindre än 6
+}</code></pre>
+
+				<p>
+					Genom att ha flera OCH och ELLER så kan man få ett stort 
+					och komplicerat villkor som kan klara av flera olika fall. 
+					För att lösa ut sådana villkor kan man använda sig utav 
+					vad man inom matematiken kallar för boolesk algebra.
+				</p>
+				
+				<h5>Boolesk algebra</h5>
+				
+				<p>
+					I boolesk algebra jobbar man bara med ettor och nollor, 
+					addition och multiplikation. Där den stora skillnaden är att 
+					1 + 1 = 1. Och skrivs &and; och eller skrivs &or;. Sen översätts
+					&and; till gånger medan &or; översätts till addition.
+				</p>
+				
+				<pre><code>(A && B) && (C || D) =
+(A &and; B) &and; (C &or; D) =
+(A&middot;B)&middot;(C+D)=
+A&middot;B&middot;(C+D)=
+A&middot;B&middot;C + A&middot;B&middot;D</code></pre>
+					
+					<p>
+						Det här kan vara användbart för att gå från ett komplext 
+						villkor till ett simplare.
+					</p>
+					
+				<!--	<pre><code>A && B || A || C && A && (D || A || B && (A || C) || A) && (D ||  A) && B =
+A&times;B+A+C&times;A&times;(D+A+B&times;(A+C)+A)&times;(D+A)&times;B=
+A&times;B+A+C&times;A&times;(D+A+B&times;A+B&times;C+A)&times;(D&times;B+A&times;B)=
+A&times;B+A+C&times;A&times;(D&times;(D&times;B+A&times;B)+A&times;(D&times;B+A&times;B)+B&times;A(D&times;B+A&times;B)+B&times;C&times;(D&times;B+A&times;B)+A&times;(D&times;B+A&times;B))=
+AB+A+CA(D(DB+AB)+A(DB+AB)+BA(DB+AB)+BC(DB+AB)+A(B+AB))=
+AB+A+CA(DDB+DAB+ADB+AAB+BADB+BAAB+BCDB+BCAB+AB+AAB)=
+(X&times;X=X; Y+Y=Y)
+AB+A+CA(DB+DAB+ADB+AB+BAD+BA+BCD+BCA+AB+AB)=
+AB+A+AC(BD+ABD+ABD+AB+ABD+AB+BCD+ABC+AB+AB)=
+AB+A+AC(AB+AB+AB+AB+ABC+ABD+ABD+ABD+BD+BCD)=
+AB+A+AC(AB+ABC+ABD+BD+BCD)=
+AB+A+ACAB+ACABC+ACBD+ACBCD=
+AB+A+AACB+AABCC+ABCD+ABCCD=
+AB+A+ABC+ABC+ABCD+ABCD=
+A+AB+ABC+ABC+ABCD+ABCD=
+A+AB+ABC+ABCD=
+A(1+B+BC+BCD)=
+A (parantesen är alltid sann om A är sann)</code></pre> -->
+					
+					
+				<h4>Jämförelseoperatorer</h4>
+				
+				<table>
+					<tr>
+						<th>Operator</th>
+						<th>Betydelse</th>
+					</tr>
+					<tr>
+						<td>&&</td>
+						<td>och</td>
+					</tr>
+					<tr>
+						<td>||</td>
+						<td>eller</td>
+					</tr>
+					<tr>
+						<td>==</td>
+						<td>lika med</td>
+					</tr>
+					<tr>
+						<td>===</td>
+						<td>exakt lika med</td>
+					</tr>
+					<tr>
+						<td>&lt;</td>
+						<td>mindre än</td>
+					</tr>
+					<tr>
+						<td>&gt;</td>
+						<td>större än</td>
+					</tr>
+					<tr>
+						<td>&lt;=</td>
+						<td>mindre eller lika med</td>
+					</tr>					
+					<tr>
+						<td>&gt;=</td>
+						<td>större eller lika med</td>
+					</tr>
+					<tr>
+						<td>!=</td>
+						<td>inte lika med</td>
+					</tr>
+					<tr>
+						<td>!==</td>
+						<td>exakt inte lika med</td>
+					</tr>
+				</table>
+			
+			</section>
+				
+			<section id="praktisktexempel">
+				
+				<h3>Ett praktiskt exempel</h3>
+				
+				<p>
+					Tänk att vi vill sätta in en ålderspärr på vår hemsida,
+					så att användaren måste vara över 18 år för att få komma in 
+					på sidan. Då kan vi lägga till ett fält där vi kan fylla i vår 
+					ålder.
+				</p>
+
+				<pre><code>&lt;label for="age"&gt;Ålder&lt;/label&gt;
+&lt;input id="age" type="number" value="15"/&gt;</code></pre>
+					
+				<label for="age0">Ålder</label>
+				<input id="age0" type="number" value="15"/>
+				
+				<p>
+					Nu kan vi lägga till ett skript som läser av värdet 
+					i fältet:
+				</p>
+
+				<div class="explain">
+				
+					<pre><code>&lt;script&gt;
+	let ålder;
+	ålder = document.getElementById("age").value;
+	console.log(ålder);
+&lt;/script&gt;</code></pre>
+					
+					<script>
+						let ålder;
+						ålder = document.getElementById("age0").value;
+						console.log(ålder);
+					</script>
+
+					<div class="explenation-box">
+						
+						<h4>Vad händer i koden?</h4>
+							
+						<ol>
+							<li>Vi skapar variabeln <code>ålder</code></li>
+							<li>Vi hittar ett element i vår HTML-kod med <code>ID="age"</code> 
+							och sparar dess värde i variabeln <code>ålder</code>.</li>
+							<li>Vi skriver ut variabeln <code>ålder</code> i konsolen</li>
+						</ol>
+
+					</div>
+
+				</div>
+				
+				<p>
+					Om vi kollar i konsolen på den här sidan nu så 
+					ser vi att den skriver ut det värde som står som 
+					startvärde i fältet. För att få den att bara kolla på 
+					åldern när vi är klara så kan vi lägga till en knapp:
+				</p>
+				
+				<pre><code>&lt;button id="checkage"&gt;Kontrollera ålder&lt;/button&gt;</code></pre>
+					
+				<label for="age1">Ålder</label>
+				<input id="age1" type="number" value="15"/>
+				<button id="checkage1">Kontrollera ålder</button>
+				
+				<p>
+					Just nu gör knappen inget och det finns två sätt 
+					att få knappen att göra saker. Antingen använder vi 
+					HTML attributet "onclick" vilket bör undvikas. Eller 
+					så skriver vi JavaScript-kod som lägger till en 
+					"lyssnare" till knappen:
+				</p>
+
+				<div class="explain">
+				
+					<pre><code>&lt;script&gt;
+	let knappen;
+	knappen = document.getElementById("checkage");
+	knappen.addEventListener('click', check_age, false);
+&lt;/script&gt;</code></pre>
+
+					<div class="explenation-box">
+
+					<h4>Vad händer i koden?</h4>
+					
+						<ol>
+							<li>
+								Vi skapar variabeln <code>knappen</code>
+							</li>
+							<li>
+								Vi hittar ett element i vår HTML-kod med <code>ID="checkage"</code> 
+								och sparar den i varabeln <code>knappen</code>
+							</li>
+							<li>
+								Vi lägger till att något ska hända när <code>knappen</code> klickas 
+								på. Då ska vi göra något som kallas för <code>check_age</code>
+							</li>
+						</ol>
+
+					</div>
+
+				</div>
+					
+				<h4>Funktionen <code>check_age</code></h4>
+				
+				<p>
+					Funktioner är block med kod som du kan använda på flera ställen
+					i sitt script. De används ofta för att göra det lättare för att läsa 
+					och förstå ett script. Genom att ge funktioner tydliga namn så förstår 
+					man vad de gör utan att behöva se själva koden. Till exempel funktionen 
+					<code>check_age</code> som du kan anta kollar åldern.
+				</p>
+				
+				<p>
+					Kruxet är bara att det finns ingen funktion som heter <code>check_age</code> och som 
+					kollar vad man har skrivit för ålder. Så du måste skapa den själv. 
+					Innan du skapar den funktionen så behöver du fundera på vad den faktiskt ska göra:
+				</p>
+				
+				<ol>
+					<li>Den ska kolla vad du har skrivit in för ålder</li>
+					<li>Den ska jämföra det med åldersgränsen på sidan.
+						<ol type="a">
+							<li>Om åldern är hög nog så ska du få ett positivt meddelande.</li>
+							<li>Om åldern är för låg så ska du få ett negativt meddelande.</li>
+						</ol>
+					</li>
+				</ol>
+
+				<div class="explain">
+
+					<section>
+				
+						<pre><code>&lt;script&gt;
+	function check_age(){
+		let ålder;
+		ålder = document.getElementById("age").value;
+		if (ålder >= 18){
+			alert("Välkommen vidare");
+		}
+		else{
+			alert("Du är för ung.");
+		}
+	}
+&lt;/script&gt;</code></pre>
+					
+						<label for="age">Ålder</label>
+						<input id="age" type="number" value="15"/>
+						<button id="checkage">Kontrollera ålder</button>
+						
+						<script>
+							function check_age(){
+								let ålder;
+								ålder = document.getElementById("age").value;
+								if (ålder >= 18){
+									alert("Välkommen vidare");
+								}
+								else{
+									alert("Du är för ung.");
+								}
+							}
+
+							let knappen;
+							knappen = document.getElementById("checkage");
+							knappen.addEventListener('click', check_age, false);
+						</script>
+
+					</section>
+
+					<div class="explenation-box">
+
+						<h4>Vad händer i koden?</h4>
+
+						<ol>
+							<li>
+								När funktionen <i>körs</i> så skapar den variabeln <code>ålder</code>
+							</li>
+							<li>
+								Du läser in värdet som har skrivits i elementet med <code>id="age"</code> och sparar det i variabeln <code>ålder</code>
+							</li>
+							<li>
+								Du jämför värdet i variabeln <code>ålder</code> mot talet <code>18</code>
+							</li>
+							<li>
+								Om <code>ålder</code> är <em>större eller lika med</em> <code>18</code> skriver scriptet ut <q>Välkommen vidare</q>
+							</li>
+							<li>
+								Annars skriver koden ut <q>Du är för ung.</q>
+							</li>
+						</ol>
+
+					</div>
+
+				</div>
+				
+			</section>
+				
+		</article>	
+				
+		<article >
+				
+			<section id="utskrift">
+				
+				<h3>Utskrifter</h3>
+					
+				<p>
+					Det finns tre sätt att skriva ut resultat i JavaScript:
+				</p>
+					
+				<ol>
+					<li>I konsolen</li>
+					<li>I en meddelanderuta</li>
+					<li>På hemsidan</li>
+				</ol>
+				
+				<h4>Konsolen</h4>
+				
+				<p>
+					När vi vill skriva ut i konsolen så anger vi det så här:
+				</p>
+				
+				<pre><code>console.log("Hejsan");</code></pre>
+					
+				<p>
+					Då kan vi hitta det i konsolen som finns i webbläsaren (F12 alternativt 
+					Fn+F12)
+				</p>
+				
+				<h4>Meddelanderuta</h4>
+				
+				<p>
+					Vi kan få upp en ruta med text så här:
+				</p>
+				
+				<pre><code>alert("Texten som ska skrivas ut");</code></pre>
+					
+				<p>
+					Det här är användbart när man vill att användaren ska pausa och 
+					faktiskt se att något har hänt. Exempelvis om något går fel så att 
+					man inte kan gå vidare.
+				</p>
+				
+				<h4>På hemsidan</h4>
+				
+				<p>
+					För att skriva ut på sidan kan man anropa dokumentet. Vi kommer att 
+					prata mer om detta när vi kommer till DOM.
+				</p>
+				
+				<pre><code>document.write("Tja");</code></pre>
+					
+				<p>Den skriver över hela sidan.</p>
+				
+				<pre><code>document.getElementById("id").innerHTML = "Texten";</code></pre>
+					
+				<p id="test">
+					Den ändrar texten på ett specifikt element. Till exempel det här som 
+					har <code>id="test"</code>.
+				</p>
+				
+				<p>
+					Testa att skriva följande JavaScript-kod i konsolen och se vad som 
+					händer:
+				</p>
+				
+				<pre><code>document.getElementById("test").innerHTML = "Skriv något kul.";</code></pre>
+				
+			</section>
+			
+		</article>
+			
+		<article id="övningar">
+
+			<h2>Övningar</h2>
+
+			<ol>
+				Utgå från filen "js-2-ovningar.html" och följ instruktionerna i den filen.
+			</ol>
+
+		</article>
+	
+	</main>
+	
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br/>
+			Hedda Anderssongymnasiet<br/>
+			Svanevägen 17<br/>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+
+</body>
+
+</html>

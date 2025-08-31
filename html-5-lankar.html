@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+
+<html lang="sv">
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<title>HTML 5 - Länkar</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		
+		<!-- Detta gör att visad kod ska bli snyggare -->
+		<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+		<script src="highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	
+		<script src="script/showHideMenu.js"></script>
+		<script src="script/prettier-page.js"></script>
+		
+	</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+	
+		<h2>Sammanfattning</h2>
+		
+		<nav class="content">
+			<a href="#start">Start</a>
+			<a href="#sammasida">Länka till den egna sidan</a>
+			<a href="#extra">Extra information</a>
+			<a href="#uppgifter">Övningar</a>
+		</nav>
+		
+		<p>
+			På den här sidan pratar vi om hur man kan länka till andra sidor på webben. 
+			Hur man kan länka till andra sidor på samma webbplats. Och hur man kan länka 
+			till saker på samma webbsida.
+		</p>
+		
+		<p>
+			En hyperlänk skapas så här: <code>&lt;a href="plats" title="###"&gt;text&lt;/a&gt;</code>.
+		</p>
+		
+		<dl>
+			<dt><code>&lt;a&gt;</code></dt>
+			<dd>Elementet som håller i länken, en <i>anchor</i>.</dd>
+			<dt>href</dt>
+			<dd><i>hyper reference</i>, adressen till det man länkar 
+			till.</dd>
+			<dt>title</dt>
+			<dd>Det som ska stå när man hovrar över länken.</dd>
+		</dl>
+	
+	</aside>
+	
+	<main>
+		
+		<article>
+		
+			<h2>Länkar</h2>
+			
+			<p>
+				Vi pratade i början om hur en webbplats kan liknas vid en tidning. Och en 
+				grundläggande egenskap i en tidning är att man kan byta sida. Det kan vi 
+				också göra i HTML. Vad vi gör är att vi binder samman två sidor med hjälp 
+				av ett "ankare" (<i>anchor</i>), eller ett <code>&lt;a&gt;</code>-element.
+			</p>
+			
+			<p>
+				Alla länk-element byggs upp på samma sätt:
+			</p>
+
+			<ol>
+				<li>
+					Först <b>öppnar</b>	vi med en <code>&lt;a&gt;</code>-tagg.
+				</li>
+				<li>
+					Sen lägger vi till adressen till det vi länkar med 
+					<code>href</code> som ett attribut i taggen: <code>&lt;a 
+					<b>href="index.html"</b>&gt;</code>
+				</li>
+				<li>
+					Nästa steg är att lägga till den bit text som man ska trycka på inuti 
+					elementet: <code>&lt;a href="index.html"&gt;<b>Text</b>&lt;/a&gt;</code>
+				</li>
+				<li>
+					Om texten man skriver <strong>inte</strong> är självförklarande så 
+					lägger man till attributet <b>title</b>: <code>&lt;a href="index.html" 
+					<b>title="Beskrivande text"</b>&gt;Text&lt;/a&gt;</code>
+				</li>
+				<li>
+					Nu är vår länk klar: 
+					<a href="index.html" title="Beskrivande text">Text</a>
+				</li>
+			</ol>
+			
+			<pre><code>&lt;a href="index.html" title="Beskrivande text"&gt;Text&lt;/a&gt;</code></pre>
+			
+			<h3>Länk till den egna webbplatsen</h3>
+			
+			<p>
+				Ska man länka till något som ligger på samma server &mdash; i vårt 
+				fall än så länge den egna datorn &mdash; så skriver man platsen på 
+				datorn i förhållande till var sidan man jobbar med är. Om filerna är i 
+				samma mapp på datorn så räcker det med att skriva filnamnet på sidan 
+				man länkar till. I exemplet ovan så länkar jag till min startsida som 
+				jag döpt till "index.html" och eftersom de ligger i samma mapp på 
+				datorn så hittar de varandra.
+			</p>
+			
+			<figure style="text-align:center;">
+				<img src="Bilder/samma mapp.PNG" title="Mappen där filerna ligger"
+					alt="Bild som visar att filerna ligger i samma mapp"/>
+			</figure>
+			
+			<p>
+				Hade vi velat länka till något som ligger i mappen "material" så hade vi 
+				fått skriva så här:
+			</p>
+			
+			<pre><code>&lt;a href=<b>"material/sida.html"</b>&gt;Text&lt;/a&gt;</code></pre>
+				
+			<p>
+				Där vi har mappnamnet, ett snedstreck och sen filnamnet. Hade sidan vi 
+				vill komma åt legat i en annan mapp inuti material hade vi fått göra så 
+				här:
+			</p>
+				
+			<pre><code>&lt;a href="<b>material/mapp/sida.html</b>"&gt;Text&lt;/a&gt;</code></pre>
+				
+			<p>
+				Om sidan vi vill komma åt istället hade legat i en mapp tidigare än den vi 
+				är i, säg att jag har ett mappträd som ser ut något så här:
+			</p>
+			
+			<ul>
+				<li>Skola</li>
+				<ul>
+					<li>Programmering</li>
+					<li>Webbutveckling</li>
+						<ul>
+							<li>Hemliga lärardokument</li>
+								<ul>
+									<li>A-betygs-sidan.html</li>
+								</ul>
+							<li>Lektioner</li>
+								<ul>
+									<li>lankar.html</li>
+								</ul>
+						</ul>
+				</ul>
+			</ul>
+			
+			<p>
+				Om jag vill länka till "A-betygs-sidan.html" från den här lektionen hade 
+				jag behövt skriva så här:
+			</p>
+			
+			<pre><code>&lt;a href="<b>../</b>Hemliga lärardokument/A-betygs-sidan.html"&gt;Text&lt;/a&gt;</code></pre>
+				
+			<p>
+				De två punkterna markerar att vi ska gå bakåt (eller <i>uppåt</i> som man 
+				gärna säger) en mapp. Allt detta kallas för relativ adress,	eftersom man 
+				beskriver platsen utifrån vart filen man jobbar i befinner sig.
+			</p>
+			
+			<p>
+				Man kan också använda så kallad absolut adress då man anger hela filvägen. 
+				I fallet med att länka till "index.html" hade jag då fått skriva så här:
+			</p>
+			
+			<pre><code>&lt;a href="C:\Users\071837\Documents\Skola\Webbutveckling\index.html"&gt;index&lt;/a&gt;</code></pre>
+				
+			<h3>Länk till annan webbsida</h3>
+			
+			<p>
+				Om man vill länka till exempelvis Stackoverflow så behöver man skriva in 
+				hela adressen till hemsidan: 
+				<code>&lt;a href="https://stackoverflow.com/"&gt;Stackoverflow&lt;/a&gt;</code> vilket 
+				ger: <a href="https://stackoverflow.com/">Stackoverflow</a>. När man 
+				länkar till en annan webbsida så är det nödvändigt att man får med 
+				<strong>hela</strong> adressen inklusive <code>http://</code> eller <code>https://</code>
+			</p>
+			
+			
+		</article>
+			
+		<article id="sammasida">
+		
+			<h2>Länka till innehåll på den egna sidan</h2>
+			
+			<p>
+				Som du kanske har märkt så kan du skapa länkar som pekar på en specifik 
+				del av sidan du befinner sig på. Du kan testa att göra det uppe i 
+				sammanfattningen här på sidan.
+			</p>
+			
+			<h3>ID</h3>
+			
+			<p>
+				För att länka till ett element på sidan så behöver du först på något sätt 
+				ge det en <i>identifier</i> (identifierare), eller ett ID. Det görs genom 
+				att du skriver till attributet id i öppningstaggen av ett element. Jag 
+				har till exempel lagt in id-attribut i de blocken som gör att det blir 
+				gult runt texten.
+			</p>
+				
+			<p>
+				Om man vill ge ett element ett ID så skriver man så här:
+			</p>
+			
+			<pre><code>&lt;h2 id="cooltid"&gt;Vad varje webbutvecklare bör veta&lt;/h2&gt;</code></pre>
+			
+			<p>
+				Nu kan jag sen skapa en länk som länkar till den rubriken:
+			</p>
+			
+			<pre><code>&lt;a href=<b>"#cooltid"</b>&gt;Till rubriken&lt;/a&gt;</code></pre>
+			
+			<p>
+				Notera att det är ett # framför identifieraren. Det markerar för 
+				webbläsaren att det är på den här sidan det gäller.
+			</p>
+			
+			<p>
+				Om du vill komma till toppen av sidan kan du klicka 
+				<a href="#top" title="#top">här</a>.
+			</p>
+		
+		</article>
+	
+		<article id="extra">
+		
+			<h2>Extra information</h2>
+			
+			<p>
+				Ofta så vill man att ens länk ska se ut som vanligt text och så kan man 
+				klicka på ett ord eller ett stycke text och så skickas man vidare. Det kan 
+				dock ofta vara schysst mot användaren att man på något sätt visar vart 
+				länken leder innan de klickar på den. Ett sätt att göra det på är att 
+				använda dig utav attributet <code>title</code>. Precis som i 
+				<code>&lt;abbr&gt;</code> så gör <code>title</code> att det dyker upp en 
+				text när du hovrar över länken.
+			</p>
+				
+			<pre><code>&lt;a href="https://sv.wikipedia.org/wiki/" title="Svenska wikipedia"&gt;Click me&lt;/a&gt;</code></pre>
+			
+			<p>
+				<a href="https://sv.wikipedia.org/wiki/" title="Svenska wikipedia">Click me</a> 
+				Att använda sig av title hjälper också personer med skärmuppläsare och 
+				låter dem få information om vart länken leder.
+			</p>
+			
+			<h3>Ny flik</h3>
+			
+			<p>
+				Om man vill öppna länken i en ny flik i webbläsaren så kan man lägga till 
+				attributet <code>target="_blank"</code>.
+			</p>
+			
+			<pre><code>&lt;a href="https://sv.wikipedia.org/wiki/" title="Svenska wikipedia" <b>target="_blank"</b>&gt;Click me&lt;/a&gt;</code></pre>
+			
+			<p>
+				<a href="https://sv.wikipedia.org/wiki/" title="Svenska wikipedia" target="_blank">Click me</a>
+			</p>
+			
+			<h2>Skicka mail</h2>
+			
+			<p>
+				Om man har ett kontaktformulär eller liknande så vill man kanske att 
+				användarna ska kunna maila en direkt. Då kan man ändra länken så här:
+			</p>
+			
+			<pre><code>&lt;a href="mailto:calle.ketola@lund.se"&gt;Mail till mig&lt;/a&gt;</code></pre>
+			
+			<p>
+				<a href="mailto:calle.ketola@lund.se">Mail till mig</a>
+			</p>
+			
+		</article>
+		
+		<article>
+		
+			<h2>Övningar</h2>
+			
+			<ol>
+				<li>Skapa en sida som innehåller fem rubriker.</li>
+				<li>Ge varje rubrik ett unikt id.</li>
+				<li>Gör en lista med länkar överst på sidan som länkar till 
+				de fem rubrikerna</li>
+				<li>Fyll på med valfri text mellan varje rubrik. Så att man 
+				måste scrolla en bit för att se hela sidan</li>
+				<li>Skapa en länk som länkar till den hemsidan du gjorde med 
+					ett recept.</li>
+				<li>Skapa en länk som länkar till din favoritfilm på <a 
+				href="https://imdb.com" target="_blank">IMDB</a></li>
+				<li>Se till att varje länk har en beskrivande title</li>
+				<li>Se till att alla länkar som går till en annan webbplats
+				öppnas i nya flikar</li>
+			</ol>
+		
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;08&ndash;30
+		</p>
+
+	</footer>
+
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

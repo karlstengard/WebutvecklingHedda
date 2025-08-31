@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>CSS 3 - Klasser</title>
+	<link rel="stylesheet" type="text/css" href="design.css">	
+
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+
+	<style>
+		#ex-layout div{
+			border: 2px solid black;
+			border-radius: 1em;	
+			padding: .5em;
+			margin: .5em;
+			font-size: 20px;
+		}
+		#ex-body{
+			background-color: gold;
+			display: grid;
+			grid-template-columns: 25% 75%;
+		}
+		#ex-header, #ex-aside, #ex-main, #ex-footer{
+			background-color: silver;
+		}
+		#ex-header, #ex-footer{
+			grid-column: 1/4;
+		}
+		#ex-header-section{
+			background-color: red;
+		}
+		#ex-header-nav{
+			background-color: orange;
+		}
+		#ex-aside-nav{
+			background-color: yellow;
+		}
+		#ex-aside-section{
+			background-color: green;
+		}
+		#ex-main-section-1{
+			background-color: lightblue;
+		}
+		#ex-main-section-2{
+			background-color: blue;
+		}
+		#ex-main-section-3{
+			background-color: purple;
+		}
+		#ex-main-section-4{
+			background-color: red;
+		}
+		.ex-article{
+			background-color: gold;
+		}
+	</style>
+	
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+
+		<nav class="content">
+			<a href="#start">Start</a>
+			<a href="#delningexempel">Exempel</a>
+			<a href="#IDklasser">ID och klasser</a>
+			<a href="#övningar">Övningar</a>
+		</nav>	
+		
+		<section>
+
+			<h2>Sammanfattning</h2>
+		
+			<h3>Element</h3>
+			
+			<dl>
+				<dt><code>&lt;div&gt;</code></dt>
+				<dd>Grupperar element</dd>
+
+				<dt><code>&lt;article&gt;</code></dt>
+				<dd>Grupperar info som hade kunnat vara en egen sida</dd>
+
+				<dt><code>&lt;section&gt;</code></dt>
+				<dd>Grupperar info som är en delmängd i en article</dd>
+
+				<dt><code>&lt;nav&gt;</code></dt>
+				<dd>Grupperar länkar för att navigera</dd>
+
+				<dt><code>&lt;aside&gt;</code></dt>
+				<dd>Grupperar info som inte hör till huvudinnehållet</dd>
+
+				<dt><code>&lt;header&gt;</code></dt>
+				<dd>Toppen på sidan</dd>
+
+				<dt><code>&lt;footer&gt;</code></dt>
+				<dd>Botten på sidan</dd>
+			</dl>
+		
+		</section>
+		
+	</aside>
+		
+	<main>
+	
+		<article id="start">
+		
+			<section>
+		
+				<h2>Gruppera element</h2>
+				
+				<p>
+					Det är ofta som du vill gruppera element på din sida. Exempelvis 
+					har jag grupperat länkarna på toppen av sidan tillsammans. 
+					Sammanfattningen i början/till vänster är en grupp. Länkarna i 
+					sammanfattningen är en grupp. Mina olika stycken i texten är också 
+					grupperade. Där syns gruppering på bakgrunden. Vi kan till exempel 
+					tydligt se att övningarna i botten är en grupp.
+				</p>
+				
+				<p>
+					Det finns ett par olika sätt att gruppera med HTML:
+				</p>
+				
+				<dl>
+					<dt><code>&lt;div&gt;</code></dt>
+					<dd>
+						Ett allmänt grupperingsblock som tidigare var det enda som 
+						fanns tillgängligt. Används när ingetav de andra blocken passar.
+					</dd>
+
+					<dt><code>&lt;article&gt;</code></dt>
+					<dd>
+						Innehåller information som hade kunnat stå sig utan resterande
+						innehåll på sidan.
+					</dd>
+
+					<dt><code>&lt;section&gt;</code></dt>
+					<dd>
+						Grupperar info som är en delmängd av sidan. Exempelvis från rubriken:
+						"Gruppera element" till "Ett exempel"
+					</dd>
+
+					<dt><code>&lt;nav&gt;</code></dt>
+					<dd>
+						Grupperar länkar för att navigera, exempelvis dem i toppen på 
+						den här sidan.
+					</dd>
+
+					<dt><code>&lt;aside&gt;</code></dt>
+					<dd>
+						Grupperar innehåll som inte riktigt är nödvändigt för innehållet. 
+						Exempelvis sammanfattningen på den här sidan.
+					</dd>
+
+					<dt><code>&lt;header&gt;</code></dt>
+					<dd>
+						Samlar informationen i toppen på sidan. Där sitter tillexempel 
+						sidans namn och länkarna till de andra sidorna.
+					</dd>
+
+					<dt><code>&lt;footer&gt;</code></dt>
+					<dd>
+						Botten på sidan. Här brukar kontaktuppgifter och sånt ligga.
+					</dd>
+				</dl>
+			
+			</section>
+						
+			<section id="delningexempel">
+				
+				<h3>Ett exempel</h3>
+				
+				<p>
+					Du kan ta den här sidan som exempel. Den bygger på en tydlig semantisk 
+					uppdelning av innehållet.
+				</p>
+				
+				<figure id="ex-layout">
+					<!--<img src="material/articlesection.png" alt="Visar sidans layout och semantiska uppdelning"/>-->
+					<div id="ex-body">
+
+						body
+
+						<div id="ex-header">
+
+							header
+
+							<div id="ex-header-section">
+								section
+							</div>
+
+							<div id="ex-header-nav">
+								nav
+							</div>
+
+						</div>
+
+						<div id="ex-aside">
+
+							aside
+
+							<div id="ex-aside-nav">
+								nav
+							</div>
+
+							<div id="ex-aside-section">
+								section
+							</div>
+
+						</div>
+
+						<div id="ex-main">
+							
+							main
+
+							<div class="ex-article">
+								
+								article
+
+								<div id="ex-main-section-1">
+									section
+								</div>
+
+								<div id="ex-main-section-2">
+									section
+								</div>
+
+							</div>
+
+							<div class="ex-article">
+
+								article
+
+								<div id="ex-main-section-3">
+									section
+								</div>
+
+								<div id="ex-main-section-4">
+									section
+								</div>
+
+							</div>
+
+						</div>
+
+						<div id="ex-footer">
+
+							footer
+
+						</div>
+
+					</div>
+				</figure>
+				
+				<p>
+					I bilden ovan kan du se hur de olika elementen ligger inuti varandra. Och 
+					det ser ungefär likadant ut när du kodar hemsidan.
+				</p>
+				
+				<pre><code>&lt;body&gt;
+
+    &lt;header&gt;	
+
+		&lt;!-- Här kan du ha sidans banner --&gt;
+
+		&lt;section&gt;
+
+        	&lt;a href="index.html"&gt;Webbutveckling&lt;/a&gt;
+
+		&lt;/section&gt;
+
+        &lt;nav&gt;
+
+            &lt;!-- Här ligger länkarna --&gt;
+
+        &lt;/nav&gt;
+
+    &lt;/header&gt;
+
+    &lt;aside&gt;
+
+        &lt;!-- Detta är sidokolumnen --&gt;
+
+        &lt;nav&gt;
+
+            &lt;!-- Här har jag navigering på sidan --&gt;
+
+		&lt;/nav&gt;
+
+		&lt;section&gt;
+
+			&lt;!-- Här brukar jag sammanfatta sidan --&gt;
+
+		&lt;/section&gt;
+
+    &lt;/aside&gt;
+
+	&lt;main&gt; &lt;!-- Huvudinnehållet --&gt;
+
+		&lt;article&gt;
+
+			&lt;!-- Nu börjar sidan --&gt;
+
+			&lt;section&gt;
+
+				&lt;h2&gt;Gruppera element&lt;/h2&gt;
+
+			&lt;/section&gt;
+
+			&lt;section&gt;
+
+				&lt;h3&gt;Ett exempel&lt;/h3&gt;
+
+			&lt;/section&gt;
+
+		&lt;/article&gt;
+
+		&lt;article&gt;
+
+			&lt;section&gt;
+
+				&lt;h2&gt;Övningar&lt;/h2&gt;
+
+			&lt;/section&gt;
+
+		&lt;/article&gt;
+
+	&lt;/main&gt; &lt;!-- Huvudinnehållet slutar --&gt;
+
+	&lt;footer&gt;
+
+		&lt;!-- Här har vi infon i botten --&gt;
+
+	&lt;/footer&gt;
+
+&lt;/body&gt;
+				</code></pre>
+					
+				<p>
+					Koden blir lite som om du hade flyttat i bilden tidigare så 
+					att allt hamnade under varandra.
+				</p>
+					
+			</section>
+				
+		</article>
+			
+		<article>
+			
+			<section id="IDklasser" class="exempelklass">
+				
+				<h2>ID och klasser</h2>
+				
+				<p>
+					För att göra skillnad på olika element du använder så kan du 
+					tilldela dem ett ID eller en klass. Båda fungerar ungefär likadant 
+					tillsammans med CSS men ett ID fungerar bara på ett element medan en 
+					klass gör att du kan ändra egenskaper på flera element samtidigt.
+				</p>
+				
+			</section>
+				
+			<section>
+			
+				<h3>ID</h3>
+					
+				<p>
+					Vi har pratat om ID tidigare när vi gjorde länkar som flyttade oss 
+					på samma sida. Då gav vi ett element på sidan ett ID så här och nådde 
+					det så här:
+				</p>
+				
+				<pre><code>&lt;p id="coolatexten"&gt;Text&lt;/p&gt;
+
+&lt;a href="#coolaetxten"&gt;Länk till text&lt;/a&gt;</code></pre>
+					
+				<p>
+					Om vi vill ändra på bara just den rubrikens CSS-egenskaper så skriver 
+					vi så här i vår CSS-kod:
+				</p>
+				
+				<pre><code>#coolatexten{
+	background-color: green;
+}</code></pre>
+				
+				<p>
+					Vi gör alltså på samma sätt som i HTML-koden, vi markerar det med en #.
+				</p>
+				
+				<p style="background-color: green">
+					Text
+				</p>
+
+			</section>
+
+			<section>
+				
+				<h3>Klasser</h3>
+				
+				<p>
+					När vi vill tilldela ett element en klass i vår HTML-kod skriver vi så här:
+				</p>
+				
+				<pre><code>&lt;p class="minklass"&gt;Text&lt;/p&gt;</code></pre>
+				
+				<p>
+					I vår CSS-kod kan vi nu justera vad som ska hända med den klassen så här:
+				</p>
+				
+				<pre><code>.minklass{
+	letter-spacing: 1em;
+}</code></pre>
+				
+				<p style="letter-spacing: 1em">
+					Text
+				</p>
+				
+			</section>
+			
+		</article>
+			
+		<article>
+			
+			<section id="övningar">
+			
+				<h2>Övningar</h2>
+			
+				<p>
+					Utgå från filen Dijkstras.html.
+				</p>
+				
+				<ol>
+					<li>Styckena har inga <code>&lt;p&gt;</code>-taggar. Fixa det</li>
+					<li>Det första stycket under History är ett långt citat, använd <code>&lt;blockquote&gt;</code></li>
+					<li>Varje rubrik ska vara starten på en <code>&lt;section&gt;</code>, lägg till det</li>
+					<li>I algoritm-stycket så finns en numrerad lista. Gör den snygg.</li>
+					<li>Överst på sidan finns två länkar. De ska ligga i en <code>&lt;nav&gt;</code></li>
+					<li>Alla <code>&lt;section&gt;</code> ska ligga i en och samma <code>&lt;article&gt;</code></li>
+					<li>Kodexemplena borde ligga i elementet <code>&lt;code&gt;</code></li>
+					<li>Sätt en bakgrundsfärg på <code>&lt;article&gt;</code></li>
+					<li>Sätt en annan färg på alla <code>&lt;section&gt;</code></li>
+					<li>Texten på sidan blir för bred. Gör så att den tar mindre plats i x-led</li>
+					<li>Centrera alla bilder</li>
+					<li>Vetenskaplig text brukar vara snyggare när den är <i>marginal-justerad</i>.</li>
+					<li>Symbolen &lt; är farlig att använda i text. Byt ut den till följande: <code>&amp;lt;</code></li>
+					<li>Rubriken <i>Introduction</i> ska inte ha svart text.</li>
+					<li>Första textstycket under varje rubrik ska inte ha svart text.</li>
+				</ol>
+			
+			</section>
+		
+		</article>
+
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2024&ndash;11&ndash;25
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+		
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

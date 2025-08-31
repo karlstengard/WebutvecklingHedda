@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>Mobilanpassning</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+		
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+		
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+			<button id="server-head">Server</button>
+		</nav>
+		
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+		
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+		
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+		
+		<nav id="server-nav">
+			<a href="server-1.html">XAMPP</a>
+            <a href="server-2-mobil.html">Mobilanpassning</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+	
+			<nav>
+				<a href="#start">Start</a>
+				<a href="#ovningar">Övningar</a>
+			</nav>
+
+		<section id="sammanfattning">
+
+			<h2>Sammanfattning</h2>
+			
+			
+		</section>
+
+        <pre title="CSS-kod"><code>@media only screen and (max-width: X){
+    /* Här skriver du CSS-kod som bara 
+    ska gälla när sidan är mindre än X 
+    bred */ 
+}</code></pre>
+			
+	</aside>
+		
+	<main>
+	
+		<article id="start">
+		
+			<h2>Mobilanpassning</h2>
+
+            <p>
+                Idag använder väldigt många telfonen för att surfa på webben. Det är 
+                något du behöver ta hänsyn till när du designar din sida. För att göra 
+                din sida "mobilvänlig" så är det ett par saker du behöver tänka på:
+            </p>
+
+            <ol>
+                <li>
+                    samla allt innehåll i en kolumn
+                </li>
+                <li>
+                    länkar och annat man kan klicka på behöver vara stora och en bit 
+                    ifrån varandra.
+                </li>
+            </ol>
+
+            <p>
+                Anledningen till att du vill samla innehållet till en kolumn är 
+                för att mobilskärmen är väldigt liten &mdash; särskilt om du håller 
+                den i "porträttläge". Även när du håller skärmen i "landskapsläge" så 
+                är skärmen liten (även om det kanske är fler pixlar än på en datorskärm).
+                Så skulle du ha flera kolumner med innehåll så skulle det inte få plats 
+                särskilt mycket.
+            </p>
+
+            <p>
+                Om länkarna är för små och för nära varandra riskerar man att missa och
+                klicka på fel länk eller knapp. Detta kan leda till en stor frustration. 
+            </p>
+
+            <p>
+                En annan sak som är bra att tänka på är att inte ha för många och stora 
+                bilder som tar mycket data att ladda ner. Dels gör det hemsidan 
+                långsammare, och dels så kostar det mer för användaren att använda din 
+                sida.
+            </p>
+
+            <section>
+
+                <h3>
+                    Responsiv design
+                </h3>
+
+                <p>
+                    Ett problem du står för som utvecklare är att dina användare kommer 
+                    att använda både datorer och telefoner för att nå din webbplats. En 
+                    webbplats är sällan snygg på både en dator och en telefon samtidigt.
+                    Så om du har anpassat sidan för mobiler så kommer den att se 
+                    konstig ut för datorer och vice versa.
+                </p>
+
+                <p>
+                    För att komma runt detta så kan du säga åt webbsidan att kontrollera 
+                    storleken på fönstret och välja layout efter det. Testa exempelvis att 
+                    förminska storleken på det här fönstret och se vad som händer.
+                </p>
+
+                <p>
+                    För att lägga till att något ska hända när du ändrar på 
+                    fönsterstorleken behöver du lägga till följande i din CSS-kod:
+                </p>
+
+                <pre title="CSS-kod"><code>@media only screen and (max-width: 1000px){
+    /* Här skriver du CSS-kod som bara ska gälla 
+    när sidan är mindre än 1000 pixlar bred. */ 
+}</code></pre>
+
+                <p>
+                    Koden som du skriver i <code>@media only screen</code> biten kommer 
+                    bara att aktiveras när skärmen har rätt storlek. Lägger du detta 
+                    i botten av din CSS-kod så kommer den också att skriva över eventuella 
+                    regler du har satt upp högre upp i dokumentet. Din sida kommer dock 
+                    att behålla alla regler som du inte aktivt skriver över. Detta gör att 
+                    du kan ha en väldigt snarlik design med samma färgtema och rundade 
+                    kanter och whatnot men finjustera layouten för en mobil. Jag tycker 
+                    själv att det är lättare att börja med layouten för en "vanlig" dator 
+                    och sen justera den för en telefon. 
+                </p>
+
+                <p>
+                    Förr så var det vanligt att man skapade en helt seperat sida för 
+                    mobiler. Dessa sidors adresser inleddes ofta med <code>m</code> 
+                    istället för det vanliga <code>www</code>. Idag har det nästan helt 
+                    fasats ut för att använda responsiv design istället.
+                </p>
+
+            </section>
+		
+		</article>
+
+        <article id="ovningar">
+
+            <h2>Övningar</h2>
+
+            <p>
+                Ladda ner filen <b>"responsiv-design.html"</b> från Classroom och svara 
+                på frågorna i den.
+            </p>
+
+        </article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br/>
+			Hedda Anderssongymnasiet<br/>
+			046-359 61 35<br/>
+			Byggmästaregatan 2<br/>
+			222 37 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;05&ndash;17
+		</p>
+
+	</footer>
+
+	<script>
+
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

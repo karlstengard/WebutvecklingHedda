@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+	
+	<meta charset="utf-8" />
+	<title>HTML 1 - Min första sida</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+</head>
+
+<body>
+	
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside class="side">
+
+		<nav class="content">
+			<h3>Innehåll</h3>
+			
+			<a href="#start">En väldigt simpel hemsida</a>
+			<a href="#resultat">Resultat</a>
+			<a href="#taggar">Taggar, element och attribut</a>
+			<a href="#kod">Kod</a>
+		
+		</nav>
+
+		<h2>Sammanfattning</h2>
+
+		<p>På den här sidan går vi igenom hur man gör en väldigt grundläggande sida. Det är en
+		hel del information som nu mest är att acceptera. Vi kommer att prata mer <em>head</em>,
+		<em>body</em> och <em>meta</em> framöver.</p>
+		
+		<p>Den grundläggande strukturen ser ut så här:</p>
+	<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		<i>Info om sidan för webbläsaren</i>
+	&lt;/head&gt;
+	&lt;body&gt;
+		<i>Allt som ska synas på hemsidan</i>
+	&lt;/body&gt;
+&lt;/html&gt;
+	</code></pre>
+
+		</section>
+	
+	</aside>
+	
+	<main>
+	
+		<article id="start">
+	
+			<h2>En väldigt simpel hemsida</h2>
+			
+			<p>
+				En webbplats är på många sätt jämförbar med en tidning. Först är det en 
+				fräsig framsida (startsida) som ska sälja in själva tidningen 
+				(webbplatsen). Sen består tidningen av en massa tidningssidor (webbsidor). 
+				På en sida kan det finnas bilder och text. Det kan finnas reklam, notiser, 
+				artiklar och lite allt möjligt. Sen kan man också ta sig från en sida till 
+				en annan&mdash;antingen genom att man bläddrar i tidningen eller klickar 
+				på en länk på webbsidan.
+			</p>
+			
+			<p>
+				Hur skapar man då en hemsida? Först så måste man berätta för datorn att 
+				det är en webbsida man gör (du behöver ta fram pappret att trycka på). Det 
+				gör man först med raden:
+			</p>
+			
+			<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+		
+			<p>
+				som säger att det här är den senaste sortens <i>html</i>-sida. Sen får man 
+				berätta för datorn vart det hela egentligen börjar. Det gör man med 
+				<i>taggen</i>:
+			</p>
+			
+			<pre><code>&lt;html&gt;</code></pre>
+		
+			<p>
+				någon rad nedanför. Vi säger att vi har <i>öppnat</i> html-taggen. Sen 
+				måste man också berätta vart det hela slutar. Då <i>stänger</i> vi vår 
+				html-tagg så här:
+			</p>
+			
+			<pre><code>&lt;/html&gt;</code></pre>
+		
+			<p>
+				Nu ser hela vår fil ut så här:
+			</p>
+		
+		<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;/html&gt;</code></pre>
+		
+			<p>
+				Om vi nu öppnar den med vår favorit-webbläsare så kommer vi att få en helt 
+				vit hemsida. Nästa steg är att berätta för webbläsaren vad det här är för 
+				sida. Då får vi lägga till en <i>header</i>, eller en 
+				<code>head</code>-tagg, mellan html-taggarna så att det hamnar i vår 
+				"tidning".
+			</p>
+			
+			<pre><code>&lt;head&gt;
+
+&lt;/head&gt;</code></pre>
+		
+			<p>
+				Det är en bra rutin när man öppnar en tagg att man direkt också stänger 
+				den. Sen kan man skriva det man vill ha mellan taggarna. Mellan 
+				<code>head</code>-taggarna ska man skriva sånt som inte kommer att synas 
+				på sidan men som kan vara nödvändigt för att sidan ska bete sig som man 
+				vill. Först vill vi ge sidan ett namn.
+			</p>
+			
+			<pre><code>&lt;title&gt;Webbutveckling :)&lt;/title&gt;</code></pre>
+		
+			<p>
+				Nu har vi öppnat en <code>title</code>-tagg, skrivit ett namn på vår sida 
+				och stängt vår titel. Om vi nu sparar och uppdaterar vår sida. Vad har 
+				förändrats?
+			</p>
+			
+			<p>
+				Nu vill vi lägga till något som faktiskt ska synas på sidan. Om vi 
+				fortsätter med tidningsliknelsen så kan vi säga att vi skriver en artikel 
+				(vi kan också jämföra det med en uppsats). Då kommer vi att behöva en 
+				rubrik på vår sida. Men först måste vi plocka fram pappret.
+			</p>
+			
+			<pre><code>&lt;body&gt;
+
+&lt;/body&gt;</code></pre>
+		
+			<p>
+				Mellan <code>body</code>-taggarna ska allt som ska <i>synas</i> på sidan 
+				ligga. Om vi vill lägga till en rubrik så finns det en familj med taggar 
+				vi kan använda oss av: <code>h1</code>, <code>h2</code>, ... 
+				<code>h6</code>. <code>h1</code> är huvudrubriken och <code>h6</code> är 
+				den minst viktiga rubriken, typ. (Jämför du med LaTeX så är typ h1=title, 
+				h2=part, h3=chapter, h4=section, h5=subsection, h6=subsubsection.) Så om 
+				vi vill sätta en rubrik på vår sida skriver vi så här:
+			</p>
+			
+			<pre><code>&lt;h1&gt;Oj vad kul det här året ska bli&lt;/h1&gt;</code></pre>
+		
+			<p>
+				Nu borde vår kod se ut så här:
+			</p>
+
+			<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+	&lt;head&gt;
+	
+		&lt;title&gt;Webbutveckling :)&lt;/title&gt;
+	
+	&lt;/head&gt;
+	
+	&lt;body&gt;
+	
+		&lt;h1&gt;Oj vad kul det här året ska bli&lt;/h1&gt;
+	
+	&lt;/body&gt;
+	
+&lt;/html&gt;</code></pre>
+		
+			<p>
+				Notera <i>indenteringen</i> den hjälper oss att hålla koll på vad som hör 
+				ihop med vad.
+			</p>
+			
+			<p>
+				Nu vill vi lägga till någon text till hemsidan. Då använder vi elementet 
+				<code>p</code> som står för engelskans <i>paragraph</i>.
+			</p>
+			
+			<pre><code>&lt;p&gt;Här kan du skriva om allt kul som du ser fram emot under hösten och året.&lt;/p&gt;</code></pre>
+		
+			<!--<p>
+				Om bokstäverna å, ä och ö inte syns som dem ska finns det två 
+				inställningar att göra. I <em>Notepad++</em> ska man gå till menyn 
+				<em>Format</em> och välja <em>Koda i UTF-8</em>. Sen kan vi också lägga 
+				till en rad i vår <code>head</code>:
+			</p>-->
+
+			<p>
+				Om bokstäverna å, ä och ö inte syns som de ska så behöver vi lösa det. Då 
+				finns det två ställen det kan ha gått fel på:
+			</p>
+
+			<ol>
+				<li>
+					Vår editor (Notepad++) är felinställd. 
+				</li>
+				<li>
+					Webbläsaren är inte beredd på att vi vill använda alla tecken.
+				</li>
+			</ol>
+			
+			<p>
+				För att ställa in Notepad++ rätt går du upp till "Format" och väljer 
+				"Koda i UTF-8 (utan BOM)". Förhoppningsvis behöver du aldrig göra om 
+				det här steget.
+			</p>
+			
+			<p>
+				Men följande steg måste göras på <em>varje</em> sida du skapar. 
+				Anledningen till att vi behöver göra följande steg är för att alla 
+				webbläsare fungerar lite olika och det är inte säkert att en 
+				användares webbläsare är förinställd på <code>UTF-8</code>. Så då 
+				ska vi ställa in deras webbläsare på det. Inuti blocket 
+				<code>&lt;head&gt;</code> lägger vi nu till följande rad:  
+			</p>
+			
+			<!--
+			<p>
+				För att kontrollera att Visual Studio Code är korrekt inställd så kollar 
+				du längst ner i högra hörnet. Där finns en rad med text där det står typ:
+				<code>Ln 10, Col 15 Tab Size: 4, XXXX CRLF HTML</code>. Tryck på texten 
+				mellan Tab Size och CRLF, XXXX i det här fallet och välj <i>Save with 
+				encoding</i> och välj sedan <i>UTF-8</i>.
+			</p>
+			
+			<p>
+				Förhoppningsvis behöver du nu aldrig göra om det övre steget. Men det här 
+				steget måste göras på <em>varje</em> sida du skapar. Anledningen till att 
+				vi behöver göra följande steg är för att alla webbläsare fungerar lite 
+				olika och det är inte säkert att en användares webbläsare är förinställd 
+				på <code>UTF-8</code>. Så då ska vi ställa in deras webbläsare på det. 
+				Inuti blocket <code>&lt;head&gt;</code> lägger vi nu till följande rad:  
+			</p>
+			
+			-->
+
+			<pre><code>&lt;meta charset="utf-8" /&gt;</code></pre>
+	
+			<p>
+				Den raden läggs förslagsvis till före titeln. Notera nu att vi gjorde 
+				något konstigt. Vi stängde inte taggen som vi gjort med andra taggar. 
+				Och vi skrev mer mellan <code>&lt;</code> och <code>&gt;</code> än 
+				tidigare. Vi kallar elementet <code>meta</code> för ett tomt element. 
+				<code>charset</code> kallas för ett <em>attribut</em> och det tilldelar vi 
+				ett värde med lika-med-tecknet. <code>utf-8</code> är en sorts 
+				teckenkodning, alltså hur datorn ska tolka bokstäver, siffror och andra 
+				tecken. <code>utf-8</code> är den standard man ska använda på webben, om 
+				inte särskilda skäl föreligger.
+			</p>
+	
+		</article>
+	
+		<article id="resultat">
+
+			<h2>Resultat</h2>
+		
+			<div style="padding: 10px; background-color:white;">
+
+				<h1 style="text-align:left;">Oj vad kul det här året ska bli</h1>
+				
+				<p style="margin:0px;">Här kan du skriva om allt kul som du ser fram emot 
+					under hösten och året. Du kan till och med skriva en hel uppsats. Nu ska 
+					jag skriva lite granda för att visa hur det ser ut när man har skitmycket 
+					text. En sak jag kan skriva är att det är roligt att skriva. Men jag 
+					tycker det är synd att så få läser det jag skriver. Så jag kan skriva och 
+					skriva, men det är aldrig någon som läser det. Det tycker jag är 
+					fruktansvärt tråkigt. Men det betyder rimligtvis att jag kan skriva vad 
+					jag vill om vem jag vill.
+				</p>
+			
+			</div>
+		
+		</article>
+	
+		<article id="taggar">
+		
+			<h2>Taggar, element och attribut</h2>
+			
+			<p>
+				En tagg är det i HTML som är inkapslat med <code>&lt;</code> och <code>&gt;</code>. En start- och en 
+				sluttagg bildar tillsammans med allt där emellan ett <em>element</em>. Ett 
+				exempel på en starttagg är <code>&lt;h1&gt;</code>, den har en sluttagg 
+				kopplad till sig som är <code>&lt;/h1&gt;</code>. För att markera att man 
+				<em>stänger</em>, eller avslutar, ett element så skriver man ett <code>/</code> mellan 
+				<code>&lt;</code> och elementets namn. På vår sida som vi har gjort nu har vi totalt 
+				sju stycken element (<code>&lt;!DOCTYPE html&gt;</code> är ett 
+				specialkommando och varken en tagg eller ett element). Sex av elementen 
+				öppnar och stänger vi med vanliga taggar, men elementet 
+				<code>&lt;meta&gt;</code> är ett så kallat tomt element och har ingen 
+				stängnings-tagg. Det är god sed att avsluta tomma taggar med ett <code>/</code> för att 
+				visa att man vet vad man håller på med.
+			</p>
+			
+			<p>
+				Ett <em>attribut</em> är en bit information/egenskap hos ett element som 
+				man kan ändra på. Attribut består av två delar: ett namn och ett värde. 
+				Namnet följs av ett <code>=</code> och sedan ett värde som man kapslar in med 
+				citattecken: <code>" "</code>. Än så länge har vi bara använt oss av 
+				attributet <code>charset</code> men vi kommer att prata om betydligt fler 
+				innan kursen är slut.
+			</p>
+		
+		</article>
+	
+		<article id="kod">
+		
+			<h2>Kod</h2>
+	
+		<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+	&lt;head&gt;
+	
+		&lt;meta charset="utf-8" /&gt;
+		&lt;title&gt;Webbutveckling :)&lt;/title&gt;
+	
+	&lt;/head&gt;
+	
+	&lt;body&gt;
+	
+		&lt;h1&gt;Oj vad kul det här året ska bli&lt;/h1&gt;
+		
+		&lt;p&gt;
+			Här kan du skriva om allt kul som du ser fram emot under hösten 
+			och året. Du kan till och med skriva en hel uppsats. Nu ska jag 
+			skriva lite granda för att visa hur det ser ut när man har 
+			skitmycket text. En sak jag kan skriva är att det är roligt att 
+			skriva. Men jag tycker det är synd att så få läser det jag 
+			skriver. Så jag kan skriva och skriva, men det är aldrig någon 
+			som läser det. Det tycker jag är fruktansvärt tråkigt. Men det 
+			betyder rimligtvis att jag kan skriva vad jag vill om vem jag 
+			vill.
+		&lt;/p&gt;
+	
+	&lt;/body&gt;
+	
+&lt;/html&gt;</code></pre>
+	
+		</article>
+
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br/>
+			Hedda Anderssongymnasiet<br/>
+			Svanevägen 17<br/>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2024&ndash;08&ndash;21
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+
+</html>

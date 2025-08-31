@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>CSS 5 - Pseudoklasser</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+	<style>
+		.exvisit a:visited{
+			color: red;
+			display: none;
+			content: "";
+		}
+		.exhover p:hover{
+			color: green;
+		}
+		.exvarannan p:nth-child(2n+1){
+			color: silver;
+			background-color: black;
+		}
+		.exvarannan p:nth-child(2n){
+			font-family: monospace;
+			background-color: silver;
+			color: gold;
+		}
+		.lettrines p::first-letter{
+			color: red;
+			font-size: 2.0em;
+			float: left;
+		}
+		.exline p::first-line{
+			font-variant: small-caps;
+		}
+		.exbefore a::before{
+			content: "♥";
+			color: red;
+		}
+
+		#nth-child-ex p:nth-child(even){
+			background-color: white;
+		}
+		#nth-of-type-ex p:nth-of-type(even){
+			background-color: white;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+
+	
+		<nav class="content">
+			<a href="#start">Pseudoklasser</a>
+			<a href="#element">Pseudoelement</a>
+			<a href="#uppgifter">Övningar</a>
+		</nav>
+
+		<section>
+
+			<h2>Sammanfattning</h2>
+		
+			<h3>Kod</h3>
+			
+			<dl>
+				<dt><code>:hover</code></dt>
+				<dd>När man har musen över</dd>
+				<dt><code>:visited</code></dt>
+				<dd>Länk man klickat på</dd>
+				<dt><code>:nth-child()</code></dt>
+				<dd>Ändrar på vart n:te element</dd>
+				<dt><code>:nth-of-type()</code></dt>
+				<dd>Ändrar på var n:te element av samma typ</dd>
+				<dt><code>::first-letter</code></dt>
+				<dd>Ändrar på första bokstaven</dd>
+				<dt><code>::first-line</code></dt>
+				<dd>Ändrar på första rade</dd>
+				<dt><code>::before</code></dt>
+				<dd>Påverkar det framför</dd>
+				<dt><code>::after</code></dt>
+				<dd>Påverkar det efter</dd>
+			</dl>
+		
+		</section>
+		
+	</aside>
+		
+	<main>
+		
+		<article id="start">
+		
+			<h2>Pseudoklasser</h2>
+				
+			<section>
+
+				<h3>visited</h3>
+				
+				<p>
+					Om du vill ändra på hur en länk man besökt sett ut så lägger du till:
+				</p>
+				
+				<pre title="CSS kod"><code>a:visited{
+	color : red;
+}</code></pre>
+					
+				<p>
+					Den här länken blir röd om man har klickat på den:<span class="exvisit">
+					<a href="https://en.wikipedia.org/wiki/J._R._R._Tolkien" target="_blank">Viktigt</a></span>
+					<span class="exvisit">
+					<a href="https://en.wikipedia.org/wiki/Roald_Dahl" target="_blank">Mindre viktigt</a></span>
+				</p>
+					
+			</section>
+				
+			<section>
+				
+				<h3>hover</h3>
+				
+				<p>Om du vill ändra på hur ett element beter sig när du hovrar med musen 
+				över det skriver du:</p>
+
+				<pre title="CSS kod"><code>p:hover{
+	color: green;
+}</code></pre>
+					
+				<div class="exhover">
+
+					<p>
+						Om du håller musen över mig blir jag grön.
+					</p>
+
+				</div>
+				
+			</section>
+				
+			<section>
+				
+				<h3>nth-child()</h3>
+				
+				<p>
+					Om du vill att typ varannat element av en viss sort ska bete sig annorlunda 
+					så skriver du:
+				</p>
+				
+				<pre title="CSS kod"><code>p:nth-child(2n+1){
+	color: silver;
+	background-color: black;
+}
+p:nth-child(2n){
+	font-family: monospace;
+	background-color: silver;
+	color: gold;
+}</code></pre>
+					
+				<div class="exvarannan">
+					<p>Hipp hurra!</p>
+					<p>För här kommer Bumbibjörnarna!</p>
+					<p>Studsar fram igenom sagorna!</p>
+					<p>Och vi får följa med!</p>
+				</div>
+			
+			</section>
+
+			<section>
+
+				<h3>nth-of-type()</h3>
+
+				<p>
+					<code>nth-child()</code> kan ibland bete sig lite oväntat eftersom den räknar 
+					in <strong>alla</strong> element för att avgöra om vilket i ordningen du är 
+					på.
+				</p>
+
+				<p>
+					Om man vill strunta i att räkna listor, figurer och liknande mellan det 
+					element man vill justera så kan man instället använda <code>nth-of-type()</code>
+				</p>
+
+				<h4>Jämförelse</h4>
+
+				<h5>nth-child(even)</h5>
+
+				<pre title="CSS kod"><code>p:nth-child(even){
+	background-color: white;
+}</code></pre>
+
+				<div id="nth-child-ex" title="Resultatet av koden ovan">
+
+					<p>
+						Här är lite text. (1)
+					</p>
+
+					<p>Mer text (2)</p>
+
+					<figure>
+						Det här ska föreställa en bild (3)
+					</figure>
+
+					<p>Ännu mer text (4/3)</p>
+
+					<p>Sista texten (5/4)</p>
+
+				</div>
+
+				<h5>nth-of-type(even)</h5>
+
+				<pre title="CSS kod"><code>p:nth-of-type(even){
+	background-color: white;
+}</code></pre>
+
+				<div id="nth-of-type-ex" title="Resultatet av koden ovan">
+
+					<p>
+						Här är lite text. (1)
+					</p>
+
+					<p>Mer text (2)</p>
+
+					<figure>
+						Det här ska föreställa en bild (3)
+					</figure>
+
+					<p>Ännu mer text (4/3)</p>
+
+					<p>Sista texten (5/4)</p>
+
+				</div>
+
+			</section>
+		
+		</article>
+			
+		<article class="lettrines" id="element">
+		
+			<section>
+			
+				<h2>Pseudo-element</h2>
+				
+				<p>
+					Med hjälp av så kallade pseudo-element kan du förändra delar av ett element. Tillexempel 
+					kan du ändra på initialen, första bokstaven. Med hjälp av en klass så kommer alla initialer
+					på den här leken av sidan att täcka mer än en rad. Koden för att göra det hittar du här:
+				</p>
+
+				<pre title="CSS kod"><code>p::first-letter{
+	color: red;
+	font-size: 2.0em;
+	float: left;
+}</code></pre>
+					
+				<p>
+					Den biten kod innehåller två nya saker vi inte har tittat på förut: 
+					<code>::first-letter</code>
+					och <code>float: left;</code>. Vi 
+					kommer först att titta på 
+					<code>::first-letter</code> vilket är ett pseudo-element.
+				</p>
+			
+			</section>
+			
+			<section>
+			
+				<h3>::first-letter</h3>
+				
+				<p>
+					Detta är ett av flera olika pseudo-element vi ska kolla på. Men som namnet antyder så 
+					påverkar det den första bokstaven i ett element. Det behöver inte vara i ett <code>&lt;p&gt;</code>-element 
+					som i exemplet, utan kan vara i en <code>h</code>-tagg eller i ett <code>a</code>-element.
+				</p>
+			
+			</section>
+			
+			<section class="exline">
+
+				<h3>::first-line</h3>
+				
+				<p>
+					Det här pseudo-elementet påverkar hela första raden i ett element, och är då främst användbart 
+					på <code>&lt;p&gt;</code>-elementet som är ett av de element som oftast går över flera rader.
+				</p>
+				
+				<pre title="CSS kod"><code>p::first-line{
+	font-variant: small-caps;
+}</code></pre>
+					
+				<p>
+					Så nu är hela den första raden i stora bokstäver, men i samma storlek som små bokstäver. 
+					Detta är oftast snyggast dock om man har korta rader.
+				</p>
+					
+			</section>
+				
+			<section class="exbefore">
+
+				<h3>::before</h3>
+					
+				<p>
+					Pseudo-elementet <code>::before</code> påverkar vad som ska hända precis framför ett element.
+				</p>
+					
+				<pre title="CSS kod"><code>a::before{
+	content: "&hearts;";
+	color: red;
+}</code></pre>
+					
+				<p>
+					Så nu när vi lägger till ett <code>&lt;a&gt;</code>-element så kommer vi att se ett &hearts; framför:
+					<a href="">den här går ingenstans</a>.
+				</p>
+				
+			</section>
+				
+			<section>
+				
+				<h3>::after</h3>
+
+				<p>
+					<code>::After</code> fungerar likadant som <code>::before</code>, fast åt andra hållet. Här kan vi se ett exempel 
+					på hur <code>::first-letter</code> tar med specialtecken före första bokstaven också.
+				</p>
+					
+			</section>
+				
+		</article>
+			
+		<article>
+			
+			<section id="övningar"> <!-- Här kan jag lägga till övningarna från tabellerna längre fram-->
+				
+				<h2>Övningar</h2>
+				
+				<p>
+					Fortsätt med din sida om Dijsktras.
+				</p>
+					
+				<ol>
+					<li>
+						Varje rad ska börja med en lettrine (drop cap/capital). 
+					</li>
+					<li>
+						Första raden i varje stycke ska vara med stora bokstäver.
+					</li>
+					<li>
+						Varannat textstycke ska ha en kant runt texten.
+					</li>
+					<li>
+						När man hovrar över kod så ska den byta bakgrundsfärg.
+					</li>
+					<li>
+						Läs igenom texten om Dijsktras algoritm. Vad handlar den om? Förklara för mig muntligt.
+					</li>
+				</ol>
+				
+			</section>
+			
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2024&ndash;12&ndash;02
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

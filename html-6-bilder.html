@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<title>HTML 6 - Bilder</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		
+		<!-- Detta gör att visad kod ska bli snyggare -->
+		<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+		<script src="highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	
+		<script src="script/showHideMenu.js"></script>
+		<script src="script/prettier-page.js"></script>
+		
+	</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+	
+		<h2>Sammanfattning</h2>
+	
+		<nav class="content">
+			<a href="#start">Start</a>
+			<!--<a href="#storlek">Bildstorlek</a>-->
+			<a href="#figures">Bildtext</a>
+			<a href="#format">Bildformat</a>
+			<a href="#uppgifter1">Övningar </a>
+			<a href="#upphovsrätt">Upphovsrätt</a>
+		</nav>
+		
+		<p>
+			Bilder är något av det mest centrala på webben. Man lägger upp bilder med 
+			<code>&lt;img&gt;</code>-elementet. För att markera vart bilder ska hämtas 
+			använder man attributet <code>src</code>. Om det skulle uppstå något problem 
+			med bilden så att den inte laddas så använder man attributet <code>alt</code>
+			för att visa text som kan ersätta bilden.
+		</p>
+		
+		<p>
+			Vill man få till en snygg undertext till bilder så använder man sig av 
+			elementen <code>&lt;figure&gt;</code> och <code>&lt;figcaption&gt;</code>
+		</p>
+
+	</aside>
+		
+	<main>
+	
+		<article id="start">
+		
+			<h2>Bilder på webben</h2>
+			
+			<p>
+				Efter text så är kanske bilder det mest centrala på webben. Vilken kanske 
+				inte är så konstigt eftersom <q>en bild säger mer än tusen ord</q>. När 
+				man vill lägga upp en bild på sin webbsida så är det viktigt att man vet 
+				exakt var bilden ligger och man skriver vart det är på samma sätt som vi 
+				gjorde med länkar med den lilla skillnaden att man inte anväder attributet 
+				<code>href</code> utan <code>src</code> istället.
+			</p>
+			
+			<p>
+				För att lägga upp en bildså använder man sig utav elementet 
+				<code>&lt;img&gt;</code> som står för <i>image</i>. 
+				<code>&lt;img&gt;</code> är ett <i>tomt</i> element. Det innebär att vi 
+				bara behöver en öppningstagg och ingen stängningstagg, precis som 
+				elementet <code>&lt;meta /&gt;</code>. Precis som elementet 
+				<code>&lt;meta /&gt;</code> så markerar man att det är ett tomt element 
+				med <code>&lt;img /&gt;</code>. (Med ett tomt element så menar man att det 
+				ska inte finnas något mellan öppnings- och stängingstaggen, där är tomt. 
+				Och då kan man lika gärna skippa stängningstaggen.)
+			
+			</p>
+			
+			<p>
+				Det räcker inte att använda sig utav bara taggen 
+				<code>&lt;img /&gt;</code> för att få ut sin bild man behöver också skriva 
+				var källan till bilden är med attributet <code>src</code> som står för 
+				<i>source</i>. Så vill jag ha ut en bild med Heddas logga kan jag skriva 
+				så här:
+			</p>
+			
+			<pre><code>&lt;img src="Bilder/HeddasLogga.png" /&gt;</code></pre>
+			
+			<img src="Bilder/HeddasLogga.png" alt="Hedda Anderssongymnasiets logotyp"
+			title="Det här är Heddas logga. Stor som attan!"/>
+			
+			<p>
+				Skulle det nu var så att bilden av någon anledning inte laddas ordentligt 
+				så bör man lägga till en så kallad alt-text &mdash; alternativ text 
+				&mdash; som visas om bilden inte laddas.
+			</p>
+			
+			<pre><code>&lt;img src="Bilder/HeddasLogga.png" alt="Hedda Anderssongymnasiets logotyp"/&gt;</code></pre>
+			
+			<p>
+				Vill man lägga till ytterliggare information om bilden kan man använda sig 
+				utav <code>title</code> så att det står något bra när man hovrar med musen 
+				ovanför. En hemsida som är känd för sina roliga texter när man hovrar över 
+				bilderna är <a href="https://www.xkcd.com/">XKCD</a> som gör seriestrippar 
+				om vetenskap och teknik. Två av mina favoritstrippar är:
+			</p>
+			
+			<img src="https://imgs.xkcd.com/comics/purity.png" alt="Ett diagram över 'renheten' inom olika vetenskaper"
+			title="On the other hand, physicists like to say physics is to math as sex is to masturbation."/>
+			
+			<img src="https://imgs.xkcd.com/comics/compiling.png" alt="Två snubbar som slåss med svärd medan deras kod kompilerar."
+			title="'Are you stealing those LCDs?' 'Yeah, but I'm doing it while my code compiles'" />
+		
+			<pre><code>&lt;img src="https://imgs.xkcd.com/comics/purity.png" 
+	alt="Ett diagram över 'renheten' inom olika vetenskaper" 
+	title="On the other hand, physicists like to say physics is to math as sex is to masturbation."/&gt;
+				
+&lt;img src="https://imgs.xkcd.com/comics/compiling.png" 
+	alt="Två snubbar som slåss med svärd medan deras kod kompilerar." 
+	title="'Are you stealing those LCDs?' 'Yeah, but I'm doing it while my code compiles'" /&gt;</code></pre>
+			
+			<p>
+				För att länka till en bild på en annan sida så skriver man in 
+				webbadressen till just den bilden. Ofta kan man hitta den genom att 
+				högerklicka på en bild och välja kopiera bildadress. Sen skriver man 
+				in hela den adressen i <code>src</code>
+			</p>
+		
+		</article>
+			
+			<!--
+			<article id="storlek">
+			
+				<h2>Bildstorlek</h2>
+				
+				<p>
+					Om man vill justera storleken på sin bild så kan man göra det med 
+					HTML. Det är dock oftast bäst att justera själva bildfilen till rätt storlek. Men vill man justera bildens storlek 
+				så kan man göra det med attributen <b>width</b> och <b>height</b>.</p>
+				
+				<pre><code>
+&lt;img src="Bilder/HeddasLogga.png" height="200" width="100"/&gt;
+				</code></pre>
+				
+				<img src="Bilder/HeddasLogga.png" width="100"
+				alt="En mindre bild på Heddas logga"
+				title="Titta på mig!"/>		
+			
+				<p>För att få bilden att hamna där man vill så använder man sig 
+				utav CSS.</p>
+			
+			</article>
+
+		-->
+			
+		<article id="figures">
+		
+			<h2>Figurer</h2>
+			
+			<p>
+				Inom dokumentsammanhang så betyder figur inte samma sak som i vanligt 
+				språk. I vanligt språk kan det vara en form eller en individ. Men i 
+				ett dokument så är en figur en bild av något slag. Och i vetenskapliga 
+				texter så är det ofta nödvändigt att man tydligt numrerar och benämner 
+				sina figurer. Ofta anses det också vara nödvändigt med en bildtext. Om 
+				man kollar i en vanlig dagstidning så hittar man också oftast 
+				bildtexter till varje bild.
+			</p>
+			
+			<p>
+				För att ge sin bild en bildtext så behöver man först lägga den i ett 
+				<code>&lt;figur&gt;</code>-element och sen lägga till elementet 
+				<code>&lt;figcaption&gt;</code>:
+			</p>
+				
+			<pre><code>&lt;figure&gt;
+	&lt;img src="https://imgs.xkcd.com/comics/password_strength.png"/&gt;
+	&lt;figcaption&gt;En till bild från XKCD som beskriver lösenordssäkerhet&lt;/figcaption&gt;
+&lt;/figure&gt;	</code></pre>
+				
+			<figure>
+				<img src="https://imgs.xkcd.com/comics/password_strength.png"/>
+				<figcaption>En till bild från XKCD som beskriver lösenordssäkerhet</figcaption>
+			</figure>
+			
+			
+		
+		</article>
+		
+		
+		<article id="format">
+		
+			<h2>Bildformat</h2>
+			
+			<p>
+				Det finns flera olika sorters bildformat. Vi har till exempel .PNG, 
+				.GIF, .BMP, .JPEG, .WEBP och .SVG. De olika formaten är bra till 
+				olika saker och på webben används framförallt:
+			</p>
+			
+			<ul>
+				<li>.JPEG</li>
+				<li>.GIF</li>
+				<li>.PNG</li>
+				<li>.WEBP</li>
+			</ul>
+			
+			<h3>JPEG &mdash; Joint Photographic Experts Group</h3>
+			
+			<p>
+				Den vanligast förekommande bildformatet är <i>.jpg/jpeg</i> som är en 
+				standard för digitala fotografier. .jpg är användbart när man har en 
+				bild med många färger, till exempel ett fotografi. Även ett fotografi 
+				på en "enfärgad" yta är passande för .jpg eftersom verkligheten sällan 
+				är exakt likadan överallt.
+			</p>
+			
+			<p>
+				Ett problem med .jpg är att det använder en komprimering som förlorar 
+				information varje gång den komprimeras. Det gör att en bild över tid 
+				förlorar sin skärpa och om den redigeras för många gånger bli helt 
+				enfärgad.
+			</p>
+			
+			<p>
+				.jpg stöder bildstorlekar upp till 65 535 &times; 65 535 pixlar 
+				([2<sup>16</sup>-1] &times; [2<sup>16</sup>-1] = 4 294 836 225 eller 4 
+				gigapixlar). Så våra bildskärmar bli ganska mycket större.
+			</p>
+			
+			<figure>
+				<img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Felis_silvestris_silvestris_small_gradual_decrease_of_quality.png"
+				alt="Bil som visar på kvalitetsskiftning i .jpg" 
+				title="En kissekatt!"/>
+				<figcaption>
+					Ett fotografi på en europeisk vildkatt där kompressionsgraden 
+					minskar från vänster till höger vilket leder till en ökad 
+					bildkvalité. Källa: wikipedia
+				</figcaption>
+				
+			</figure>
+			
+			<h3>GIF &mdash; Graphics Interchange Format</h3>
+			
+			<p>
+				.gif är kanske mest känd för att den går att animera och att den kan 
+				ha en genomskinlig bakgrund. .gif är en gammal standard från 1987 och 
+				är supportad av flera olika system. "Det funkar typ överallt".
+			</p>
+			
+			<p>
+				Till skillnad från .jpeg så har .gif en så kallad "lossless" 
+				komprimering. Det gör att bilden kommer att behålla samma kvalitet när 
+				man redigerar den. .gif är ett populärt format för till exempel 
+				logotyper eftersom den är exakt och filstorleken blir liten.
+			</p>
+			
+			<p>
+				.gif:s stora nackdel är dock den begränsade mängden färger. .gif kan 
+				bara ha 256 olika färger i varje pixel (8 bitar).
+			</p>
+			
+			<figure>
+				<img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Rotating_earth_%28large%29.gif"
+				alt="Ett exempel på en animerad .gif"
+				title="You spin my head round..."/>
+				<figcaption>En snurrande jordglob. Källa: wikipedia</figcaption>
+			</figure>
+			
+			<p>
+				Det uttalas förresten GIF med ett hårt G och absolut inte som "jif" 
+				med ett mjukt g.
+			</p>
+			
+			<h3>PNG &mdash; Portable Network Graphics</h3>
+			
+			<p>
+				Enligt wikipedia så ska PNG officielt uttalas "ping" vilket är fel. 
+				Precis som utvecklarna av .gif så behöver utvecklare ibland sättas på 
+				sin plats eftersom det uttalas P N G.
+			</p>
+			
+			<p>
+				.png är ett alternativ till .gif och kan precis som .gif visa 
+				genomskinliga bilder. Däremot kan .png inte visa animationer. Den 
+				stora fördelen jämtemot .gif är att .png klarar av upp till 24 bitars 
+				färger, alltså 2<sup>24</sup>=16 777 216 olika färger.
+			</p>
+			
+			<p>
+				.png gör sig också bra som ett filformat för logotyper eftersom den 
+				klarar samma saker bra som .gif, men med högre precision.
+			</p>
+			
+			<p>
+				Om du undrar om du ska använda dig utav .png eller av .jpg så kan du 
+				kolla på din bild om den har skarpa kanter som i bilden nedan, eller 
+				om färskiftningarna är mjuka. Är det mjuka färskiftningar så är kanske 
+				.jpg bäst. Medan om färskiftningarna är skarpa så passar kanske .png 
+				bäst.
+			</p>
+			
+			<figure>
+				<img src="https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png"
+				alt="En .png-bild på fyra tärningar."
+				title="Jag har MÅNGA tärningar"/>
+				<figcaption>Här ser man hur bakgrunden och tärningarna är genomskinliga.
+				Källa: wikipedia</figcaption>
+			</figure>
+			
+			<h3>WebP</h3>
+			
+			<p>
+				Detta är ett relativt nytt bildformat som utvecklats av Google. Deras 
+				ambition är att WebP ska bli den nya standarden på webben och ersätta 
+				både .jpg, .gif och .png. Flera av de stora webbläsarna stödjer 
+				.webp-formatet (Chrome,	Firefox, Opera och nya versioner av Edge) 
+				däremot gör inte nödvändigtvis äldre versioner av Edge eller Safari 
+				det.
+			</p>
+			
+			<figure>
+				<img src="https://www.gstatic.com/webp/gallery/4.sm.webp"
+				alt="En bild i webp formatet"
+				title="Ett träd"/>
+				<figcaption>Källa: wikipedia</figcaption>
+			</figure>
+			
+		</article>
+
+		<article id="uppgifter1">
+		
+			<h2>Övningar</h2>
+			
+			<ol>
+				<li>På Classroom finns en bild som heter "bilden.png". Ladda ner den</li>
+				<li>Gör en hemsida som visar bilden.</li>
+				<li>Välj en bild från nätet och visa den.</li>
+				<li>Hitta en bild på din favoritartist/-band och lägg upp med en bildtext</li>
+				<li>Se till att varje bild har en alt-text och en titel-text</li>
+			</ol>
+		
+		</article>
+		
+		<article id="upphovsrätt">
+		
+			<h2>Upphovsrätt</h2>
+			
+			<p>
+				Upphovsrättslagar kan ställa till med problem när de kommer i kontakt 
+				med internets delnings-kultur. Det är nämligen så att den som 
+				tagit/gjort en bild äger rättigheterna till bilden. Så om du hittar 
+				en cool bild på internet och slänger upp på din egna sida så kan det 
+				vara så att du begår ett upphovsrättsbrott. En del skapare är okej med 
+				att du sprider deras verk, medan andra är det inte. Och det är i 
+				mycket upp till skaparen hur verket får spridas.
+			</p>
+			
+			<p>
+				Idag gäller upphovsrätten tills dess att upphovsmannen dör och sen i 
+				ytterliggare 70 år. Vilket mer eller mindre betyder att alla bilder på 
+				internet är skyddade av upphovsrätten. Ofta är det okej att kopiera 
+				någons verk för enskilt och privat bruk, men att sprida det är högst 
+				olagligt.
+			</p>
+			
+			<iframe width="773" height="435" src="https://www.youtube.com/embed/hz_agK8bd4Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			
+			<iframe width="773" height="435" src="https://www.youtube.com/embed/1Jwo5qc78QU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			
+		</article>
+
+		<article id="ovningar-2">
+
+			<h2>Övningar 2</h2>
+
+			<ul>
+				<li>
+					Gör en hemsida om din favoritfilm/spel/bok/pjäs
+				</li>
+				<li>
+					Hemsidan ska vara snygg och innehålla många bilder
+				</li>
+				<li>
+					Bädda gärna in ett YouTube-klipp som relaterar till ditt
+					valda medium
+				</li>
+				<li>
+					Ha ett annat typsnitt (<i>font</i> på engelska) på texten
+				</li>
+				<li>
+					Gör hemsidan färgglad.
+				</li>
+			</ul>
+
+		</article>
+	
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;09&ndash;14
+		</p>
+
+	</footer>
+
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>HTML 3 - Text</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+
+	<style>
+		#standardquote{
+			position:static;
+			font-size: inherit;
+			padding: inherit;
+			border: none;
+			box-shadow: none;
+			background-color:inherit;
+			color: inherit;
+		}
+		#standardquote::before{
+			content: "";
+		}
+		#standardquote::after{
+			content: "";
+		}
+	</style>
+	
+</head>
+	
+<body>
+	
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+		
+	<aside>
+				
+		<nav class="content">
+			<h3>Innehåll</h3>
+			
+			<a href="#start">Text på webben</a>
+			<a href="#estetik">Estetik</a>
+			<a href="#uppgifter1">Övningar 1</a>
+			<a href="#semantik">Semantik</a>
+			<a href="#uppgifter2">Övningar 2</a>
+			
+		</nav>
+		
+		<h3>Nya element</h3>
+
+		<dl>
+			<dt><code>&lt;h#&gt;</code></dt>
+			<dd>heading, rubrikelement</dd>
+
+			<dt><code>&lt;p&gt;</code></dt>
+			<dd>paragraph, textelement</dd>
+
+			<dt><code>&lt;b&gt;</code></dt>
+			<dd><b>bold</b>, fetstil (använd CSS istället)</dd>
+
+			<dt><code>&lt;i&gt;</code></dt>
+			<dd><i>italic</i>, kursivt (använd CSS istället)</dd>
+
+			<dt><code>&lt;sup&gt;</code></dt>
+			<dd><sup>superscript</sup>, upphöjt</dd>
+
+			<dt><code>&lt;sub&gt;</code></dt>
+			<dd><sub>subscript</sub>, nedsänkt</dd>
+
+			<dt><code>&lt;br&gt;</code></dt>
+			<dd>line break, radbrytning</dd>
+
+			<dt><code>&lt;hr&gt;</code></dt>
+			<dd>horizontal rule, linje</dd>
+
+			<dt><code>&lt;strong&gt;</code></dt>
+			<dd><strong>Viktigt</strong></dd>
+
+			<dt><code>&lt;em&gt;</code></dt>
+			<td><em>Emphasis</em>, betoning</td>
+
+			<dt><code>&lt;blockquote&gt;</code></dt>
+			<dd>Långt citat</dd>
+
+			<dt><code>&lt;q&gt;</code></dt>
+			<dd><q>Kort citat</q></dd>
+
+			<dt><code>&lt;abbr&gt;</code></dt>
+			<dd><abbr title="Glöm inte title">Abbreviation</abbr> Förkortning</dd>
+
+			<dt><code>&lt;cite&gt;</code></dt>
+			<dd><cite>Citerat verk</cite></dd>
+		
+			<dt><code>&lt;dfn&gt;</code></dt>
+			<dd><dfn>Definition</dfn></dd>
+			
+			<dt><code>&lt;address&gt;</code></dt>
+			<dd><address>Adress</address></dd>
+
+			<dt><code>&lt;ins&gt;</code></dt>
+			<dd><ins>Insatt</ins></dd>
+
+			<dt><code>&lt;del&gt;</code></dt>
+			<dd><del>Borttaget</del></dd>
+
+			<dt><code>&lt;s&gt;</code></dt>
+			<dd><s>Struket</s></dd>
+
+		</dl>
+
+		<div id="sammbutton" class="change">
+			<div id="sammbar1"></div>
+			<div id="sammbar2"></div>
+			<div id="sammbar3"></div>
+		</div>
+		
+	</aside>
+			
+	<main>
+	
+		<article id="start">
+		
+			<h2>Text på webben</h2>
+		
+			<p>
+				Något av det enskilt mest förekommande på webben är text. Bara på den här 
+				sidan är det hur mycket text som helst i förhållande till allt annat. 
+				Därför är det inte konstigt att <abbr title="Hyper Text Markup Language">
+				HTML</abbr>-kod innehåller 	kommandon för hur text ska behandlas. Mycket 
+				av det som en gång i tiden gjordes i HTML har dock flyttats över till 
+				<abbr title="Cascading Style Sheets">CSS</abbr>-kod. Men mycket finns kvar 
+				och	det är nyttigt att känna till det som man helst nu ska undvika.
+			</p>
+			
+			<h3>Rubriker</h3>
+			
+			<p>
+				Det finns sex nivåer av rubriker, <code>&lt;h1&gt;</code> till 
+				<code>&lt;h6&gt;</code>. <code>&lt;h1&gt;</code> markerar 
+				<em>huvudrubriken</em> och bör således bara användas en gång. En 
+				<code>&lt;h3&gt;</code>-rubrik bör inte heller användas om det inte också 
+				finns en <code>&lt;h2&gt;</code>-rubrik. Som du kan se nedanför så ser de 
+				olika rubrik-elementen olika ut. Man ska dock inte använda en viss rubrik 
+				på grund utav sitt utseende. Utseendet kan man ändra på. Man ska välja 
+				rubrik-nivå utefter vad som passar med texten man presenterar.
+			</p>
+			
+			<h1>Detta är ett &lt;h1&gt;-element</h1>
+			
+			<h2>Detta är ett &lt;h2&gt;-element</h2>
+			
+			<h3>Detta är ett &lt;h3&gt;-element</h3>
+			
+			<h4>Detta är ett &lt;h4&gt;-element</h4>
+			
+			<h5>Detta är ett &lt;h5&gt;-element</h5>
+			
+			<h6>Detta är ett &lt;h6&gt;-element</h6>
+			
+			<h3>Textstycken</h3>
+			
+			<p>
+				Textstycken, eller paragrafer (<i>paragraphs</i> på engelska), ska inte 
+				skrivas rakt in i koden utan att de innefattas av ett paragraf-element. 
+				Paragraf-, eller textelementet, öppnas med en <code>&lt;p&gt;</code>-tagg.
+			</p>					
+		
+		</article>
+		
+		<article id="estetik">
+		
+			<h2>Estetik</h2>
+			
+			<p>
+				När det kommer till estetik på en HTML-sida så bör så mycket som möjligt 
+				överlämnas åt CSS. Men det är några saker som passar sig bättre att göra 
+				direkt i HTML, och några saker som man behöver känna till 
+				<strong>inte</strong> ska göras i HTML.
+			</p>
+			
+			<h3>&lt;b&gt;-fetstilt</h3>
+			
+			<p>
+				Ett stycke text inkappslat mellan <code>&lt;b&gt;</code><b>och</b>
+				<code>&lt;/b&gt;</code>	blir fetstilt. Detta är ett gammalt kommando från 
+				HTML:s skapande och bör numera undvikas så gott det går.
+			</p>
+			
+			<p>
+				I HTML5, den nuvarande standarden, så har <code>&lt;b&gt;</code> fått en 
+				ny betydelse. <code>&lt;b&gt;</code>-elementet ska användas för att 
+				<b>dra uppmärksamhet</b> till ett stycke text utan att lägga någon extra 
+				eller annorlunda betoning på ordet. Exempelvis en ingress eller nyckelord 
+				i ett abstract. Du kan läsa mer om detta <a title="HTML5 specification" 
+				href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element">
+				här</a> och <a title="Extra förklaring" 
+				href="https://www.w3.org/International/questions/qa-b-and-i-tags.en">
+				här</a>.
+			</p>
+				
+			<h3>&lt;i&gt;-kursivt</h3>
+			
+			<p>
+				Ett stycke text inkappslat mellan <code>&lt;i&gt;</code><i>och</i>
+				<code>&lt;/i&gt;</code> blir kursivt. Detta är precis som 
+				<code>&lt;b&gt;</code> ett gammalt kommando som har bytt betydelse. Förr 
+				var elementets syfte att göra texten just kursiv, en uppgift som nu ska 
+				skötas av CSS. I HTML5 så ska <code>&lt;i&gt;</code> användas för att 
+				markera att ett stycke text ska läsas med en annorlunda betoning. Det kan 
+				vara att man använder en teknisk-term eller en direktöversättning 
+				(<i>det regnar katter och hundar</i>). Precis som för 
+				<code>&lt;b&gt;</code>-elementet finns det mer att läsa 
+				<a title="HTML5 specification" 
+				href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element">
+				här</a> och <a title="Extra förklaring" 
+				href="https://www.w3.org/International/questions/qa-b-and-i-tags.en">
+				här</a>.
+			</p> 
+			
+			<h3>&lt;sup&gt;-upphöjning</h3>
+			
+			<p>
+				När du läser "upphöjt" så tänker du kanske på matematik och något i stil 
+				med 3<sup>2</sup>=9. Men det kan också användas för att markera tid: 
+				10<sup>15</sup>. Eller placering i engelsk text: 1<sup>st</sup>. 
+				Alternativt i franska förkortningar: M<sup>lle</sup>.
+			</p>
+			
+			<h3>&lt;sub&gt;-nedsänkning</h3>
+			
+			<p>
+				Nedsänkt text associeras nog mest med kemiska formler, H<sub>2</sub>O 
+				(vatten) eller H<sub>2</sub>SO<sub>4</sub> (svavelsyra).
+			</p>
+			
+			<p>
+				<code>&lt;sub&gt;</code> och <code>&lt;sup&gt;</code> ska som så många 
+				andra element inte användas för att göra texten "vackrare" utan bara när 
+				det är för att göra texten begripligare. Som till exempel när man skriver 
+				kemiska formler.
+			</p>
+			
+			<h3>&lt;br&gt;-ny rad</h3>
+			
+			<p>
+				Elementet <code>&lt;br&gt;</code> är ett tomt element. Vilket inte är 
+				särskilt förvånande eftersom det skapar en ny rad. I vanlig text är det 
+				ganska ovanligt att man använder det. Enligt HTML-specifikationen ska det 
+				användas så här: 
+				<q cite="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element">br-element 
+				får enbart användas för radbrytningar som faktiskt är en del av 
+				innehållet, såsom i dikter och adresser.</q> Det ska alltså inte användas 
+				för att dela in en text i stycken.
+			</p>
+			
+			<h3>&lt;hr&gt;-linje</h3>
+			
+			<p>
+				<code>&lt;hr&gt;</code> är precis som <code>&lt;br&gt;</code> ett tomt 
+				element. Resultatet av <code>&lt;hr&gt;</code> är en linje som går över 
+				sidan:<hr>
+			</p>
+
+			<p>
+				Den här linjen ska helst inte användas runt rubriker eller annat som 
+				tydligt markerar att "här börjar något nytt". Istället ska den användas 
+				mellan stycken för att visa på att det sker en förändring i innehåll.
+			</p>
+		
+		</article>
+		
+		<article id="uppgifter1">
+		
+			<h2>Övningar 1</h2>
+			
+			<p>På Classroom finns en text som heter <cite>Cinderella</cite>. Ladda ner den.</p>
+			
+			<ol>
+				<li>
+					Skapa en HTML-fil och se till att namnet uppe på fliken är 
+					<cite>Cinderella</cite>.
+				</li>
+				<li>
+					Lägg in dikten i din body och ha varje stycke mellan varsina 
+					<code>&lt;p&gt;</code> och <code>&lt;/p&gt;</code>-taggar.
+				</li>
+				<li>
+					Gör diktens titel till sidans rubrik
+				</li>
+				<li>
+					Gör författarens namn fetstilt.
+				</li>
+				<li>
+					Lägg till radbrytningar mellan varje rad i dikten.
+				</li>
+				<li>
+					Lägg till en horizontell linje mellan varje stycke i dikten 
+				(detta är dock inte god sed).
+				</li>
+				<li>
+					Gör varje dialog i dikten kursiv.
+				</li>
+				<li>
+					Skapa en rubrik under dikten och döp den till <cite>Matematik</cite>
+				</li>
+				<li>
+					Lägg till underrubriken <cite>Polynomtåg</cite>
+				</li>
+				<li>
+					Skriv in följande polynom:
+					<ul>
+						<li>5x<sup>2</sup>-2x+3</li>
+						<li>a<sub>0</sub>x<sup>3</sup>+a<sub>1</sub>x<sup>2</sup>+a<sub>3</sub>x+a<sub>4</sub></li>
+					</ul>
+				</li>
+			</ol>
+		
+		</article>
+		
+		<article id="semantik">
+		
+			<h2>Semantik</h2>
+			
+			<p>
+				Eftersom HTML är gjord för att presentera information i digital form så 
+				har man gjort det möjligt att lägga till extra information i text. Det kan 
+				vara allt från länkar till förklaringar. De element som beskrivs här är 
+				inte menade för att ändra så mycket på utseendet av texten utan mer för 
+				att ge information om texten.
+			</p>
+			
+			<h3>&lt;strong&gt;-viktigt</h3>
+			
+			<p>
+				<code>&lt;strong&gt;</code>-elementet ska användas för att visa att något 
+				är särskilt viktigt. Till exempel: <code>&lt;strong&gt;</code>
+				<strong>Varning:</strong> <code>&lt;/strong&gt;</code>Starka strömmar. Som 
+				standard visas <code>&lt;strong&gt;</code>-element som fetstilta.
+			</p>
+			
+			<h3>&lt;em&gt;-betoning</h3>
+			
+			<p>
+				<code>&lt;em&gt;</code> ska användas för att markera att ett ord ska ha 
+				extra betoning. Detta kan göra en väldig skillnad på hur en mening 
+				uppfattas.
+			</p>
+			
+			<p>
+				<ul>
+					<li>
+						<em>Jag</em> sa inte det.
+					</li>
+					<li>
+						Jag <em>sa</em> inte det.
+					</li>
+					<li>
+						Jag sa <em>inte</em> det.
+					</li>
+					<li>
+						Jag sa inte <em>det</em>.
+					</li>
+				</ul>
+			</p>
+		
+			<h3>&lt;blockquote&gt;-citat-stycke</h3>
+			
+			<p>
+				När man citerar ett större stycke text så är det brukligt att använda 
+				&lt;blockquote&gt; för att markera detta. Det brukar leda till att texten 
+				<abbr title="Skjuts in"><i>indenteras</i></abbr>.
+			</p>
+			
+			<div style="display:grid;grid-template-columns:50% 50%;">
+
+				<div>
+
+					<blockquote id="standardquote">
+						All that is gold does not glitter,<br>
+						Not all those who wanders are lost;<br>
+						The old that is strong does not wither,<br>
+						Deep roots are not reached by the frost.<br>
+						</br>
+						From the ashes a fire shall be woken,<br>
+						A light from the shadows shall spring;<br>
+						Renewed shall be blade that was broken,<br>
+						The crownless again shall be king.
+					</blockquote>
+
+					<p>
+						Med hjälp av CSS i framtiden kan vi göra det här mycket snyggare:
+					</p>
+
+				</div>
+
+				<blockquote cite="J. R. R. Tolkien">
+					<a href="https://www.goodreads.com/quotes/229-all-that-is-gold-does-not-glitter-not-all-those">
+						All that is gold does not glitter,<br>
+						Not all those who wanders are lost;<br>
+						The old that is strong does not wither,<br>
+						Deep roots are not reached by the frost.<br>
+						</br>
+						From the ashes a fire shall be woken,<br>
+						A light from the shadows shall spring;<br>
+						Renewed shall be blade that was broken,<br>
+						The crownless again shall be king.
+					</a>
+				</blockquote>
+
+			</div>
+			
+			<h3>&lt;q&gt;-citat</h3>
+			
+			<p>
+				När man bara citerar en kortare bit text så använder man sig utav 
+				<code>&lt;q&gt;</code> vilket gör att citatet visas i texten: 
+				<q cite="url(https://www.goodreads.com/author/quotes/656983.J_R_R_Tolkien?page=3)">For 
+				even the very wise cannot see all ends.</q> En sak att lägga märke till är 
+				att webbläsaren här själv har lagt till citat-tecknen runt citatet.
+			</p>
+			
+			<h3>&lt;abbr&gt;-förkortningar</h3>
+			
+			<p>
+				<code>&lt;abbr&gt;</code>-elementet är användbart när man använder sig 
+				utav förkortningar i sin text. Då kan man använda det för att förklara en 
+				förkortning utan att ha en massa extra text på sidan.
+			</p>
+			
+			<p>
+				<abbr title="Centrala studiestödsnämnden">CSN</abbr> är en myndighet många 
+				har blandade åsikter om. För att man ska få upp vad förkortningen betyder 
+				så får man lägga till attributet <code>title</code> i sin öppningstagg: 
+				<code>&lt;abbr title="Gymnasiearbetet"&gt;<abbr title="Gymnasiearbetet">GyA</abbr>&lt;/abbr&gt;</code></p>
+			
+			<h3>&lt;cite&gt;-citerat verk</h3>
+			
+			<p>
+				När man hänvisar till ett verk så använder man sig av elementet 
+				<code>&lt;cite&gt;</code>. Som oftast gör titeln kursiv.
+			</p>
+			
+			<p>
+				<code>&lt;cite&gt;</code><cite>The Hobbit</cite><code>&lt;/cite&gt;</code> 
+				är en barnbok av 
+				<abbr title="John Ronald Reuel Tolkien">J. R. R. Tolkien</abbr>.
+			</p>
+			
+			<p>
+				<code>cite</code> är dels ett element, men det kan också användas som ett 
+				attribut i tillexempel <code>&lt;blockquote&gt;</code> eller 
+				<code>&lt;q&gt;</code>.
+			</p>
+			
+			<h3>&lt;dfn&gt;-definition</h3>
+			
+			<p>
+				Det här elementet används när man för första gången använder ett uttryck 
+				eller förkortning. Det här kan vara rätt att använda i ett dokument där 
+				man introducerar nya termner. I Chrome så blir en <code>&lt;dfn&gt;</code> 
+				kursiv.
+			</p>
+			
+			<p>
+				<dfn><abbr title="Elevskydds ombud">ESKO</abbr></dfn> är bra att ha. 
+				Vanligtvis väljer varje klass någon till <abbr title="Elevskydds 
+				ombud">ESKO</abbr>.
+			</p>
+			
+			<h3>&lt;address&gt;-adress</h3>
+			
+			<p>
+				Om man vill presentera författaren till en text med kontaktuppgifter kan 
+				man använda sig utav <code>&lt;address&gt;</code>. Som standard så blir 
+				varje rad kursiv.
+			</p>
+			
+			<address>
+				Calle Ketola<br>
+				Lärare i matematik & programmering<br>
+				Hedda Anderssongymnasiet<br>
+				Utbildningsförvaltningen, Lunds kommun<br>
+				Besöksadress: Svanevägen 17<br>
+				E-post: calle.ketola@lund.se<br>
+				www.lund.se <br>
+				Lund skapar framtiden med kunskap, innovation och öppenhet
+			</address>
+			
+			<h3>&lt;ins&gt;-insert & &lt;del&gt;-delete</h3>
+			
+			<p>
+				De här två elementen används för att visa att man har förändrat ett 
+				dokument. Om man har <ins>lagt till</ins> något i ett dokument brukar det 
+				markeras med ett understreck, men om man <del>tagit bort</del> så stryks 
+				det över.
+			</p>
+
+			<p>
+				Om man vill ha understrykningar och överstrykningar av estetiska skäl så 
+				ska man använda sig utav CSS istället.
+			</p>
+			
+			<h3>&lt;s&gt;-struket</h3>
+			
+			<p>
+				När något har förändats och inte längre är aktuellt så kan man använda sig 
+				utav <code>&lt;s&gt;</code> för att markera det. Till exempel:
+			</p>
+			
+			<p><s>Tidigare: 100 kr</s></p>
+			<p><strong>Nu: 99<sup>90</sup>kr</strong></p>
+
+		
+		</article>
+		
+		<article id="uppgifter2">
+		
+			<h2>Övningar 2</h2>
+			
+			<p>En grupp elever har startat en butik på Hedda, men inte gått 
+			kursen webbutveckling. Hjälp dem att fixa till sin sida.</p>
+			<ol>
+				<li>
+					Rätta titeln i <code>&lt;head&gt;</code>
+				</li>
+				<li>
+					Eau de Toilette ska ju dofta gott, markere illa med 
+					<code>&lt;del&gt;</code> och stoppa in gott
+				</li>
+				<li>
+					Förfalskade intyg har slutat att säljas. Markera det.
+				</li>
+				<li>
+					Alla andra bästsäljare ska markeras tydligt med 
+					<code>&lt;strong&gt;</code>
+				</li>
+				<li>
+					Försvinnande bläck har ett nytt pris på 22 kr.
+				</li>
+				<li>
+					Snygga till adressen med en <code>&lt;address&gt;</code>
+				</li>
+				<li>
+					Omdömmena är citat, fixa till det.
+				</li>
+				<li>
+					Lärarens kommentar ska vara ett blockquote.
+				</li>
+				<li>
+					Tidningarnas omdömmen ska vara citat och tidningsnamnen 
+					ska vara inom <code>&lt;cite&gt;</code>
+				</li>
+				<li>
+					Personalens namn är förkortade. Lägg till <code>&lt;abbr&gt;</code> 
+					och fyll i deras fulla namn.
+				</li>
+			</ol>
+		
+		</article>
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2024&ndash;08&ndash;26
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+	</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>SERVER 1 XAMPP</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+		
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+		
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+			<button id="server-head">Server</button>
+		</nav>
+		
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+		
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+		
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+		
+		<nav id="server-nav">
+			<a href="server-1.html">XAMPP</a>
+		</nav>
+
+	</header>
+	
+	<aside>
+	
+			<nav>
+				<a href="#start">Start</a>
+				<a href="#xampp">XAMPP</a>
+				<a href="#hemmaserver">Hemmaserver</a>
+			</nav>
+
+		<section id="sammanfattning">
+
+			<h2>Sammanfattning</h2>
+			
+			
+		</section>
+			
+	</aside>
+		
+	<main>
+	
+		<article id="start">
+		
+			<h2>En egen server</h2>
+
+			<p>
+				Än så länge i kursen har alla sidor du gjort lagrats och visats lokalt.
+				Men en webbplats behöver kunna nås från vilket nätverk som helst. För att 
+				publicera en hemsida behöver du en server.
+			</p>
+
+			<p>
+				En server är en dator som andra datorer kan koppla upp till.
+			</p>
+
+			<section id="xampp">
+
+				<h3>XAMPP</h3>
+
+				<p>
+					XAMPP är ett program som gör din dator till en server som kan ta emot 
+					och skicka information.
+				</p>
+
+				<p>
+					Du kan ladda ner XAMPP <a href="https://www.apachefriends.org/">här</a>.
+					Tänk på att XAMPP är inte vitlistat av kommunen och inget jag får uppmana 
+					dig att ladda ner.
+				</p>
+
+			</section>
+
+			<section>
+
+				<h3>Portar</h3>
+
+				<p>
+					Din dator och telefon tar konstant emot information på internet och 
+					för att informationen ska komma till rätt ställe i datorn så skickas 
+					varje meddelande med en liten address som säger vart i systemet 
+					informationen ska. I din dator har du så kallade "portar" som olika 
+					program står och väntar vid för att få information. Om du har 
+					använt liveserver under kursens gång har du kanske sett att adressen 
+					uppe i adressfältet sett ut så här på något vis: 127.168.0.1:40000. 
+					Där är 40 000(?) den porten som liveserver använder för att lyssna 
+					efter din egen webbsida. 
+				</p>
+
+				<p>
+					Standardportarna för en webbserver är 80 och 443 vilka är de som 
+					XAMPP öppnar när du kör igång servern.
+				</p>
+
+			</section>
+
+			<section id="hemmaserver">
+
+				<h3>En hemmaserver</h3>
+
+				<p>
+					Om man vill skapa en hemmaserver behöver du en dator och en router.
+					I datorn behöver du ha någon typ av server program, typ XAMPP och 
+					APACHE, och på routern behöver du göra en så kallad <em>Port 
+					Forwarding</em>. Hur man gör port forwarding skiljer sig från 
+					router till router. Så det kommer du behöva att kolla upp på 
+					egenhand. Men du vill forwarda port 80 till IP-adresen på datorn som 
+					kör servern.
+				</p>
+
+			</section>
+		
+		</article>
+		
+		
+	
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br/>
+			Hedda Anderssongymnasiet<br/>
+			046-359 61 35<br/>
+			Byggmästaregatan 2<br/>
+			222 37 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;05&ndash;17
+		</p>
+
+	</footer>
+
+	<script>
+
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>HTML 8 - Formulär</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+	
+	<!-- Detta gör att visad kod ska bli snyggare -->
+	<link rel="stylesheet" type="text/css" href="highlight/styles/default.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="script/showHideMenu.js"></script>
+	<script src="script/prettier-page.js"></script>
+	
+</head>
+
+<body>
+
+	<header>
+
+		<div>
+			<!-- This is one part -->
+			<figure>
+				<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+			<h1><a href="index.html" title="Start">Webb&shy;utveckling</a></h1>
+			
+			<figure class="flex-push">
+				<img src="Bilder/HeddaA_Hori_Pink_BlackText.png" alt="Heddas logga" class="logga"/>
+			</figure>
+
+		</div>
+		
+		<!-- This is a new part -->
+		<nav>
+			<button id="html-head">HTML</button>
+			<button id="css-head">CSS</button>
+			<button id="js-head">JavaScript</button>
+		</nav>
+
+		<nav id="html-nav">
+			<a href="html-1-first-lesson.html">Kom igång</a>
+			<a href="html-2-internet.html">Inter&shy;net</a>
+			<a href="html-3-text.html">Text</a>
+			<a href="html-4-listor.html">Listor</a>
+			<a href="html-5-lankar.html">Länkar</a>
+			<a href="html-6-bilder.html">Bilder</a>
+			<a href="html-7-tabeller.html">Tabell&shy;er</a>
+			<a href="html-8-formular.html">Formulär</a>
+			<a href="html-9-ljud-video.html">Ljud och video</a>
+		</nav>
+
+		<nav id="css-nav">
+			<a href="css-1-farger.html">Färger</a>
+			<a href="css-2-text.html">Text</a>
+			<a href="css-3-klasser-id.html">Klasser och ID</a>
+			<a href="css-4-margin-padding-border.html">Marginaler</a>
+			<a href="css-5-pseudoklasser.html">Pseudo&shy;klasser</a>
+			<a href="css-6-positionering.html">Position&shy;ering</a>
+			<a href="css-7-grid-flex.html">Grid och flex</a>
+			<a href="css-8-bilder.html">Bilder</a>
+			<a href="css-9-listor-tabeller.html">Listor och tabeller</a>
+		</nav>
+
+		<nav id="js-nav">
+			<a href="js-1-start.html">Start</a>
+			<a href="js-2-if.html">If-satser</a>
+			<a href="js-3-loopar.html">Loopar</a>
+			<a href="js-4-dom.html">DOM</a>
+		</nav>
+
+	</header>
+
+	<aside>
+			
+		<nav>
+			<a href="#start">Start</a>
+			<a href="#input">Input</a>
+			<a href="#ta">Text Area</a>
+			<a href="#sel">Select</a>
+			<a href="#lab">Label</a>
+			<a href="#fs">Fieldset</a>
+			<a href="#uppgifter">Uppgifter</a>
+		</nav>
+
+		<section id="sammanfattning">
+
+			<h2>Sammanfattning</h2>
+			
+			<h3>Element</h3>
+			
+			<dl>
+				<dt><code>&lt;input&gt;</code></dt>
+					<dd>Fält som tar emot input. Finns i flera sorter</dd>
+				<dt><code>&lt;select&gt;</code></dt>
+					<dd>En rullgardinslista</dd>
+				<dt><code>&lt;option&gt;</code></dt>
+					<dd>Ett val i en rullgardinslista</dd>
+				<dt><code>&lt;textarea&gt;</code></dt>
+					<dd>En stor textruta att skriva i</dd>
+				<dt><code>&lt;fieldset&gt;</code></dt>
+					<dd>Ramar in en del av formuläret</dd>
+				<dt><code>&lt;legend&gt;</code></dt>
+					<dd>Ger en rubrik åt ett fieldset</dd>
+			</dl>
+			
+			<h3>Attributet type:s värden</h3>
+			
+			<dl>
+				<dt>text</dt>
+					<dd>Ett textfält</dd>
+				<dt>password</dt>
+					<dd>Ett fält som döljer inputen</dd>
+				<dt>submit</dt>
+					<dd>Skickar formuläret</dd>
+				<dt>radio</dt>
+					<dd>En radioknapp</dd>
+				<dt>checkbox</dt>
+					<dd>En kryssruta</dd>
+				<dt>image</dt>
+					<dd>Alternativ till submit</dd>
+				<dt>number</dt>
+					<dd>Ett fält för tal</dd>
+				<dt>range</dt>
+					<dd>En glidare</dd>
+				<dt>date</dt>
+					<dd>Datumfält</dd>
+				<dt>email</dt>
+					<dd>Epostfält</dd>
+				<dt>url</dt>
+					<dd>Tar emot en URL</dd>
+			</dl>
+
+		</section>
+	
+	</aside>
+		
+	<main>
+		
+		<article id="start">
+		
+			<h2>Formulär</h2>
+			
+			<p>
+				Internets mest använda formulär är troligtvis sökrutan på Googles 
+				startsida:
+			</p>
+			
+			<img src="bilder/google.png" alt="Googles sökruta" 
+			title="Skärmklipp taget 2020&ndash;10&ndash;20"/>
+			
+			<p>
+				Det finns huvudsakligen tre olika sorters element i ett formulär:
+			</p>
+			
+			<ol>
+				<li>Text-element</li>
+				<li>Val-element</li>
+				<li>Skicka in-element</li>
+			</ol>
+			
+			<p>
+				Ett enkelt formulär kan se ut så här:
+			</p>
+			
+			<form>
+				<h3>Vilken veckodag är bäst-omröstning?</h3>
+				
+				<label>Ditt namn</label>
+				<input type="text" name="user" placeholder="Calle"/>
+				<br>
+				<label>Bästa dagen i veckan är:</label><br>
+				<input type="radio" name="dag" value="1"/>Måndag<br>
+				<input type="radio" name="dag" value="2"/>Tisdag<br>
+				<input type="radio" name="dag" value="3"/>Onsdag<br>
+				<input type="radio" name="dag" value="4"/>Torsdag<br>
+				<input type="radio" name="dag" value="5"/>Fredag<br>
+				<input type="radio" name="dag" value="6"/>Lördag<br>
+				<input type="radio" name="dag" value="7"/>Söndag<br>
+				
+				<input type="submit"/>
+			</form>
+			
+			<pre><code>&lt;form>
+	&lt;h3>Vilken veckodag är bäst-omröstning?&lt;/h3>
+	
+	&lt;label&gt;Ditt namn&lt;/label&gt;
+	&lt;input type="text" name="user" placeholder="Calle"&gt;
+	&lt;br&gt;
+	&lt;label&gt;Bästa dagen i veckan är:&lt;/label&gt;&lt;br&gt;
+	&lt;input type="radio" name="dag" value="1"&gt;Måndag&lt;br&gt;
+	&lt;input type="radio" name="dag" value="2"&gt;Tisdag&lt;br&gt;
+	&lt;input type="radio" name="dag" value="3"&gt;Onsdag&lt;br&gt;
+	&lt;input type="radio" name="dag" value="4"&gt;Torsdag&lt;br&gt;
+	&lt;input type="radio" name="dag" value="5"&gt;Fredag&lt;br&gt;
+	&lt;input type="radio" name="dag" value="6"&gt;Lördag&lt;br&gt;
+	&lt;input type="radio" name="dag" value="7"&gt;Söndag&lt;br&gt;
+	
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code></pre>
+			
+			<p>
+				I det här formuläret används alla tre typerna.
+			</p>
+			
+			<h3 id="input">&lt;input&gt;</h3>
+			
+			<p>
+				Elementet <code>&lt;input&gt;</code> är ett väldigt stort element som kan göra väldigt 
+				många olika saker. I exemplet ovan är både rutan och alla knapparna 
+				&lt;input&gt;-element.
+			</p>
+			
+			<p>
+				<code>&lt;input&gt;</code> är ett tomt element och ska inte ha någon sluttagg.
+			</p>
+			
+			<h4>Attributen</h4>
+			
+			<p>
+				<code>&lt;input&gt;</code> har en hög med attribut som gör att formuläret ser olika ut 
+				och gör det som det ska.
+			</p>
+			
+			<dl>
+				<dt>type</dt>
+				<dd>Anger vilken sorts input</dd>
+				<dt>name</dt>
+				<dd>Anger ett variabelnamn som sparar värdet</dd>
+				<dt>Placeholder</dt>
+				<dd>Om där ska vara förinfyllld text</dd>
+				<dt>maxlength</dt>
+				<dd>Hur lång inmatningenn får vara</dd>
+				<dt>value</dt>
+				<dd>Anger betydelsen av knappar eller kryssrutor</dd>
+				<dt>checked</dt>
+				<dd>Anger om en knapp sak vara förinfylld</dd>
+				<dt>required</dt>
+				<dd>Anger om det är ett obligatoriskt fält</dd>
+			</dl>
+			
+			<h4>type="text"</h3>
+			
+			<p>
+				Om man vill ta emot en liten bit text, exempelvis ett användarnamn så ger 
+				man attributet <code>type</code> värdet "text".</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;label&gt;Användare&lt;/label&gt;
+	&lt;input type="text" name="user"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<label>Användare</label>
+				<input type="text" name="username"/>
+			</form>
+			
+			<h4>type="password"</h4>
+			
+			<p>
+				Ett lösenord ska inte synas när det matas in, så då använder man sig utav 
+				värdet <code>"password"</code> som döljer lösenordet.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;label&gt;Användare&lt;/label&gt;
+	&lt;input type="text" name="user"&gt;
+	&lt;br&gt;
+	&lt;label&gt;Lösenord&lt;/label&gt;
+	&lt;input type="password" name="password"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<label>Användare</label>
+				<input type="text" name="user"/>
+				<br>
+				<label>Lösenord</label>
+				<input type="password" name="password"/>
+			</form>
+			
+			
+			<h4>type="submit"</h4>
+			
+			<p>
+				För att tillslut skicka in alla svar så anger man <code>type="submit"</code> 
+				vilket skapar en ruta där det står "Skicka" (om datorn är inställd på 
+				svenska). Vill man att där ska stå något annat behöver man ange ett värde 
+				till attributet value.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;label&gt;Användare&lt;/label&gt;
+	&lt;input type="text" name="user"&gt;
+	&lt;br&gt;
+	&lt;label&gt;Lösenord&lt;/label&gt;
+	&lt;input type="password" name="password"&gt;
+	&lt;br&gt;
+	&lt;input type="submit" value="Logga in"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<label>Användare</label>
+				<input type="text" name="user"/>
+				<br>
+				<label>Lösenord</label>
+				<input type="password" name="password"/>
+				<br>
+				<input type="submit" value="Logga in"/>
+			</form>
+			
+			<h4>type="radio"</h4>
+			
+			<p>
+				Om man vill ha så kallade radioknappar (val där man bara kan välja en) så 
+				anger man <code>"radio"</code>. För att koppla samman radioknappar så är 
+				det viktigt att man ger alla knapparna samma värde på attributet 
+				<code>name</code>.
+			</p>
+			
+			<p>
+				När man skapar knappar så är det viktigt att man anger attributet 
+				<code>value</code> och ger det ett värde så att formuläret vet vad man har 
+				tryckt.
+			</p>
+			
+			<pre><code>&lt!--Exempel med samma namn --&gt;
+&lt;form&gt;
+	&lt;label&gt;Musikgenre: &lt;/label&gt; &lt;br&gt;
+	&lt;input type="radio" name="genre" value="rock"&gt; Rock
+	&lt;input type="radio" name="genre" value="pop"&gt; Pop
+	&lt;input type="radio" name="genre" value="blues"&gt; Blues
+&lt;/form&gt;</code></pre>
+				
+			<!--Exempel med samma namn -->
+			<form>
+				<label>Musikgenre: </label> <br>
+				<input type="radio" name="genre" value="rock"/> Rock
+				<input type="radio" name="genre" value="pop"/> Pop
+				<input type="radio" name="genre" value="blues"/> Blues
+			</form>
+			
+			<pre><code>&lt!--Exempel utan samma namn --&gt;
+&lt;form&gt;
+	&lt;label&gt;Musikgenre: &lt;/label&gt; &lt;br&gt;
+	&lt;input type="radio" value="rock"&gt; Rock
+	&lt;input type="radio" value="pop"&gt; Pop
+	&lt;input type="radio" value="blues"&gt; Blues
+&lt;/form&gt;</code></pre>
+				
+			<!--Exempel utan samma namn -->
+			<form>
+				<label>Musikgenre: </label> <br>
+				<input type="radio" value="rock"/> Rock
+				<input type="radio" value="pop"/> Pop
+				<input type="radio" value="blues"/> Blues
+			</form>
+			
+			<h4>type="checkbox"</h4>
+			
+			<p>
+				Om man vill ha kryssrutor där man kan trycka i flera olika alternativ så 
+				anger man <code>"checkbox"</code>. Här gäller samma principer som för 
+				radioknappar: ge knapparna samma namn, och ge varje knapp ett värde.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;label&gt;Mumintroll: &lt;/label&gt; &lt;br&gt;
+	&lt;input type="checkbox" name="m-troll" value="mumin"&gt; Mumin
+	&lt;input type="checkbox" name="m-troll" value="pappan"&gt; Muminpappan
+	&lt;input type="checkbox" name="m-troll" value="mumrik"&gt; Snusmumriken
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<label>Mumintroll: </label> <br>
+				<input type="checkbox" name="m-troll" value="mumin"/> Mumin
+				<input type="checkbox" name="m-troll" value="pappan"/> Muminpappan
+				<input type="checkbox" name="m-troll" value="mumrik"/> Snusmumriken
+			</form>
+			
+			<p>
+				Om man vill att ett alternativ ska vara förinfyllt så använder anger man 
+				<code>checked="checked"</code>
+			</p>
+			
+			<form>
+				<label>Mumintroll: </label> <br>
+				<input type="checkbox" checked="checked" value="mumin"/> Mumin
+				<input type="checkbox" checked="checked" value="pappan"/> Muminpappan
+				<input type="checkbox" value="mumrik"/> Snusmumriken
+			</form>
+
+			<h4>type="file"</h4>
+			
+			<p>
+				Vill man att användaren ska ladda upp en fil så använder man type 
+				<code>"file"</code>.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;input type="file" name="filen"&gt; &lt;br&gt;
+	&lt;input type="submit" value="Ladda upp"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<input type="file" name="filen"/> <br>
+				<input type="submit" value="Ladda upp"/>
+			</form>
+			
+			<h4>type="image"</h4>
+			
+			<p>
+				Man kan om man vill skapa en submit-knapp som istället för text är en 
+				bild. Då anger man alla attribut en bild ska ha i elementet.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;input type="image" name="filen"
+		src="https://storage.needpix.com/rsynced_images/icons-3668896_1280.png"
+		alt="Klicka på mig" title="Skicka in" width="100"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<input type="image" name="filen"
+					src="https://storage.needpix.com/rsynced_images/icons-3668896_1280.png"
+					alt="Klicka på mig" title="Skicka in" width="100"/>
+			</form>
+			
+			<h4>type="number"</h4>
+			
+			<p>
+				Om man vill göra ett fält som tar emot tal anger man <code>number</code>.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;label&gt;Namn&lt;/label&gt;
+	&lt;input type="text" name="namn"&gt; &lt;br&gt;
+	&lt;label&gt;Ålder&lt;/label&gt;
+	&lt;input type="number" value="18" step="0.25"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<label>Namn</label>
+				<input type="text" name="namn"/> <br>
+				<label>Ålder</label>
+				<input type="number" value="18" step="0.25"/>
+			</form>
+			
+			<h4>type="range"</h4>
+			
+			<p>
+				Ett annat sätt att ange tal är med <code>range</code>:
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;label&gt;Telefonnummer&lt;/label&gt;
+	&lt;input type="range" name="number" min="0" max="10000000000"&gt; &lt;br&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<label>Telefonnummer</label>
+				<input type="range" name="number" min="0" max="100000000000"
+				oninput="amount.value=number.value"/>
+				0<output id="amount" name="amount" for="rangeInput"></output>
+			</form>
+			
+			<p>
+				För att visa nuvarande värde behöver man använda sig utav JavaScript
+			</p>
+			
+			<p>
+				<a href="https://imgur.com/gallery/r102w">Fler dåliga sätt att ange telefonnummer</a>
+			</p>
+			
+			<h4>type="date"</h4>
+			
+			<p>
+				När man vill ta emot ett datum kan man ange typen <code>"date"</code>
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;input type="date"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<input type="date"/>
+			</form>
+			
+			<h4>type="email"</h4>
+			
+			<p>Om man vill ta emot en epostadress anger man typen <code>"email"</code>.</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;input type="email"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<input type="email"/>
+				<input type="submit"/>	
+			</form>
+			
+			<h3 id="ta">&lt;textarea&gt;</h3>
+			
+			<p>Om man vill fylla i mycket text så är &lt;textarea&gt; ett bättre
+			alternativ än &lt;input type="text" &gt;. Notera att &lt;textarea&gt;
+			inte är ett tomt element.</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;textarea name="texttext"&gt;
+	Skriv här...
+	&lt;/textarea&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<textarea name="texttext">
+				Skriv här...
+				</textarea>
+			</form>
+			
+			<h3 id="sel">&lt;select&gt;</h3>
+			
+			<p>
+				Rullgardinslistor är smidiga och roliga att säga på svenska. 
+				Rullgardinslistor påminner lite om radioknappar och kryssrutor i den mån 
+				att man måste ange varje alternativ med ett eget element. Skillnaden är 
+				att man kapslar in valen i en rullgardinslista med elementet 
+				<code>&lt;select&gt;</code>.
+			</p>
+			
+			<p>
+				Om man anger attributet multiple så kan man välja flera alternativ.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;select name="fellowship" multiple="multiple"&gt;
+		&lt;option value="Aragorn" &gt;Aragorn&lt;/option&gt;
+		&lt;option value="Boromir" &gt;Boromir&lt;/option&gt;
+		&lt;option value="Frodo" &gt;Frodo&lt;/option&gt;
+		&lt;option value="Gandalf" selected="selected"&gt;Gandalf&lt;/option&gt;
+		&lt;option value="Gimli" &gt;Gimli&lt;/option&gt;
+		&lt;option value="Legolas" &gt;Legolas&lt;/option&gt;
+		&lt;option value="Merry" &gt;Merry&lt;/option&gt;
+		&lt;option value="Samwise" &gt;Samwise&lt;/option&gt;
+		&lt;option value="Pippin" &gt;Pippin&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<select name="fellowship" >
+					<option value="Aragorn" >Aragorn</option>
+					<option value="Boromir" >Boromir</option>
+					<option value="Frodo" >Frodo</option>
+					<option value="Gandalf" selected="selected">Gandalf</option>
+					<option value="Gimli" >Gimli</option>
+					<option value="Legolas" >Legolas</option>
+					<option value="Merry" >Merry</option>
+					<option value="Samwise" >Samwise</option>
+					<option value="Pippin" >Pippin</option>
+				</select>
+			</form>
+			
+			<h3 id="lab">&lt;label&gt;</h3>
+			
+			<p>
+				All text i ett formulär som är kopplat till något  inmatningsfält eller 
+				knapp bör skrivas inom ett <code>&lt;label&gt;</code>-element. Detta ökar 
+				dels användarvänligheten för funktionsnedsatta och det kan göra knappar 
+				mycket lättare att klicka på.
+			</p>
+			
+			<p>
+				För att man ska veta vilket element som ens text är kopplad till så 
+				behöver man ge inmatningsfältet ett id. Det gör man tillexempel så här: 
+				<code>&lt;input type="radio" name="genre" value="1" id="r"/> </code>
+				Nu har vi skapat en radioknapp med id <code>"r"</code>.
+			</p>
+
+			<p>
+				För att sedan koppla <code>&lt;label&gt;</code>-elementet till knappen 
+				skriver ger vi det attributet <code>for="r"</code>: 
+				<code>&lt;label for="r"&gt;Rock&lt;/label&gt;</code>
+			</p>
+			
+			<p>
+				Jämför att klicka på följande två radioknappar, den ena har en label 
+				kopplad till sig och den andra har inte sin label kopplad till sig.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;input type="radio" name="genre2" id="r" value="1"&gt;
+	&lt;label for="r"&gt;Rock&lt;/label&gt; &lt;br&gt;
+	
+	&lt;input type="radio" name="genre2" value="2"&gt;
+	&lt;label&gt;Pop&lt;/label&gt; &lt;br&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<input type="radio" name="genre2" id="r" value="1">
+				<label for="r">Rock</label> <br>
+				
+				<input type="radio" name="genre2" value="2">
+				<label>Pop</label> <br>
+			</form>
+			
+			<h3 id="field">&lt;fieldset&gt;</h3>
+			
+			<p>
+				Om man vill organisera sitt formulär och kanske göra en visuell 
+				uppdelning kan man använda sig utav av elementet 
+				<code>&lt;fieldset&gt;</code>. <code>&lt;fieldset&gt;</code> gör en ram 
+				runt elementen innanför vilket kan vara snyggt. Med CSS kommer vi sen att 
+				kunna får den att se annorlunda ut.
+			</p>
+			
+			<h4>&lt;legend&gt;</h4>
+			
+			<p>
+				Det här elementet låter oss ge en rubrik till området.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Inloggningsfält&lt;/legend&gt;
+		
+		&lt;label for="user"&gt;Användare&lt;/label&gt;
+		&lt;input type="text" name="user" id="user"&gt;
+		&lt;br&gt;
+		&lt;label for="pass"&gt;Lösenord&lt;/label&gt;
+		&lt;input type="password" name="pass" id="pass"&gt;
+		&lt;br&gt;
+		&lt;input type="submit" value="Logga in"&gt;
+	&lt;/fieldset&gt;		
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<fieldset>
+					<legend>Inloggningsfält</legend>
+					<label for="user">Användare</label>
+					<input type="text" name="user" id="user"/>
+					<br>
+					<label for="pass">Lösenord</label>
+					<input type="password" name="pass" id="pass"/>
+					<br>
+					<input type="submit" value="Logga in"/>
+				</fieldset>		
+			</form>
+				
+				
+			<h3 id="val">Form validation</h3>
+			
+			<p>
+				En del formulär behöver har fält som måste fyllas i. Då anger man 
+				attributet <code>required="required"</code>.
+			</p>
+			
+			<pre><code>&lt;form&gt;
+	&lt;input type="text" required="required"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code></pre>
+				
+			<form>
+				<input type="text" required="required"/>
+				<input type="submit"/>
+			</form>
+			
+		</article>
+		
+		<article>
+		
+			<h2 id="uppgifter">Uppgifter</h2>
+			
+			<ol>
+				<li>Skapa ett formulär som ser ut så här:<br>
+				<img src="Bilder/inlogg.PNG" alt="En inloggningssida">
+				<ul>
+					<li>Det ska vara en fieldset runt hela formuläret.</li>
+					<li>Labelsen ska vara kopplade till respektive inmatningsfält</li>
+					<li>Lösenordsfältet ska dölja det man skriver.</li>
+					<li>Båda fälten måste vara ifyllda för att det ska kunna skickas.</li>
+				</ul></li>
+				<li>Skapa ett nytt formulär som ser ut så här:<br>
+				<img src="Bilder/formulär.PNG" alt="Ett formulär"/>
+				<ul>
+					<li>Alla labels ska vara kopplade till det dem ska.</li>
+					<li>Epost-fältet ska vara av typen email.</li>
+					<li>Om man klickar på texten i en knapp/box så ska 
+					den kryssas i</li>
+					<li>Fälten Ålder och Årskurs ska vara tal.</li>
+					<li>Fältet Årskurs ska bara kunna ta emot värden mellan 1 och 4</li>
+					<li>Man ska kunna välja flera kurser i området med 
+					favoritlärare.</li>
+				</ul></li>	
+			</ol>
+		
+		</article>
+
+	</main>
+
+	<footer>
+
+		<figure>
+			<img src="Bilder/Lunds-kommun-logo-horisontell-FÄRG.png"
+				alt="Lunds kommuns logotyp"/>
+		</figure>
+
+		<address> <!-- Det här hade varit snyggare om ett script fyllde i -->
+			Skapad av <a href="mailto:calle.ketola@lund.se">
+				Calle Ketola</a><br>
+			Hedda Anderssongymnasiet<br>
+			Svanevägen 17<br>
+			222 29 Lund
+		</address>
+
+		<p>
+			Senast uppdaterad: 2023&ndash;09&ndash;18
+		</p>
+
+	</footer>
+
+	<script>
+		document.getElementById("html-head").addEventListener('click', a => showHideMenu("html-nav"));
+		document.getElementById("css-head").addEventListener('click', a => showHideMenu("css-nav"));
+		document.getElementById("js-head").addEventListener('click', a => showHideMenu("js-nav"));
+
+		HilightActivePageLink();
+
+		(function(){
+			HilightActiveSectionLink()
+			setTimeout(arguments.callee, 100);
+		})();
+	</script>
+	
+</body>
+
+</html>
